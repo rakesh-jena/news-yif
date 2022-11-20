@@ -45,5 +45,5 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 Route::get('/news', function(){
-    return view('frontend.news');
+    return view('frontend.article.view');
 });

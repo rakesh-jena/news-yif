@@ -76,7 +76,7 @@
     <!-- End Header -->
 
     <!-- Main Content Wrapper -->
-    <div id="page">
+    <div id="page" class="pt-4 pb-4">
         @yield('content')
     </div>
     <!-- End Main Content Wrapper -->
