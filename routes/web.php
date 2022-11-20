@@ -13,6 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * ------------------------------------------------------------------------
+ * ADMIN URLs
+ * ------------------------------------------------------------------------
+ * */
+Route::middleware(['auth', 'admin'])->group(function () {
+    /**Dashboard */
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    });
+});
+/**Authentication */
+Route::get('/admin/login', function () {
+    return view('admin.login');
+})->name('login');
+
+Route::get('/login', function () {
+    return view('frontend.login');
+});
+
+Route::get('/register', function () {
+    return view('frontend.register');
+});
+/**
+ * ------------------------------------------------------------------------
+ * WEBPAGE URLs
+ * ------------------------------------------------------------------------
+ * */
 Route::get('/', function () {
     return view('frontend.home');
 });

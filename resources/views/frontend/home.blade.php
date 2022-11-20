@@ -1,7 +1,10 @@
 @extends('web')
+@section('title', 'YIF | News on Indian Youth and Politics')
+@section('meta_keywords', 'YIF')
+@section('meta_description', 'News on Indian Youth and Politics')
 
 @section('content')
-<div id="page">
+<div class="page__home">
     <!-- First Section -->
     <section class="yn-section first">
         <div class="container">
@@ -163,3 +166,4 @@
     <!-- Election News Section -->
     <!-- End Election News Section -->
 </div>
+@endsection

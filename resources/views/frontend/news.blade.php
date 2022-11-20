@@ -1,7 +1,10 @@
 @extends('web')
+@section('title', 'News | YIF')
+@section('meta_keywords', 'YIF')
+@section('meta_description', 'News on Indian Youth and Politics')
 
 @section('content')
-<div id="page__single-news"> 
+<div class="page__single-news"> 
     <!-- Main Container -->
     <div class="container d-flex">
         <div class="yn-page-single__article">
@@ -22,7 +25,7 @@
                 <div class="ynps__article-header-meta d-flex">
                     <div class="ynps__article-header-meta-author">
                         <div class="ynps__author-avatar">
-                            <img src="{{ URL::assets('images/author/test.jpeg') }}" alt="">
+                            <img src="{{ URL::asset('images/author/test.jpg') }}" alt="">
                         </div>
                         <span>by <strong>Cian Dreyar</strong></span>
                     </div>
@@ -34,7 +37,7 @@
                 </div>
                 <div class="ynps__article-header-img-outer">
                     <figure class="ynps__article-header-figure">
-                        <img src="{{ URL::assets('images/article/art-header.png') }}" alt="header">
+                        <img src="{{ URL::asset('images/article/art-header.png') }}" alt="header">
                     </figure>                        
                     <figcaption class="ynps__article-header-caption"></figcaption>
                 </div>
@@ -87,3 +90,4 @@
     </div>
     <!-- End Main Container -->
 </div>
+@endsection

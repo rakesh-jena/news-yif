@@ -1,0 +1,147 @@
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+#page {
+    margin-top: 70px;
+}
+
+.margintopspace {
+    padding-top: 5.5rem !important;
+}
+
+.margintopspacetwo {
+    padding-top: 2.5rem !important;
+}
+
+.marginbottomspace {
+    padding-top: 5.5rem !important;
+}
+ul li {
+    list-style: none;
+}
+/*Header*/
+nav.navbar {}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.navbar-nav .nav-item:not(:last-child) {
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link {
+    padding: 4px;
+    color: black;
+    font-weight: 700;
+    font-stretch: condensed;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: .03571em;
+}
+
+ul.dropdown-menu {
+    border-radius: 0px;
+    border: 1px solid black;
+    padding: 0;
+}
+
+.dropdown-menu li:not(:last-child) {
+    border-bottom: 1px solid black;
+}
+
+.dropdown-item {
+    padding: 10px;
+}
+
+.nav-link.register {
+    border-radius: 0px;
+    border: 1px solid black;
+    background-color: #efd184;
+    color: #fff;
+}
+
+.nav-link.greenregister {
+    border-radius: 0px;
+    border: 1px solid black;
+    background-color: #d67f6c;
+    color: #fff;
+}
+
+.nav-link.greenregister:hover {
+    color: #d67f6c;
+    background-color: #fff;
+}
+
+/* Footer */
+.footer__social,
+.footer__stacklist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+.footer__stacklist .menu-item:not(:last-child) {
+    margin-right: 40px;
+}
+
+.footer__stacklist .menu-item a {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-stretch: condensed;
+    font-style: normal;
+    letter-spacing: .02778em;
+}
+
+.footer__stacklist .menu-item a:hover {
+    color: #fff;
+}
+
+.footer__social svg {
+    pointer-events: none;
+    width: 100%;
+    display: block;
+    height: auto;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.footer__social__item {
+    width: 40px;
+}
+
+.footer__social__item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.footer__social__item .icon {
+    fill: #fff;
+    transition: fill .3s ease-in-out;
+}
+
+.footer__social__item .line {
+    stroke: #fff;
+    transition: stroke .3s ease-in-out;
+}
+
+p.basicblock__copy {
+    color: #fff;
+    padding: 30px 0 0;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    position: relative;
+    max-width: 550px;
+}

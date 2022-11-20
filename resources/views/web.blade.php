@@ -6,9 +6,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>News on Indian Youth and Politics</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>@yield('title','YIF | News on Indian Youth and Politics')</title>
+    <meta content="@yield('meta_description','default description')" name="description">
+    <meta content="@yield('meta_keywords','some default keywords')" name="keywords">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ URL::asset('images/favicon/apple-touch-icon.png') }}">
@@ -36,12 +36,12 @@
 
 <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
+    <header id="header" class="header shadow-sm fixed-top">
 
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{ URL::asset('images/yiflogodark.png') }}" alt="Voter Festival" width="150" height="40">
                 </a>
                 <button class="noborder navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -52,19 +52,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto d-flex">
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="am-i-registered.php">Am i registered?</a>
+                            <a class="nav-link text-uppercase" href="{{url('/news')}}">news</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link text-uppercase" href="#">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase register" href="#myTabContent">Volunteer</a>
+                            <a class="nav-link text-uppercase register" href="{{url('/login')}}">login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase greenregister" href="#" data-bs-toggle="modal"
-                                data-bs-target="#hostModal">
-                                Host YIF at your event
+                            <a class="nav-link text-uppercase greenregister" href="{{url('/register')}}">
+                                register
                             </a>
                         </li>
                     </ul>
@@ -77,11 +76,13 @@
     <!-- End Header -->
 
     <!-- Main Content Wrapper -->
-    @yield('content')
+    <div id="page">
+        @yield('content')
+    </div>
     <!-- End Main Content Wrapper -->
     
     <!-- Footer start-->
-    <footer class="section bg-black pt-4">
+    <footer class="section bg-black pt-4 text-center">
         <div class="container">
             <div class="marginbottomspace"></div>
             <div class="aligncenter footer-logo">
