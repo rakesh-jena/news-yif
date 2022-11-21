@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -36,7 +37,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category' => 'required'
+        ]);
+
+        $request = request()->all();
+        $slug = Str::of($request['category'])->slug('-');
+        
+        $request['slug'] = $slug;
+
+        Category::create($request);
+
+        return redirect('yn-admin/category')
+            ->with('success', 'Category created successfully.');
     }
 
     /**

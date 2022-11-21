@@ -46,7 +46,7 @@ Route::get('/register', function () {
     return view('frontend.register');
 });
 Route::post('/user_login', [AuthController::class, 'authenticate']);
-Route::post('/user_register', [AuthController::class, 'register']);
+Route::post('/user_register', [UserController::class, 'store']);
 Route::get('/user_logout', [AuthController::class, 'logout']);
 /**
  * ------------------------------------------------------------------------

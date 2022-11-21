@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\UserLike;
-use App\Models\UserReply;
-use App\Models\UserReview;
-use App\Models\UserComment;
+use App\Models\UserMeta;
 use Auth;
 
 class UserController extends Controller
@@ -29,8 +26,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        
+    {        
         return view('admin.user.add');
     }
 
@@ -42,7 +38,36 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = User::create(request(['name', 'email', 'password']));
+
+        $request = request()->all();
+
+        if(isset($_FILES['avatar'])){
+            $tmpFile = $_FILES['avatar']['tmp_name'];
+            $newFile = 'images/author/' . $_FILES['avatar']['name'];
+            $result = move_uploaded_file($tmpFile, $newFile);
+
+            $request['avatar'] = $_FILES['avatar']['name'];
+        } else {
+            $request['avatar'] = 'default.png';
+        }
+
+        $meta = [
+            'user_id' => $user->id,
+            'avatar' => $request['avatar'],
+            'gender' => $request['gender'],
+            'about' => $request['about']
+        ];
+        UserMeta::create($meta);
+
+        return redirect('yn-admin/users')
+            ->with('success', 'User created successfully.');
     }
 
     /**

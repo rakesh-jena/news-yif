@@ -1,5 +1,5 @@
 @extends('web')
-@section('title', 'News | YIF')
+@section('title', $article->title.' | YIF')
 @section('meta_keywords', 'YIF')
 @section('meta_description', 'News on Indian Youth and Politics')
 

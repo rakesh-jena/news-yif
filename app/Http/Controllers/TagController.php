@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tag;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -36,7 +37,19 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tag' => 'required'
+        ]);
+
+        $request = request()->all();
+        $slug = Str::of($request['tag'])->slug('-');
+        
+        $request['slug'] = $slug;
+
+        Tag::create($request);
+
+        return redirect('yn-admin/tags')
+            ->with('success', 'Tag created successfully.');
     }
 
     /**

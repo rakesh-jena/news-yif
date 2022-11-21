@@ -1,5 +1,5 @@
 @extends('admin')
-@section('title', 'Articles | YIF')
+@section('title', 'Users | YIF')
 
 @section('content')
 <!-- Start #main -->
