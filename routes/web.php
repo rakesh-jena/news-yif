@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,22 +24,30 @@ use Illuminate\Support\Facades\Route;
  * */
 Route::middleware(['auth', 'admin'])->group(function () {
     /**Dashboard */
-    Route::get('/admin', function () {
+    Route::get('yn-admin', function () {
         return view('admin.dashboard');
     });
+    Route::resource('yn-admin/users', UserController::class);
+    Route::resource('yn-admin/tags', TagController::class);
+    Route::resource('yn-admin/articles', ArticleController::class);
+    Route::resource('yn-admin/category', CategoryController::class);
 });
+
 /**Authentication */
-Route::get('/admin/login', function () {
+Route::get('/yn-login', function () {
     return view('admin.login');
-})->name('login');
+});
 
 Route::get('/login', function () {
     return view('frontend.login');
-});
+})->name('login');
 
 Route::get('/register', function () {
     return view('frontend.register');
 });
+Route::post('/user_login', [AuthController::class, 'authenticate']);
+Route::post('/user_register', [AuthController::class, 'register']);
+Route::get('/user_logout', [AuthController::class, 'logout']);
 /**
  * ------------------------------------------------------------------------
  * WEBPAGE URLs
@@ -43,7 +55,7 @@ Route::get('/register', function () {
  * */
 Route::get('/', function () {
     return view('frontend.home');
-});
+})->name('homepage');
 Route::get('/news', function(){
     return view('frontend.article.view');
 });

@@ -58,6 +58,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-uppercase" href="#">Events</a>
                         </li>
+                        @if (Auth::check())
+                        <li class="nav-item">
+                            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#">
+                                <img src="{{ URL::asset('images/author/default.png') }}" alt="Profile" class="rounded-circle">
+                                <span class="d-none d-md-block ps-2">{{ Auth::user()->name }}</span>
+                            </a><!-- End Profile Iamge Icon -->
+                        </li>
+                        @else
                         <li class="nav-item">
                             <a class="nav-link text-uppercase register" href="{{url('/login')}}">login</a>
                         </li>
@@ -66,6 +74,7 @@
                                 register
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -228,7 +237,9 @@
         <div class="marginbottomspace"></div>
     </footer>
     <!-- Footer End-->
-    
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">

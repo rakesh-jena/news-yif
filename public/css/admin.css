@@ -381,10 +381,11 @@ h6 {
 }
 
 .logo img {
-    max-height: 40px;
-    margin-right: 6px;
+    max-height: 100%;
 }
-
+#header .logo img {
+    max-height: 42px;
+}
 .logo span {
     font-size: 26px;
     font-weight: 700;

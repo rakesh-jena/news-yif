@@ -26,9 +26,15 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials, $request->remember_me)) {
+            /** @var User $user */
+            $user = Auth::user();
+            
             $request->session()->regenerate();
-
-            return redirect()->to('/profile');
+            if ( $user->hasRole('administrator') ) {
+                return redirect()->to('/yn-admin');
+            } else {
+                return redirect()->to('/');
+            }            
         }
 
         return back()->withErrors([
@@ -75,7 +81,7 @@ class AuthController extends Controller
         $request->fulfill();
         Mail::to(Auth::user())->send(new SuccessfullyRegistered());
 
-        return redirect('/profile');
+        return redirect('/');
     }
 
     public function email_resend() {

@@ -31,6 +31,39 @@ ul li {
 ol, ul {
     padding-left: 0;
 }
+.header .nav-profile img {
+    max-height: 36px;
+}
+.navbar-nav {
+    align-items: center;
+}
+/*Back to Top*/
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+.back-to-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+}
+.back-to-top:hover {
+    background: #6776f4;
+    color: #fff;
+}
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 99999;
+    background: #4154f1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
 /*Header*/
 nav.navbar {}
 

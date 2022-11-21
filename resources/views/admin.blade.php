@@ -1,4 +1,5 @@
-<?php $activePage = basename($_SERVER['PHP_SELF'], ".php");
+<?php $activePage = basename($_SERVER['PHP_SELF']);
+var_dump($activePage);
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -6,8 +7,9 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>Dashboard | YIF</title>
+    <title>@yield('title')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -45,7 +47,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="assets/img/yiflogodark.png" alt="">
+                <img src="{{ URL::asset('images/yiflogodark.png') }}" alt="logo">
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -58,7 +60,7 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="assets/img/yiflogolight.png" alt="Profile" class="rounded-circle">
+                        <img src="{{ URL::asset('images/author/default.png') }}" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
                     </a><!-- End Profile Iamge Icon -->
 
@@ -84,47 +86,91 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
-                    <i class="bi bi-gem"></i><span>VoterFestival</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link " href="/yn-admin">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
                 </a>
-                <ul id="icons-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav" style="">
+            </li><!-- End Dashboard Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#articles-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Articles</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="articles-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
                     <li>
-                        <a href="index.php" class="<?=($activePage == 'index') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Events</span>
+                        <a href="{{url('yn-admin/articles')}}" class="<?=($activePage == 'articles') ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>All</span>
                         </a>
                     </li>
                     <li>
-                        <a href="add-event.php" class="<?=($activePage == 'add-event') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Add Events</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="event-types.php" class="<?=($activePage == 'event-types') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Event Types</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="election.php" class="<?=($activePage == 'election') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Elections</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="host-event.php" class="<?=($activePage == 'host-event') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Host Event</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="volunteer.php" class="<?=($activePage == 'volunteer') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Volunteer</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="voter_count.php" class="<?=($activePage == 'voter-count') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Voter Count</span>
+                        <a href="{{url('yn-admin/articles/create')}}" class="<?=($activePage == 'article-add') ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>Add</span>
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li><!-- End Article Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                    <i class="bi bi-person"></i>
+                    <span>Users</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+                    <li>
+                        <a href="{{url('yn-admin/users')}}" class="<?=($activePage == 'users') ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>All</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('yn-admin/users/create')}}" class="<?=($activePage == 'user-add') ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>Add</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End User Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#category-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                    <i class="bi bi-list-columns-reverse"></i>
+                    <span>Category</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="category-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+                    <li>
+                        <a href="{{url('yn-admin/category')}}" class="<?=($activePage == 'category-all') ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>All</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('yn-admin/category/create')}}" class="<?=($activePage == 'category-add') ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>Add</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Category Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tags-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                    <i class="bi bi-tags-fill"></i>
+                    <span>Tag</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tags-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+                    <li>
+                        <a href="{{url('yn-admin/tags')}}" class="<?=($activePage == 'tag-all') ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>All</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('yn-admin/tags/create')}}" class="<?=($activePage == 'tag-add') ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>Add</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Tag Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->
@@ -154,22 +200,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
     
-    <script>
-        $(document).ready(function() {
-            var multipleCancelButton = new Choices('#event_type', {
-                removeItemButton: true,
-                maxItemCount: 10,
-                searchResultLimit: 5,
-                renderChoiceLimit: 5
-            });
-            var multipleSelect = new Choices('#state', {
-                removeItemButton: true,
-                maxItemCount: 10,
-                searchResultLimit: 5,
-                renderChoiceLimit: 5
-            });
-        });
-    </script>
     <!-- Template Main JS File -->
     <script src="{{ URL::asset('js/admin.js') }}"></script>
 </body>

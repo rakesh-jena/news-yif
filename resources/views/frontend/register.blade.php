@@ -26,7 +26,8 @@
                   <p class="text-center small">Enter your personal details to create account</p>
                 </div>
 
-                <form class="row g-3 needs-validation" novalidate>
+                <form class="row g-3 needs-validation" method="POST" enctype="multipart/form-data" action="{{ url('user_register') }}" novalidate>
+                  @csrf
                   <div class="col-12">
                     <label for="yourName" class="form-label">Your Name</label>
                     <input type="text" name="name" class="form-control" id="yourName" required>

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>Login | YIF</title>
     <meta content="" name="description">
@@ -54,15 +55,14 @@
                                     </div>
 
                                     <form class="row g-3 needs-validation" method="POST"
-                                        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" novalidate>
-
+                                        action="{{ url('user_login') }}" novalidate>
+                                        @csrf
                                         <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Username</label>
+                                            <label for="yourEmail" class="form-label">Email</label>
                                             <div class="input-group has-validation">
-                                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                                <input type="text" name="username" class="form-control"
-                                                    id="yourUsername" required>
-                                                <div class="invalid-feedback">Please enter your username.</div>
+                                                <input type="email" name="email" class="form-control"
+                                                    id="yourEmail" required>
+                                                <div class="invalid-feedback">Please enter your email.</div>
                                             </div>
                                         </div>
 

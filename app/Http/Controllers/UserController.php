@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('layouts/users_listing', compact('users'));
+        return view('admin.user.listing', compact('users'));
     }
 
     /**
@@ -31,7 +31,7 @@ class UserController extends Controller
     public function create()
     {
         
-        return view('layouts/user_add');
+        return view('admin.user.add');
     }
 
     /**
@@ -54,7 +54,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::where('id', $id)->first();
-        return view('layouts/user_view', compact('user'));
+        return view('admin.user.view', compact('user'));
     }
 
     /**
@@ -66,7 +66,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::where('id', $id)->first();
-        return view('layouts/user_edit', compact('user'));
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
