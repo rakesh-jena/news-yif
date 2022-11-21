@@ -117,7 +117,49 @@ ul.dropdown-menu {
     color: #d67f6c;
     background-color: #fff;
 }
-
+.navbar-nav .nav-item {
+    font-stretch: condensed;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: .0125rem;
+    text-transform: uppercase;
+    border: 1px solid;
+}
+.navbar-nav .nav-item.profile {
+    border: none;
+}
+.navbar.scrolled, .navbar.scrolled a {
+    color: white;
+}
+.nav-logo-dark {
+    z-index: 1;
+    opacity: 1;
+    transform: translateY(0);
+    will-change: transform, opacity;
+    transition: opacity 0.3s ease-in, transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.navbar.scrolled .nav-logo-dark {
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    -webkit-transform: translateY(-112px);
+    transform: translateY(-112px);
+}
+.nav-logo-light {
+    z-index: -1;
+    opacity: 0;
+    margin-left: -168px;
+    transform: translateY(112px);
+    will-change: transform, opacity;
+    transition: opacity 0.3s ease-in, transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.navbar.scrolled .nav-logo-light {
+    z-index: 1;
+    pointer-events: initial;
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
 /* Footer */
 .footer__social,
 .footer__stacklist {

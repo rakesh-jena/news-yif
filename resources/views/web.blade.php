@@ -41,8 +41,11 @@
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container">
-                <a class="navbar-brand" href="{{url('/')}}">
+                <a class="navbar-brand nav-logo-dark" href="{{url('/')}}">
                     <img src="{{ URL::asset('images/yiflogodark.png') }}" alt="Voter Festival" width="150" height="40">
+                </a>
+                <a class="navbar-brand nav-logo-light" href="{{url('/')}}">
+                    <img src="{{ URL::asset('images/yiflogolight.png') }}" alt="Voter Festival" width="150" height="40">
                 </a>
                 <button class="noborder navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -52,14 +55,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto d-flex">
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="{{url('/news')}}">news</a>
+                            <a class="nav-link text-uppercase" href="{{url('#')}}">about us</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="#">Events</a>
+                            <a class="nav-link text-uppercase" href="#">why 25</a>
                         </li>
-                        @if (Auth::check())
                         <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="#">voter festival</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="#">donate</a>
+                        </li>
+
+                        @if (Auth::check())
+                        <li class="nav-item profile">
                             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#">
                                 <img src="{{ URL::asset('images/author/default.png') }}" alt="Profile" class="rounded-circle">
                                 <span class="d-none d-md-block ps-2">{{ Auth::user()->name }}</span>
@@ -68,11 +78,6 @@
                         @else
                         <li class="nav-item">
                             <a class="nav-link text-uppercase register" href="{{url('/login')}}">login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase greenregister" href="{{url('/register')}}">
-                                register
-                            </a>
                         </li>
                         @endif
                     </ul>

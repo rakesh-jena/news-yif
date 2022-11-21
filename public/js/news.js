@@ -19,15 +19,22 @@
     }
     
     /**
-     * Back to top button
+     * Back to top button & Navbar transition
      */
     let backtotop = select('.back-to-top')
+    let navbar = select('.navbar')
     if (backtotop) {
         const toggleBacktotop = () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 80) {
                 backtotop.classList.add('active')
+                navbar.classList.add('scrolled')
+                navbar.classList.remove('bg-white')
+                navbar.classList.add('bg-black')
             } else {
                 backtotop.classList.remove('active')
+                navbar.classList.remove('scrolled')
+                navbar.classList.remove('bg-black')
+                navbar.classList.add('bg-white')
             }
         }
         window.addEventListener('load', toggleBacktotop)
