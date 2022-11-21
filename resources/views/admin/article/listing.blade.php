@@ -42,8 +42,8 @@
                                     <?=date_format(date_create($article->created_at), "d M, Y")?>
                                 </td>
                                 <td>
-                                    <a href="{{ url('article') }}/{{ $article->id }}/{{ $article->slug }}" class="btn btn-primary rounded-pill btn-sm">View</a>
-                                    <a href="{{ url('admin/articles') }}/{{ $article->id }}/edit"
+                                    <a href="{{ url('/article') }}/{{ $article->id }}/{{ $article->slug }}" class="btn btn-primary rounded-pill btn-sm">View</a>
+                                    <a href="{{ url('/articles') }}/{{ $article->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
                                     <a href="{{ url('admin/articles') }}/{{ $article->id }}"
                                         class="btn btn-danger rounded-pill btn-sm">Delete</a>
