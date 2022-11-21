@@ -59,3 +59,4 @@ Route::get('/', function () {
 Route::get('/news', function(){
     return view('frontend.article.view');
 });
+Route::get('/article/{slug}/{id}', [ArticleController::class, 'show']);

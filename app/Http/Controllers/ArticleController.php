@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Tag;
 use App\Models\Category;
+use App\Models\User;
+use App\Models\UserMeta;
 use Illuminate\Support\Str;
 
 class ArticleController extends Controller
@@ -17,7 +19,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::select('id', 'author_id', 'title', 'created_at', 'category')->get();
+        $articles = Article::select('id', 'author_id', 'title', 'created_at', 'category', 'slug')->get();
         return view('admin.article.listing', compact('articles'));
     }
 
@@ -74,7 +76,12 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        return view('admin.article.view');
+        $article = Article::where('id', $id)->first();
+        $tags = unserialize($article->tags);
+        $author = User::where('id', $article->author_id)->first();
+        $author_meta = UserMeta::where('user_id', $article->author_id)->first();
+
+        return view('frontend.article.view', compact('article', 'tags', 'author', 'author_meta'));
     }
 
     /**
