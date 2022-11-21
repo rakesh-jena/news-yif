@@ -99,13 +99,6 @@ ul.dropdown-menu {
     padding: 10px;
 }
 
-.nav-link.register {
-    border-radius: 0px;
-    border: 1px solid black;
-    background-color: #efd184;
-    color: #fff;
-}
-
 .nav-link.greenregister {
     border-radius: 0px;
     border: 1px solid black;
