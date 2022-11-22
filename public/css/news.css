@@ -1,8 +1,6 @@
 html,
 body {
     max-width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
     max-height: 100%;
 }
 
@@ -463,4 +461,21 @@ p.basicblock__copy {
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.085em;
+}
+.ynps__article-left-sidebar,
+.yn-page-single__right-sidebar {
+    display: unset;
+    position: relative;
+}
+.yn-support__inner,
+.yn__share-buttons {
+    transition: .4s;
+    position: sticky;
+    position: -webkit-sticky;
+}
+.yn-support__inner {
+    top: 80px;
+}
+.yn__share-buttons {
+    top: 70px;
 }

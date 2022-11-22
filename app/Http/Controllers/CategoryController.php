@@ -60,7 +60,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('admin.category.view');
+        $category = Category::where('id', $id)->first();
+        return view('frontend.category.view', compact('category'));
     }
 
     /**
@@ -71,7 +72,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.category.edit');
+        $category = Category::where('id', $id)->first();
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -83,7 +85,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'category' => 'required'
+        ]);
+
+        $category = Category::where('id', $id);
+        $slug = Str::of($request['category'])->slug('-');
+        
+        $request['slug'] = $slug;
+
+        $category->update([
+            'category' => $request['category'],
+            'slug' => $request['slug']
+        ]);
+
+        return redirect('yn-admin/category')
+            ->with('success', 'Category updated successfully.');
     }
 
     /**
@@ -94,6 +111,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::where('id', $id);
+        $category->delete();
+
+        return redirect('yn-admin/category')
+            ->with('success', 'Category deleted successfully');
     }
 }

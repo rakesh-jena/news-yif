@@ -60,7 +60,8 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        return view('admin.tag.view');
+        $tag = Tag::where('id', $id)->first();
+        return view('frontend.tag.view', compact('tag'));
     }
 
     /**
@@ -71,7 +72,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.tag.edit');
+        $tag = Tag::where('id', $id)->first();
+        return view('admin.tag.edit', compact('tag'));
     }
 
     /**
@@ -83,7 +85,23 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'tag' => 'required'
+        ]);
+
+        $tag = Tag::where('id', $id);
+        $request = request()->all();
+        $slug = Str::of($request['tag'])->slug('-');
+        
+        $request['slug'] = $slug;
+
+        $tag->update([
+            'tag' => $request['tag'],
+            'slug' => $request['slug']
+        ]);
+
+        return redirect('yn-admin/tags')
+            ->with('success', 'Tag updated successfully.');
     }
 
     /**
@@ -94,6 +112,10 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::where('id', $id);
+        $tag->delete();
+
+        return redirect('yn-admin/tags')
+            ->with('success', 'Tag deleted successfully');
     }
 }

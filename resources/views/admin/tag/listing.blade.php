@@ -53,11 +53,9 @@
                                     <?=date_format(date_create($tag->created_at), "d M, Y")?>
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/tags') }}/{{ $tag->id }}" class="btn btn-primary rounded-pill btn-sm">View</a>
-                                    <a href="{{ url('admin/tags') }}/{{ $tag->id }}/edit"
+                                    <a href="{{ url('yn-admin/tags') }}/{{ $tag->id }}" class="btn btn-primary rounded-pill btn-sm">View</a>
+                                    <a href="{{ url('yn-admin/tags') }}/{{ $tag->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
-                                    <a href="{{ url('admin/tags') }}/{{ $tag->id }}"
-                                        class="btn btn-danger rounded-pill btn-sm">Delete</a>
                                 </td>
                             </tr>
                         <?php $count++;?>

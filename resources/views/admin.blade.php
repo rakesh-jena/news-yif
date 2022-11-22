@@ -110,7 +110,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
                     <i class="bi bi-person"></i>
-                    <span>Users</span>
+                    <span>Authors</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
@@ -128,43 +128,17 @@
             </li><!-- End User Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#category-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                <a class="nav-link collapsed" href="{{url('yn-admin/category')}}">
                     <i class="bi bi-list-columns-reverse"></i>
                     <span>Category</span>
-                    <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="category-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
-                    <li>
-                        <a href="{{url('yn-admin/category')}}" class="<?=($activePage == 'category-all') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>All</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{url('yn-admin/category/create')}}" class="<?=($activePage == 'category-add') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Add</span>
-                        </a>
-                    </li>
-                </ul>
             </li><!-- End Category Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tags-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                <a class="nav-link collapsed" href="{{ url('yn-admin/tags') }}">
                     <i class="bi bi-tags-fill"></i>
                     <span>Tag</span>
-                    <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="tags-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
-                    <li>
-                        <a href="{{url('yn-admin/tags')}}" class="<?=($activePage == 'tag-all') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>All</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{url('yn-admin/tags/create')}}" class="<?=($activePage == 'tag-add') ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Add</span>
-                        </a>
-                    </li>
-                </ul>
             </li><!-- End Tag Nav -->
         </ul>
     </aside>
