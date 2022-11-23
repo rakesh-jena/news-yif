@@ -29,6 +29,22 @@ ul li {
 ol, ul {
     padding-left: 0;
 }
+.page__home {
+    overflow-x: hidden;
+}
+/**
+* Fonts as class names
+*/
+.work-sans {
+    font-family: 'Work Sans', sans-serif;
+}
+.ibm-plex-sans {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.dm-serif-display {
+    font-family: 'DM Serif Display', serif;
+}
+
 .header .nav-profile img {
     max-height: 36px;
 }
@@ -463,7 +479,7 @@ p.basicblock__copy {
     letter-spacing: 0.085em;
 }
 .ynps__article-left-sidebar,
-.yn-page-single__right-sidebar {
+.yn-page__right-sidebar {
     display: unset;
     position: relative;
 }
@@ -478,4 +494,59 @@ p.basicblock__copy {
 }
 .yn__share-buttons {
     top: 70px;
+}
+/**
+* Homepage
+*/
+article:not(:last-child) {
+    margin-bottom: 1rem;
+}
+article:not(:first-child) {
+    padding-top: 1rem;
+    border-top: 1px solid #e1e1e1;
+}
+.nav-item {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+}
+.meta-title, .yn-page__title {
+    word-wrap: break-word;
+    font-family: 'DM Serif Display', serif;
+}
+.meta-date {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.75rem;
+    color: #5e5e5e;
+}
+.meta-category {
+    color: #93989d;
+    transition: .25s;
+    line-height: 1;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+.meta-subtitle {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.yn-sf__column__title h2 {
+    color: #93969d;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+}
+.yn-sf__column__header {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+.yn-entry__title {
+    line-height: 0.8;
+}
+.yn-entry__title a {
+    color: #5a5a5a;
+    font-size: 1.5rem;
 }

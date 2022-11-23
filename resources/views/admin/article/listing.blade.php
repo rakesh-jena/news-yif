@@ -29,6 +29,7 @@
                         <?php $count = 1;?>
                         @foreach ($articles as $article)
                         <?php $author = App\Models\User::select('name')->where('id', $article->author_id)->first();?>
+                        <?php $category = App\Models\Category::where('id', $article->category)->first();?>
                             <tr>
                                 <th><?=$count?></th>
                                 <td> {{ $article->title }} </td>
@@ -36,7 +37,7 @@
                                     {{ $author->name }}
                                 </td>
                                 <td>
-                                    {{ $article->category }}
+                                    {{ $category->category }}
                                 </td>
                                 <td>
                                     <?=date_format(date_create($article->created_at), "d M, Y")?>

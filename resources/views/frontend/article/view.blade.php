@@ -43,7 +43,7 @@
                         </div>
                         <div class="ynps__article-header-img-outer">
                             <figure class="ynps__article-header-figure">
-                                <img class="img-fluid" src="{{ URL::asset('images/article/'.$article->title_image) }}" alt="header">
+                                <img class="w-100" src="{{ URL::asset('images/article/'.$article->title_image) }}" alt="header">
                             </figure>                        
                             <figcaption class="ynps__article-header-caption">
                             </figcaption>
@@ -176,7 +176,7 @@
             
             <!-- Sidebar Right -->
             <div class="col-md-3 col-12">
-                <div class="yn-page-single__right-sidebar">
+                <div class="yn-page__right-sidebar">
                     <div class="yn-support__inner">
                         <h5>support our work</h5>
                         <p>If you like what you’ve read, support our team by making a donation.</p>

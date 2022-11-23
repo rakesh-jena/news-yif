@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tag;
+use App\Models\Article;
 use Illuminate\Support\Str;
 
 class TagController extends Controller
@@ -58,10 +59,20 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $tag = Tag::where('id', $id)->first();
-        return view('frontend.tag.view', compact('tag'));
+        $tag = Tag::where('slug', $slug)->first();
+        $articles = Article::select('id', 'tags', 'category', 'title', 'subtitle', 'created_at', 'title_image')->get();
+        $a = [];
+        foreach($articles as $article){
+            $tags = unserialize($article->tags);
+            if(in_array($tag->id, $tags)){                
+                $a[] = $article;
+            }
+
+        }
+        //$articles = Article::where('tags', unserialize())
+        return view('frontend.tag.view', compact('tag', 'a'));
     }
 
     /**

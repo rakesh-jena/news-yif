@@ -32,7 +32,7 @@
                         <label for="#category" class="form-label">Category</label>
                         <select class="form-select" id="category" name="category" required="">
                             @foreach($categories as $category)
-                            <option value="{{$category->category}}">{{$category->category}}</option>
+                            <option value="{{$category->id}}">{{$category->category}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -40,7 +40,7 @@
                         <label for="#tag_multiSelect" class="form-label">Tags</label>
                         <select class="form-select" id="tag_multiSelect" name="tags[]" required="" multiple>
                             @foreach($tags as $tag)
-                            <option value="{{$tag->tag}}">{{$tag->tag}}</option>
+                            <option value="{{$tag->id}}">{{$tag->tag}}</option>
                             @endforeach
                         </select>
                     </div>
