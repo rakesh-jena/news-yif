@@ -26,23 +26,23 @@
                             <article class="latest-post__outer">
                                 <div class="latest-post__inner">
                                     <div class="latest-post__data d-flex">
+                                        <div class="latest-post__thumbnail">
+                                            <img width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
+                                        </div>
                                         <div class="latest-post__content">
                                             <div class="latest-post__meta">
                                                 <div class="meta-category">
                                                     politics
                                                 </div>
                                             </div>
-                                            <h5 class="latest-post__title meta-title">
+                                            <h6 class="latest-post__title meta-title">
                                                 Republican Dean Tran loses bid to become Massachusetts’ first Asian American Congress member
-                                            </h5>
+                                            </h6>
                                             <div class="latest-post__meta">
                                                 <div class="meta-date">
                                                     November 9, 2022
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="latest-post__thumbnail">
-                                            <img class="w-100" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
                                         </div>
                                     </div>
                                 </div>
@@ -50,23 +50,23 @@
                             <article class="latest-post__outer">
                                 <div class="latest-post__inner">
                                     <div class="latest-post__data d-flex">
+                                        <div class="latest-post__thumbnail">
+                                            <img width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
+                                        </div>
                                         <div class="latest-post__content">
                                             <div class="latest-post__meta">
                                                 <div class="meta-category">
                                                     politics
                                                 </div>
                                             </div>
-                                            <h5 class="latest-post__title meta-title">
+                                            <h6 class="latest-post__title meta-title">
                                                 Republican Dean Tran loses bid to become Massachusetts’ first Asian American Congress member
-                                            </h5>
+                                            </h6>
                                             <div class="latest-post__meta">
                                                 <div class="meta-date">
                                                     November 9, 2022
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="latest-post__thumbnail">
-                                            <img class="w-100" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
                                         </div>
                                     </div>
                                 </div>
@@ -74,23 +74,23 @@
                             <article class="latest-post__outer">
                                 <div class="latest-post__inner">
                                     <div class="latest-post__data d-flex">
+                                        <div class="latest-post__thumbnail">
+                                            <img width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
+                                        </div>
                                         <div class="latest-post__content">
                                             <div class="latest-post__meta">
                                                 <div class="meta-category">
                                                     politics
                                                 </div>
                                             </div>
-                                            <h5 class="latest-post__title meta-title">
+                                            <h6 class="latest-post__title meta-title">
                                                 Republican Dean Tran loses bid to become Massachusetts’ first Asian American Congress member
-                                            </h5>
+                                            </h6>
                                             <div class="latest-post__meta">
                                                 <div class="meta-date">
                                                     November 9, 2022
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="latest-post__thumbnail">
-                                            <img class="w-100" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                 </div>
 
                 <!-- Single News -->
-                <div class="col-md-6">
+                <div class="col-md-6 border-sn">
                     <div class="yn-sf__column single-news">
                         <div class="single-post__thumbnail">
                             <a href="#">
@@ -152,7 +152,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="meta-category">
+                                    <div class="meta-category mt-2">
                                         <a href="#">newsletter</a>
                                     </div>
                                     <div class="yn-entry__inner">
@@ -171,39 +171,39 @@
                             </article>
                             <article class="watching-post__outer">
                                 <div class="watching-post__inner d-flex">
-                                    <div class="watching-post__thumbnail">
-                                        <img class="w-100" src="{{url::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
-                                    </div>
                                     <div class="watching-post__content">
                                         <div class="watching-post__data">
-                                            <h5 class="watching-post__title meta-title">
+                                            <h6 class="watching-post__title meta-title">
                                                 Where affirmative action stands in Asian America
-                                            </h5>
+                                            </h6>
                                             <div class="watching-post__meta">
                                                 <div class="meta-date">
                                                     November 7, 2022
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="watching-post__thumbnail">
+                                        <img width="80" height="80" src="{{url::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
                                     </div>
                                 </div>
                             </article>
                             <article class="watching-post__outer">
                                 <div class="watching-post__inner d-flex">
-                                    <div class="watching-post__thumbnail">
-                                        <img class="w-100" src="{{url::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
-                                    </div>
                                     <div class="watching-post__content">
                                         <div class="watching-post__data">
-                                            <h5 class="watching-post__title meta-title">
+                                            <h6 class="watching-post__title meta-title">
                                                 Where affirmative action stands in Asian America
-                                            </h5>
+                                            </h6>
                                             <div class="watching-post__meta">
                                                 <div class="meta-date">
                                                     November 7, 2022
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="watching-post__thumbnail">
+                                        <img width="80" height="80" src="{{url::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
                                     </div>
                                 </div>
                             </article>
@@ -229,19 +229,19 @@
             <div class="yn-featured__content">
                 <div class="container">
                     <div class="yn-featured__category meta-category">
-                        policy
+                        <a href="#">policy</a>
                     </div>
-                    <div class="yn-featured__title meta-title">
-                        <h1>
+                    <div class="yn-featured__title meta-title mb-4">
+                        <h2>
                             <a href="#">
                                 A statistical storm: data disaggregation and the debate over AAPI identity
                             </a>
-                        </h1>
+                        </h2>
                     </div>
-                    <div class="yn-featured__excerpt meta-subtitle">
+                    <div class="yn-featured__excerpt meta-subtitle mb-4">
                         For years, efforts to disaggregate Asian American and Pacific Islander data have been slowed by community infighting, government bureaucracy, and bitter debates over identity. But as demand for quality data surges, supporters have reason to hope for movement on the decades-old issue.
                     </div>
-                    <div class="ynps__article-header-meta d-flex">
+                    <div class="ynps__article-header-meta d-flex justify-content-center align-items-center">
                         <div class="ynps__article-header-meta-author">
                             <a class="d-flex" href="#">
                                 <div class="ynps__author-avatar">
@@ -290,78 +290,26 @@
         <div class="yn__agenda">
             <div class="container">
                 <div class="row">
+                    <?php for($i = 0; $i<4; $i++) { ?>
                     <div class="col-12 col-md-3">
                         <div class="article__outer">
-                            <div class="article__img">
+                            <div class="article__img mb-3">
                                 <img class="w-100" src="{{url::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
                             </div>
                             <div class="meta-category">
                                 politics
                             </div>
                             <div class="post__title meta-title">
-                                <h2>
+                                <h5>
                                     Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
+                                </h5>
                             </div>
                             <div class="meta-date">
                                 November 12, 2022
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
-                            </div>
-                            <div class="meta-category">
-                                politics
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
-                            </div>
-                            <div class="meta-category">
-                                politics
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
-                            </div>
-                            <div class="meta-category">
-                                politics
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -372,48 +320,26 @@
     <section class="yn-section scoop">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-3">
-                    <h2>
+                <div class="col-12 col-md-2 d-flex align-items-center">
+                    <h4 class="scoop__title">
                         our<br>scoops
-                    </h2>
-                </div>
-                <div class="col-12 col-md-3">
+                    </h4>
+                </div>                
+                <div class="col-12 col-md-10">
                     <div class="row">
-                        <div class="col-12 col-md-4">
+                        <?php for($i = 0; $i<3; $i++) { ?>
+                        <div class="col-12 col-md-4 scoop-item">
                             <div class="d-flex">
-                                <div class="scoop_image">
-                                    <img class="w-100" src="{{url::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
-                                </div>
-                                <div class="scoop_data">
-                                    <div class="yn_article-title">
-                                        <h2>
-                                            <a href="#">
-                                                AAPIs saw ‘significant’ coverage gains after Affordable Care Act rollout, HHS says
-                                            </a>
-                                        </h2>
-                                    </div>
-                                    <div class="meta-date">
-                                        November 21, 2022
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <div class="d-flex">
-                                <div class="scoop_image">
-                                    <img class="w-100" src="{{url::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
+                                <div class="scoop_image me-2">
+                                    <img width="80" class="rounded-circle" src="{{url::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
                                 </div>
                                 <div class="scoop_data">
                                     <div class="yn_article-title meta-title">
-                                        <h2>
+                                        <h5>
                                             <a href="#">
                                                 AAPIs saw ‘significant’ coverage gains after Affordable Care Act rollout, HHS says
                                             </a>
-                                        </h2>
+                                        </h5>
                                     </div>
                                     <div class="meta-date">
                                         November 21, 2022
@@ -421,29 +347,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <div class="d-flex">
-                                <div class="scoop_image">
-                                    <img class="w-100" src="{{url::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
-                                </div>
-                                <div class="scoop_data">
-                                    <div class="yn_article-title meta-title">
-                                        <h2>
-                                            <a href="#">
-                                                AAPIs saw ‘significant’ coverage gains after Affordable Care Act rollout, HHS says
-                                            </a>
-                                        </h2>
-                                    </div>
-                                    <div class="meta-date">
-                                        November 21, 2022
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -464,32 +368,32 @@
         <div class="yn-layout-large__inner">
             <div class="row">
                 <div class="col-12 col-md-6 yn-layout-large__col active">
-                    <article class="yn-entry">
+                    <div class="yn-entry">
                         <div class="yn-entry__outer">
                             <div class="yn-entry__inner meta-title">
-                                <h2>
+                                <h4>
                                     <a href="#">
                                         The Yappie’s guide for AAPI interns in Washington, D.C.
                                     </a>
-                                </h2>
+                                </h4>
                             </div>
                             <a href="#" class="yn-overlay-link"></a>
                         </div>
-                    </article>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6 yn-layout-large__col">
-                    <article class="yn-entry">
+                    <div class="yn-entry">
                         <div class="yn-entry__outer">
                             <div class="yn-entry__inner meta-title">
-                                <h2>
+                                <h4>
                                     <a href="#">
                                         The Yappie’s guide for AAPI interns in Washington, D.C.
                                     </a>
-                                </h2>
+                                </h4>
                             </div>
                             <a href="#" class="yn-overlay-link"></a>
                         </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </div>
@@ -499,54 +403,43 @@
     <!-- Election News Section -->
     <section class="yn-section election-news">
         <div class="container">
-            <div class="header-title">
-                <h2>
-                    election 2024
-                </h2>
+            <div class="en-header text-center">
+                <div class="header-title">
+                    <h6 class="d-flex">
+                        <span class="d-flex">election 2024</span>
+                    </h6>
+                </div>
+                <div class="news-title meta-title">
+                    <h1>
+                        With California wins, GOP clinches House control
+                    </h1>
+                </div>
+                <p class="news-subtitle meta-subtitle">
+                    Midterms: Incumbent Republicans Young Kim and Michelle Steel fend off challenges. Full coverage.
+                </p>
+                <hr>
+                <p class="news-sub-sub-title meta-subtitle">
+                    Results: Tokuda, Thanedar score victories; Democrats’ hold on Asian American voters slips; most GOP candidates falter. Read more.
+                </p>
             </div>
-            <div class="news-title meta-title">
-                <h2>
-                    With California wins, GOP clinches House control
-                </h2>
-            </div>
-            <p class="news-subtitle meta-subtitle">
-                Midterms: Incumbent Republicans Young Kim and Michelle Steel fend off challenges. Full coverage.
-            </p>
-            <hr>
-            <p class="news-sub-sub-title meta-subtitle">
-                Results: Tokuda, Thanedar score victories; Democrats’ hold on Asian American voters slips; most GOP candidates falter. Read more.
-            </p>
             <div class="row">
+                <?php for($i = 0; $i<2; $i++) { ?>
                 <div class="col-12 col-md-6">
-                    <div>
+                    <div class="mb-2">
                         <img class="w-100" src="{{url::asset('images/others/joshua-sukoff-SYHi8oX0JC8-unsplash-768x512.jpg')}}" alt="">
                     </div>
                     <div class="meta-title">
-                        <h2>
+                        <h3>
                             <a href="#">
                                 Election briefing: Incumbents dominate as GOP’s Asian American hopefuls are shut out
                             </a>
-                        </h2>
+                        </h3>
                     </div>
                     <div class="meta-date">
                         November 23, 2024
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
-                    <div>
-                        <img class="w-100" src="{{url::asset('images/others/joshua-sukoff-SYHi8oX0JC8-unsplash-768x512.jpg')}}" alt="">
-                    </div>
-                    <div class="meta-title">
-                        <h2>
-                            <a href="#">
-                                Election briefing: Incumbents dominate as GOP’s Asian American hopefuls are shut out
-                            </a>
-                        </h2>
-                    </div>
-                    <div class="meta-date">
-                        November 23, 2024
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </section>
@@ -557,130 +450,44 @@
         <div class="container">
             <div class="grid-of-3">
                 <div class="row">
+                    <?php for($i = 0; $i<3; $i++) { ?>
                     <div class="col-12 col-md-4">
                         <div class="article__outer">
-                            <div class="article__img">
+                            <div class="article__img mb-2">
                                 <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
                             </div>
                             <div class="post__title meta-title">
-                                <h2>
+                                <h5>
                                     Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
+                                </h5>
                             </div>
                             <div class="meta-date">
                                 November 12, 2022
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="grid-of-5">
                 <div class="row row-cols-5">
+                    <?php for($i = 0; $i<5; $i++) { ?>
                     <div class="col">
                         <div class="article__outer">
-                            <div class="article__img">
+                            <div class="article__img mb-2">
                                 <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
                             </div>
                             <div class="post__title meta-title">
-                                <h2>
+                                <h6>
                                     Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
+                                </h6>
                             </div>
                             <div class="meta-date">
                                 November 12, 2022
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="article__outer">
-                            <div class="article__img">
-                                <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
-                            </div>
-                            <div class="post__title meta-title">
-                                <h2>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
-                                </h2>
-                            </div>
-                            <div class="meta-date">
-                                November 12, 2022
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -690,23 +497,29 @@
     <!-- Inline Infinite Scroll -->
     <section class="yn-section infinite-scroll">
         <div class="container">
+            <div class="title">
+                <h2>
+                    AAPI NATION
+                </h2>
+            </div>
             <div class="scroll-wrapper">
                 <div class="scroll__inner">
+                    <?php for($i = 0; $i<5; $i++) { ?>
                     <article class="yn__infinite-item">
                         <div class="item-outer d-flex">
                             <div class="item__image">
                                 <img src="{{url::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
                             </div>
-                            <div class="item-content">
+                            <div class="ms-4 item-content">
                                 <div class="meta-category">
                                     politics
                                 </div>
                                 <div class="meta-title">
-                                    <h2>
+                                    <h4>
                                         <a href="#">
                                             Meet the Asian American candidates hoping to make history in key states
                                         </a>
-                                    </h2>
+                                    </h4>
                                 </div>
                                 <div class="meta-subtitle">
                                     With a week left to go in this year’s midterm elections, here are some of the national and state races we’re watching.
@@ -717,106 +530,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="yn__infinite-item">
-                        <div class="item-outer d-flex">
-                            <div class="item__image">
-                                <img src="{{url::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
-                            </div>
-                            <div class="item-content">
-                                <div class="meta-category">
-                                    politics
-                                </div>
-                                <div class="meta-title">
-                                    <h2>
-                                        <a href="#">
-                                            Meet the Asian American candidates hoping to make history in key states
-                                        </a>
-                                    </h2>
-                                </div>
-                                <div class="meta-subtitle">
-                                    With a week left to go in this year’s midterm elections, here are some of the national and state races we’re watching.
-                                </div>
-                                <div class="meta-date">
-                                    November 13, 2022
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="yn__infinite-item">
-                        <div class="item-outer d-flex">
-                            <div class="item__image">
-                                <img src="{{url::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
-                            </div>
-                            <div class="item-content">
-                                <div class="meta-category">
-                                    politics
-                                </div>
-                                <div class="meta-title">
-                                    <h2>
-                                        <a href="#">
-                                            Meet the Asian American candidates hoping to make history in key states
-                                        </a>
-                                    </h2>
-                                </div>
-                                <div class="meta-subtitle">
-                                    With a week left to go in this year’s midterm elections, here are some of the national and state races we’re watching.
-                                </div>
-                                <div class="meta-date">
-                                    November 13, 2022
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="yn__infinite-item">
-                        <div class="item-outer d-flex">
-                            <div class="item__image">
-                                <img src="{{url::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
-                            </div>
-                            <div class="item-content">
-                                <div class="meta-category">
-                                    politics
-                                </div>
-                                <div class="meta-title">
-                                    <h2>
-                                        <a href="#">
-                                            Meet the Asian American candidates hoping to make history in key states
-                                        </a>
-                                    </h2>
-                                </div>
-                                <div class="meta-subtitle">
-                                    With a week left to go in this year’s midterm elections, here are some of the national and state races we’re watching.
-                                </div>
-                                <div class="meta-date">
-                                    November 13, 2022
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="yn__infinite-item">
-                        <div class="item-outer d-flex">
-                            <div class="item__image">
-                                <img src="{{url::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
-                            </div>
-                            <div class="item-content">
-                                <div class="meta-category">
-                                    politics
-                                </div>
-                                <div class="meta-title">
-                                    <h2>
-                                        <a href="#">
-                                            Meet the Asian American candidates hoping to make history in key states
-                                        </a>
-                                    </h2>
-                                </div>
-                                <div class="meta-subtitle">
-                                    With a week left to go in this year’s midterm elections, here are some of the national and state races we’re watching.
-                                </div>
-                                <div class="meta-date">
-                                    November 13, 2022
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                    <?php } ?>
                 </div>
             </div>
         </div>

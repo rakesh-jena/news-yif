@@ -40,4 +40,12 @@
         window.addEventListener('load', toggleBacktotop)
         onscroll(document, toggleBacktotop)
     }
+
+    /**
+     * On hover transition of News Section
+     */
+    $('.yn-layout-large__col').hover(function(){
+        var n = $(this).index();
+        $(this).addClass('active').siblings().removeClass("active").closest(".fullscreen-news").find('.yn-overlay__background').removeClass("active").eq(n).addClass('active');
+    })
 })();
