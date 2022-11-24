@@ -102,7 +102,7 @@
                 <!-- Single News -->
                 <div class="col-md-6 border-sn">
                     <div class="yn-sf__column single-news">
-                        <div class="single-post__thumbnail">
+                        <div class="single-post__thumbnail mb-4">
                             <a href="#">
                                 <img class="w-100" src="{{URL::asset('images/others/lanhee-chen-2-800x500.jpg')}}" alt="thumbnail">
                             </a>
