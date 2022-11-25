@@ -41,7 +41,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{url('/')}}" class="logo d-flex align-items-center">
                 <img src="{{ URL::asset('images/yiflogodark.png') }}" alt="logo">
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -82,9 +82,9 @@
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
                 @if(request()->is('yn-admin'))
-                <a class="nav-link" href="/yn-admin">
+                <a class="nav-link" href="{{url('yn-admin')}}">
                 @else
-                <a class="nav-link collapsed" href="/yn-admin">
+                <a class="nav-link collapsed" href="{{url('yn-admin')}}">
                 @endif
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
@@ -121,7 +121,7 @@
                 @else
                 <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
                 @endif
-                    <i class="bi bi-person"></i>
+                    <i class="bi bi-vector-pen"></i>
                     <span>Authors</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -160,6 +160,17 @@
                     <span>Tag</span>
                 </a>
             </li><!-- End Tag Nav -->
+
+            <li class="nav-item">
+                @if(request()->is('yn-admin/subscribers'))
+                <a class="nav-link" href="{{url('yn-admin/subscribers')}}">
+                @else
+                <a class="nav-link collapsed" href="{{url('yn-admin/subscribers')}}">
+                @endif
+                    <i class="bi bi-people"></i>
+                    <span>Subscribers</span>
+                </a>
+            </li><!-- End Subscribers Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->

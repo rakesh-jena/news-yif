@@ -150,4 +150,19 @@ class AuthController extends Controller
                     ? redirect()->route('login')->with('status', __($status))
                     : back()->withErrors(['email' => [__($status)]]);
     }
+
+    public function change_password(Request $request)
+    {
+        $request->validate([
+            'password' => 'bail|required|password',
+            'newpassword' => 'bail|required',
+            'renewpassword' => 'bail|required|same:newpassword'
+        ]);
+
+        $user = Auth::user();
+        $user->update([
+            'password' => $request['newpassword']
+        ]);
+        return redirect('yn-author');
+    }
 }

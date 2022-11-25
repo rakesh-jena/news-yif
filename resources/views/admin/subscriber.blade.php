@@ -1,5 +1,5 @@
 @extends('admin')
-@section('title', 'Authors | YIF')
+@section('title', 'Subscribers | YIF')
 
 @section('content')
 <!-- Start #main -->
@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center">
-                    <h5 class="card-title">Authors</h5>
+                    <h5 class="card-title">Subscribers</h5>
                 </div>
                 <table class="table table-responsive">
                     <thead>

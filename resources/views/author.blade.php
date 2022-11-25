@@ -41,7 +41,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{url('/')}}" class="logo d-flex align-items-center">
                 <img src="{{ URL::asset('images/yiflogodark.png') }}" alt="logo">
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -55,7 +55,7 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="{{ URL::asset('images/author/default.png') }}" alt="Profile" class="rounded-circle">
+                        <img src="{{ URL::asset('images/author/'.$user_meta->avatar) }}" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
 
@@ -81,26 +81,34 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="/yn-admin">
+                @if(request()->is('yn-author'))
+                <a class="nav-link" href="{{url('yn-author')}}">
+                @else
+                <a class="nav-link collapsed" href="{{url('yn-author')}}">
+                @endif
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
+                @if(str_contains(url()->current(), '/yn-author/articles'))
+                <a class="nav-link" data-bs-target="#articles-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
+                @else
                 <a class="nav-link collapsed" data-bs-target="#articles-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                @endif
                     <i class="bi bi-journal-text"></i>
                     <span>Articles</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="articles-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+                <ul id="articles-nav" class="nav-content collapse <?=(str_contains(url()->current(), '/yn-author/articles')) ? 'show':'';?>" data-bs-parent="#sidebar-nav" style="">
                     <li>
-                        <a href="{{url('yn-admin/articles')}}" class="<?=(request()->is('yn-author/articles')) ? 'active' : '';?>">
+                        <a href="{{url('yn-author/articles')}}" class="<?=(request()->is('yn-author/articles')) ? 'active' : '';?>">
                             <i class="bi bi-circle"></i><span>All</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('yn-admin/articles/create')}}" class="<?=(request()->is('yn-author/articles/create')) ? 'active' : '';?>">
+                        <a href="{{url('yn-author/articles/create')}}" class="<?=(request()->is('yn-author/articles/create')) ? 'active' : '';?>">
                             <i class="bi bi-circle"></i><span>Add</span>
                         </a>
                     </li>

@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('role', 'author')->get();
         return view('admin.user.listing', compact('users'));
     }
 
@@ -44,7 +44,7 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        $user = User::create(request(['name', 'email', 'password']));
+        $user = User::create(request(['name', 'email', 'password', 'role']));
 
         $request = request()->all();
 
@@ -91,7 +91,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::where('id', $id)->first();
-        return view('admin.user.edit', compact('user'));
+        $user_meta = UserMeta::where('user_id', $id)->first();
+        return view('admin.user.edit', compact('user', 'user_meta'));
     }
 
     /**
@@ -105,8 +106,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+            'email' => 'required'
         ]);
 
         $user = User::where('id', $id)->first();
@@ -130,7 +130,8 @@ class UserController extends Controller
             'gender' => $request['gender'],
             'about' => $request['about']
         ];
-        UserMeta::create($meta);
+        $user_meta = UserMeta::where('user_id', $id);
+        $user_meta->update($meta);
 
         return redirect('yn-admin/users')
             ->with('success', 'User created successfully.');
@@ -145,5 +146,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function subscribers()
+    {
+        $users = User::where('role', 'subscriber')->get();
+        return view('admin.user.listing', compact('users'));
     }
 }

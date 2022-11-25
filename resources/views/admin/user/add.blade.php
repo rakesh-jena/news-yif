@@ -1,5 +1,5 @@
 @extends('admin')
-@section('title', 'Add User | YIF')
+@section('title', 'Add Author | YIF')
 
 @section('content')
 <!-- Start #main -->
@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center">
-                    <h5 class="card-title">Add User</h5>
+                    <h5 class="card-title">Add Author</h5>
                 </div>
                 <form class="row g-3" enctype="multipart/form-data" method="POST" action="{{url('yn-admin/users')}}">
                     @csrf
@@ -35,10 +35,11 @@
                         <label for="#about" class="form-label">About</label>
                         <textarea id="about" name="about" class="form-control" style="height: 100px"></textarea>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6 th_input user">
                         <label for="#formFile" class="form-label">Avatar</label>
                         <input class="form-control" type="file" id="formFile" name="avatar">
                     </div>
+                    <input type="hidden" name="role" value="author">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>

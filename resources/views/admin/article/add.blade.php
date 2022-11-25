@@ -53,9 +53,9 @@
                         <textarea id="introduction" name="content" class="tinymce-editor form-control"></textarea>
                     </div>
                     <input type="hidden" name="author_id" value="{{Auth::id()}}">
+                    <input type="hidden" name="status" value="approved">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="submit" class="btn btn-primary">Publish</button>
                     </div>
                 </form>
             </div>

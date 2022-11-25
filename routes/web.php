@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Middleware\AuthorAuthenticated​;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +21,7 @@ use App\Http\Controllers\CategoryController;
 
 /**
  * ------------------------------------------------------------------------
- * ADMIN URLs
+ * ADMIN DASHBOARD URLs
  * ------------------------------------------------------------------------
  * */
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -27,20 +29,21 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('yn-admin', function () {
         return view('admin.dashboard');
     });
+    Route::put('approved', [ArticleController::class, 'update_status_approved']);
     Route::resource('yn-admin/users', UserController::class);
     Route::resource('yn-admin/tags', TagController::class);
     Route::resource('yn-admin/articles', ArticleController::class);
     Route::resource('yn-admin/category', CategoryController::class);
+    Route::get('yn-admin/subscribers', [UserController::class, 'subscribers']);
 });
 
 /**
  * ------------------------------------------------------------------------
- * ADMIN URLs
+ * AUTHOR DASHBOARD URLs
  * ------------------------------------------------------------------------
  * */
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware([AuthorAuthenticated​::class])->group(function () {
     Route::get('yn-author', [AuthorController::class, 'index']);
-    Route::get('yn-author/edit-profile', [AuthorController::class, 'edit_profile']);
     Route::put('yn-author', [AuthorController::class, 'update_profile']);
     Route::get('yn-author/articles', [AuthorController::class, 'articles']);
     Route::get('yn-author/articles/create', [AuthorController::class, 'add_article']);
@@ -48,6 +51,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('yn-author/articles', [AuthorController::class, 'store_article']);
     Route::put('yn-author/articles/{id}', [AuthorController::class, 'update_article']);
     Route::delete('yn-author/articles/{id}', [AuthorController::class, 'delete_article']);
+    Route::put('send-for-approval', [ArticleController::class, 'update_status_processing']);
+    Route::put('yn-author/change-password', [AuthController::class, 'change_password']);
 });
 /**Authentication */
 Route::get('/yn-login', function () {

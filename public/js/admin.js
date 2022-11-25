@@ -339,5 +339,8 @@
         } else {
             $(this).closest('.th_input').append('<img class="w-100" src="'+URL.createObjectURL(e.target.files[0])+'" alt="">')
         }
+        if($('.profile .profile-edit img').length > 0) {
+            $('.profile .profile-edit img').attr("src",URL.createObjectURL(e.target.files[0]));
+        }
     });
 })();

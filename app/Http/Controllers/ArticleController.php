@@ -19,7 +19,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::select('id', 'author_id', 'title', 'created_at', 'category', 'slug')->get();
+        $articles = Article::select('id', 'status', 'views', 'author_id', 'title', 'created_at', 'category', 'slug')->where('status', 'approved')->orWhere('status', 'processing')->orderBy('created_at', 'desc')->get();
         return view('admin.article.listing', compact('articles'));
     }
 
@@ -136,8 +136,24 @@ class ArticleController extends Controller
             'introduction' => $request['introduction'],
         ]);
 
-        return redirect('yn-article/articles/{$id}')
+        return redirect('yn-admin/articles')
             ->with('success', 'Article updated successfully');
+    }
+
+    public function update_status_processing(Request $request)
+    {
+        $article = Article::where('id', $request['id']);
+        $article->update(['status' => 'processing']);
+        return redirect('yn-author/articles')
+            ->with('success', 'Send for approval');
+    }
+
+    public function update_status_approved(Request $request)
+    {
+        $article = Article::where('id', $request['id']);
+        $article->update(['status' => 'approved']);
+        return redirect('yn-admin/articles')
+            ->with('success', 'Send for approval');
     }
 
     /**

@@ -9,9 +9,19 @@
             <div class="card-body">
                 <div class="d-flex align-items-center">
                     <h5 class="card-title">Edit Article</h5>
+                    @if($article->status=='processing')
+                    <form method="POST" action="{{url('approved')}}">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="status" value="processing">
+                        <input type="hidden" name="id" value="{{$article->id}}">
+                        <button class="btn btn-primary rounded-pill btn-sm ms-2" type="submit">Approve</button>
+                    </form>
+                    @endif
                 </div>
-                <form class="row g-3" enctype="multipart/form-data" method="PUT" action="{{url("yn-admin/articles/{$article->id}")}}">
+                <form class="row g-3" enctype="multipart/form-data" method="POST" action="{{url("yn-admin/articles/{$article->id}")}}">
                     @csrf
+                    @method('PUT')
                     <div class="col-12 col-md-6">
                         <label for="#title" class="form-label">Title</label>
                         <input type="text" class="form-control" id="title" name="title" value="{{$article->title}}">
@@ -33,7 +43,7 @@
                         <label for="#category" class="form-label">Category</label>
                         <select class="form-select" id="category" name="category" required="">
                             @foreach($categories as $category)
-                            <option value="{{$category->category}}" 
+                            <option value="{{$category->id}}" 
                                 <?php $article->category == $category->id ? 'selected' : '' ?>>
                                 {{$category->category}}
                             </option>

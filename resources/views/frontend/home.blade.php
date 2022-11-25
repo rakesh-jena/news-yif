@@ -147,10 +147,13 @@
                 <!-- Single News -->
                 <div class="col-md-6 border-sn">
                     <div class="yn-sf__column single-news">
-                        <div class="single-post__thumbnail mb-4">
+                        <div class="single-post__thumbnail mb-4 img__wrap">
                             <a href="#">
                                 <img class="w-100" src="{{URL::asset('images/others/lanhee-chen-2-800x500.jpg')}}" alt="thumbnail">
                             </a>
+                            <div class="img__overlay">
+                                <span class="yn__read-more">Read More</span>
+                            </div>
                         </div>
                         <div class="single-post__body">
                             <div class="single-post__meta">
@@ -338,8 +341,13 @@
                     <?php for($i = 0; $i<4; $i++) { ?>
                     <div class="col-12 col-md-3">
                         <div class="article__outer">
-                            <div class="article__img mb-3">
-                                <img class="w-100" src="{{URL::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
+                            <div class="article__img mb-3 img__wrap">
+                                <a href="#">
+                                    <img class="w-100" src="{{URL::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
+                                </a>
+                                <div class="img__overlay">
+                                    <span class="yn__read-more">Read More</span>
+                                </div>
                             </div>
                             <div class="meta-category">
                                 politics
@@ -453,8 +461,13 @@
                     <?php for($i = 0; $i<3; $i++) { ?>
                     <div class="col-12 col-md-4">
                         <div class="article__outer">
-                            <div class="article__img mb-2">
-                                <img class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                            <div class="article__img mb-2 img__wrap">
+                                <a href="#">
+                                    <img class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                                </a>
+                                <div class="img__overlay">
+                                    <span class="yn__read-more">Read More</span>
+                                </div>
                             </div>
                             <div class="post__title meta-title">
                                 <h5>
@@ -474,8 +487,13 @@
                     <?php for($i = 0; $i<5; $i++) { ?>
                     <div class="col">
                         <div class="article__outer">
-                            <div class="article__img mb-2">
-                                <img class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                            <div class="article__img mb-2 img__wrap">
+                                <a href="#">
+                                    <img class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                                </a>
+                                <div class="img__overlay">
+                                    <span class="yn__read-more">Read More</span>
+                                </div>
                             </div>
                             <div class="post__title meta-title">
                                 <h6>

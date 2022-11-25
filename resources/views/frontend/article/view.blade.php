@@ -196,3 +196,9 @@
     <!-- End Main Container -->
 </div>
 @endsection
+<?php
+$art = App\Models\Article::where('id', $article->id);
+$art->update([
+    'views' => $article->views+1,
+]);
+?>
