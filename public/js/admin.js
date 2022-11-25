@@ -330,4 +330,14 @@
             renderChoiceLimit: 5
         });
     }
+    /**
+     * File input event
+     */
+     $('#formFile').on('change', function(e) {
+        if($(this).closest('.th_input').find('.w-100').length != 0){
+            $(this).closest('.th_input').find('img').attr("src",URL.createObjectURL(e.target.files[0]));
+        } else {
+            $(this).closest('.th_input').append('<img class="w-100" src="'+URL.createObjectURL(e.target.files[0])+'" alt="">')
+        }
+    });
 })();

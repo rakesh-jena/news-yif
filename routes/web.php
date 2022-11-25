@@ -33,6 +33,22 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('yn-admin/category', CategoryController::class);
 });
 
+/**
+ * ------------------------------------------------------------------------
+ * ADMIN URLs
+ * ------------------------------------------------------------------------
+ * */
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('yn-author', [AuthorController::class, 'index']);
+    Route::get('yn-author/edit-profile', [AuthorController::class, 'edit_profile']);
+    Route::put('yn-author', [AuthorController::class, 'update_profile']);
+    Route::get('yn-author/articles', [AuthorController::class, 'articles']);
+    Route::get('yn-author/articles/create', [AuthorController::class, 'add_article']);
+    Route::get('yn-author/articles/{id}/edit', [AuthorController::class, 'edit_article']);
+    Route::post('yn-author/articles', [AuthorController::class, 'store_article']);
+    Route::put('yn-author/articles/{id}', [AuthorController::class, 'update_article']);
+    Route::delete('yn-author/articles/{id}', [AuthorController::class, 'delete_article']);
+});
 /**Authentication */
 Route::get('/yn-login', function () {
     return view('admin.login');

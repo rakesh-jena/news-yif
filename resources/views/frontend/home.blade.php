@@ -5,6 +5,51 @@
 
 @section('content')
 <div class="page__home">
+    <!-- Election News Section -->
+    <section class="yn-section election-news">
+        <div class="container">
+            <div class="en-header text-center">
+                <div class="header-title">
+                    <h6 class="d-flex">
+                        <span class="d-flex">election 2024</span>
+                    </h6>
+                </div>
+                <div class="news-title meta-title">
+                    <h1>
+                        With California wins, GOP clinches House control
+                    </h1>
+                </div>
+                <p class="news-subtitle meta-subtitle">
+                    Midterms: Incumbent Republicans Young Kim and Michelle Steel fend off challenges. Full coverage.
+                </p>
+                <hr>
+                <p class="news-sub-sub-title meta-subtitle">
+                    Results: Tokuda, Thanedar score victories; Democrats’ hold on Asian American voters slips; most GOP candidates falter. Read more.
+                </p>
+            </div>
+            <div class="row">
+                <?php for($i = 0; $i<2; $i++) { ?>
+                <div class="col-12 col-md-6">
+                    <div class="mb-2">
+                        <img class="w-100" src="{{URL::asset('images/others/joshua-sukoff-SYHi8oX0JC8-unsplash-768x512.jpg')}}" alt="">
+                    </div>
+                    <div class="meta-title">
+                        <h3>
+                            <a href="#">
+                                Election briefing: Incumbents dominate as GOP’s Asian American hopefuls are shut out
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="meta-date">
+                        November 23, 2024
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+    </section>
+    <!-- End Election News Section -->
+
     <!-- First Section -->
     <section class="yn-section first">
         <div class="container">
@@ -148,7 +193,7 @@
                                     <div class="yn-entry__inner">
                                         <a href="https://youngindiafdn.medium.com/do-the-youth-of-the-country-actually-value-their-vote-6c2e01db0093" target="_blank">
                                             <div class="yn-entry__image">
-                                                <img class="w-100" src="{{url::asset('images/others/Red-Hill-fuel-leak-v9-380x280.jpeg')}}" alt="News">
+                                                <img class="w-100" src="{{URL::asset('images/others/Red-Hill-fuel-leak-v9-380x280.jpeg')}}" alt="News">
                                             </div>
                                         </a>
                                     </div>
@@ -184,7 +229,7 @@
                                         </div>
                                     </div>
                                     <div class="watching-post__thumbnail">
-                                        <img width="80" height="80" src="{{url::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
+                                        <img width="80" height="80" src="{{URL::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
                                     </div>
                                 </div>
                             </article>
@@ -203,7 +248,7 @@
                                         </div>
                                     </div>
                                     <div class="watching-post__thumbnail">
-                                        <img width="80" height="80" src="{{url::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
+                                        <img width="80" height="80" src="{{URL::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
                                     </div>
                                 </div>
                             </article>
@@ -224,7 +269,7 @@
         </div>
         <div class="yn-featured__outer">
             <div class="yn-featured__banner">
-                <img class="w-100" src="{{url::asset('images/others/52034842342_c968c57fa4_b-3-768x432.jpg')}}" alt="banner">
+                <img class="w-100" src="{{URL::asset('images/others/52034842342_c968c57fa4_b-3-768x432.jpg')}}" alt="banner">
             </div>
             <div class="yn-featured__content">
                 <div class="container">
@@ -245,7 +290,7 @@
                         <div class="ynps__article-header-meta-author">
                             <a class="d-flex" href="#">
                                 <div class="ynps__author-avatar">
-                                    <img class="rounded-circle" src="{{url::asset('images/author/default.png')}}" alt="author">
+                                    <img class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
                                 </div>
                                 <span>by <strong>Théo Lemonnier</strong></span>
                             </a>
@@ -254,7 +299,7 @@
                         <div class="ynps__article-header-meta-author">
                             <a class="d-flex" href="#">
                                 <div class="ynps__author-avatar">
-                                    <img class="rounded-circle" src="{{url::asset('images/author/default.png')}}" alt="author">
+                                    <img class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
                                 </div>
                                 <span>by <strong>Théo Lemonnier</strong></span>
                             </a>
@@ -263,7 +308,7 @@
                         <div class="ynps__article-header-meta-author">
                             <a class="d-flex" href="#">
                                 <div class="ynps__author-avatar">
-                                    <img class="rounded-circle" src="{{url::asset('images/author/default.png')}}" alt="author">
+                                    <img class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
                                 </div>
                                 <span>by <strong>Théo Lemonnier</strong></span>
                             </a>
@@ -294,7 +339,7 @@
                     <div class="col-12 col-md-3">
                         <div class="article__outer">
                             <div class="article__img mb-3">
-                                <img class="w-100" src="{{url::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
+                                <img class="w-100" src="{{URL::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
                             </div>
                             <div class="meta-category">
                                 politics
@@ -331,7 +376,7 @@
                         <div class="col-12 col-md-4 scoop-item">
                             <div class="d-flex">
                                 <div class="scoop_image me-2">
-                                    <img width="80" class="rounded-circle" src="{{url::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
+                                    <img width="80" class="rounded-circle" src="{{URL::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
                                 </div>
                                 <div class="scoop_data">
                                     <div class="yn_article-title meta-title">
@@ -359,10 +404,10 @@
     <section class="yn-section fullscreen-news">
         <div class="yn-overlay__background-wrapper">
             <div class="yn-overlay__background active">
-                <img class="w-100" src="{{url::asset('images/others/Yappie-Background-1160x659.png')}}" alt="">
+                <img class="w-100" src="{{URL::asset('images/others/Yappie-Background-1160x659.png')}}" alt="">
             </div>
             <div class="yn-overlay__background">
-                <img class="w-100" src="{{url::asset('images/others/1_ytyuJLaRrQ_wOEjNSvPrJQ-1160x776.jpeg')}}" alt="">
+                <img class="w-100" src="{{URL::asset('images/others/1_ytyuJLaRrQ_wOEjNSvPrJQ-1160x776.jpeg')}}" alt="">
             </div>
         </div>
         <div class="yn-layout-large__inner">
@@ -398,52 +443,7 @@
             </div>
         </div>
     </section>
-    <!-- End Full Screen News Section -->
-
-    <!-- Election News Section -->
-    <section class="yn-section election-news">
-        <div class="container">
-            <div class="en-header text-center">
-                <div class="header-title">
-                    <h6 class="d-flex">
-                        <span class="d-flex">election 2024</span>
-                    </h6>
-                </div>
-                <div class="news-title meta-title">
-                    <h1>
-                        With California wins, GOP clinches House control
-                    </h1>
-                </div>
-                <p class="news-subtitle meta-subtitle">
-                    Midterms: Incumbent Republicans Young Kim and Michelle Steel fend off challenges. Full coverage.
-                </p>
-                <hr>
-                <p class="news-sub-sub-title meta-subtitle">
-                    Results: Tokuda, Thanedar score victories; Democrats’ hold on Asian American voters slips; most GOP candidates falter. Read more.
-                </p>
-            </div>
-            <div class="row">
-                <?php for($i = 0; $i<2; $i++) { ?>
-                <div class="col-12 col-md-6">
-                    <div class="mb-2">
-                        <img class="w-100" src="{{url::asset('images/others/joshua-sukoff-SYHi8oX0JC8-unsplash-768x512.jpg')}}" alt="">
-                    </div>
-                    <div class="meta-title">
-                        <h3>
-                            <a href="#">
-                                Election briefing: Incumbents dominate as GOP’s Asian American hopefuls are shut out
-                            </a>
-                        </h3>
-                    </div>
-                    <div class="meta-date">
-                        November 23, 2024
-                    </div>
-                </div>
-                <?php } ?>
-            </div>
-        </div>
-    </section>
-    <!-- End Election News Section -->
+    <!-- End Full Screen News Section -->    
 
     <!-- Grid News Section -->
     <section class="yn-section grid-news">
@@ -454,7 +454,7 @@
                     <div class="col-12 col-md-4">
                         <div class="article__outer">
                             <div class="article__img mb-2">
-                                <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                                <img class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
                             </div>
                             <div class="post__title meta-title">
                                 <h5>
@@ -475,7 +475,7 @@
                     <div class="col">
                         <div class="article__outer">
                             <div class="article__img mb-2">
-                                <img class="w-100" src="{{url::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                                <img class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
                             </div>
                             <div class="post__title meta-title">
                                 <h6>
@@ -508,7 +508,7 @@
                     <article class="yn__infinite-item">
                         <div class="item-outer d-flex">
                             <div class="item__image">
-                                <img src="{{url::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
+                                <img src="{{URL::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
                             </div>
                             <div class="ms-4 item-content">
                                 <div class="meta-category">

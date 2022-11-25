@@ -77,11 +77,17 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Article::where('id', $id)->first();
-        $tags = unserialize($article->tags);
+        $tag_ids = unserialize($article->tags);
         $author = User::where('id', $article->author_id)->first();
         $author_meta = UserMeta::where('user_id', $article->author_id)->first();
+        $category = Category::where('id', $article->category)->first();
+        $tags = [];
+        foreach($tag_ids as $id) {
+            $tag = Tag::where('id', (int)$id)->first();
+            $tags[] = $tag;
+        }
 
-        return view('frontend.article.view', compact('article', 'tags', 'author', 'author_meta'));
+        return view('frontend.article.view', compact('article', 'tags', 'author', 'category', 'author_meta'));
     }
 
     /**
@@ -94,8 +100,9 @@ class ArticleController extends Controller
     {
         $tags = Tag::all();
         $categories = Category::all();
-        $article = Article::where('id', $id)->get();
-        return view('admin.article.edit', compact('tags', 'categories', 'article'));
+        $article = Article::where('id', $id)->first();
+        $tag_ids = unserialize($article->tags);
+        return view('admin.article.edit', compact('tags', 'tag_ids', 'categories', 'article'));
     }
 
     /**

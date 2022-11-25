@@ -56,7 +56,7 @@
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <img src="{{ URL::asset('images/author/default.png') }}" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="">
@@ -81,85 +81,31 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                @if(request()->is('yn-admin'))
-                <a class="nav-link" href="/yn-admin">
-                @else
-                <a class="nav-link collapsed" href="/yn-admin">
-                @endif
+                <a class="nav-link " href="/yn-admin">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                @if(str_contains(url()->current(), '/yn-admin/articles'))
-                <a class="nav-link" data-bs-target="#articles-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
-                @else
                 <a class="nav-link collapsed" data-bs-target="#articles-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
-                @endif
                     <i class="bi bi-journal-text"></i>
                     <span>Articles</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="articles-nav" class="nav-content collapse <?=(str_contains(url()->current(), '/yn-admin/articles')) ? 'show':'';?>" data-bs-parent="#sidebar-nav" style="">
+                <ul id="articles-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
                     <li>
-                        <a href="{{url('yn-admin/articles')}}" class="<?=(request()->is('yn-admin/articles')) ? 'active' : '';?>">
+                        <a href="{{url('yn-admin/articles')}}" class="<?=(request()->is('yn-author/articles')) ? 'active' : '';?>">
                             <i class="bi bi-circle"></i><span>All</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('yn-admin/articles/create')}}" class="<?=(request()->is('yn-admin/articles/create')) ? 'active' : '';?>">
+                        <a href="{{url('yn-admin/articles/create')}}" class="<?=(request()->is('yn-author/articles/create')) ? 'active' : '';?>">
                             <i class="bi bi-circle"></i><span>Add</span>
                         </a>
                     </li>
                 </ul>
             </li><!-- End Article Nav -->
-
-            <li class="nav-item">
-                @if(str_contains(url()->current(), '/yn-admin/users'))
-                <a class="nav-link" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
-                @else
-                <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
-                @endif
-                    <i class="bi bi-person"></i>
-                    <span>Authors</span>
-                    <i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="users-nav" class="nav-content collapse <?=(str_contains(url()->current(), '/yn-admin/users')) ? 'show':'';?>" data-bs-parent="#sidebar-nav" style="">
-                    <li>
-                        <a href="{{url('yn-admin/users')}}" class="<?=(request()->is('yn-admin/users')) ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>All</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{url('yn-admin/users/create')}}" class="<?=(request()->is('yn-admin/users/create')) ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Add</span>
-                        </a>
-                    </li>
-                </ul>
-            </li><!-- End User Nav -->
-
-            <li class="nav-item">
-                @if(str_contains(url()->current(), '/yn-admin/category'))
-                <a class="nav-link" href="{{ url('yn-admin/category') }}">
-                @else
-                <a class="nav-link collapsed" href="{{ url('yn-admin/category') }}">
-                @endif
-                    <i class="bi bi-list-columns-reverse"></i>
-                    <span>Category</span>
-                </a>
-            </li><!-- End Category Nav -->
-
-            <li class="nav-item">
-                @if(str_contains(url()->current(), '/yn-admin/tags'))
-                <a class="nav-link" href="{{ url('yn-admin/tags') }}">
-                @else
-                <a class="nav-link collapsed" href="{{ url('yn-admin/tags') }}">
-                @endif
-                    <i class="bi bi-tags-fill"></i>
-                    <span>Tag</span>
-                </a>
-            </li><!-- End Tag Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->

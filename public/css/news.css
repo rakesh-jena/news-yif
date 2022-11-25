@@ -245,15 +245,21 @@ p.basicblock__copy {
     align-items: center;
     justify-content: center;
     padding: 4px 10px;
-    color: #fff;
+    color: #fff !important;
     font-size: 0.685rem;
     font-weight: 700;
     letter-spacing: 0.125em;
     transition: .25s;
 }
+.yn__meta-category a {
+    color: #fff !important;
+}
+.yn__meta-category a {
+    color: #fff !important;
+}
 .yn__meta-category:hover {
-    color: #fff;
-    background: #000;
+    color: #fff !important;
+    background: #000 !important;
 }
 .ynps__article-header-title {
     margin-top: 1.25rem;

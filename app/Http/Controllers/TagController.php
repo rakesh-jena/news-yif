@@ -62,7 +62,7 @@ class TagController extends Controller
     public function show($slug)
     {
         $tag = Tag::where('slug', $slug)->first();
-        $articles = Article::select('id', 'tags', 'category', 'title', 'subtitle', 'created_at', 'title_image')->get();
+        $articles = Article::select('id', 'tags', 'category', 'title', 'subtitle', 'slug', 'created_at', 'title_image')->get();
         $a = [];
         foreach($articles as $article){
             $tags = unserialize($article->tags);

@@ -20,9 +20,9 @@
                         <label for="#subtitle" class="form-label">Subtitle</label>
                         <input type="text" class="form-control" id="subtitle" name="subtitle">
                     </div>                    
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6 th_input">
                         <label for="#formFile" class="form-label">Thumbnail Image</label>
-                        <input class="form-control" type="file" id="formFile" name="title_image">
+                        <input accept="image/*" class="form-control" type="file" id="formFile" name="title_image">
                     </div>
                     <div class="col-12 col-md-6">
                         <label for="#caption" class="form-label">Image Caption</label>

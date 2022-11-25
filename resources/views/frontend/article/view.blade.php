@@ -12,14 +12,16 @@
                 <div class="yn-page-single__article">
                     <div class="ynps__article-header">
                         <div class="ynps__article-header-meta">
-                            <div class="yn__meta-category">
-                                {{ $article->category }}
+                            <div class="meta-category yn__meta-category">
+                                <a href="{{url('category/'.$category->slug)}}">
+                                    {{ $category->category }}
+                                </a>
                             </div>
                         </div>
-                        <h1 class="ynps__article-header-title">                            
+                        <h1 class="ynps__article-header-title meta-title">                            
                             {{ $article->title }}                            
                         </h1>
-                        <div class="ynps__article-header-subtitle">
+                        <div class="ynps__article-header-subtitle meta-subtitle">
                             @if($article->subtitle != null)
                             <p>
                                 {{ $article->subtitle }}
@@ -27,7 +29,7 @@
                             @endif
                         </div>
                         <div class="ynps__article-header-meta d-flex">
-                            <div class="ynps__article-header-meta-author">
+                            <div class="ynps__article-header-meta-author meta-author">
                                 <a class="d-flex" href="#">
                                     <div class="ynps__author-avatar">
                                         <img class="rounded-circle" src="{{ URL::asset('images/author/') }}/{{ $author_meta->avatar }}" alt="thumbnail">
@@ -35,7 +37,7 @@
                                     <span>by <strong>{{ $author->name }}</strong></span>
                                 </a>
                             </div>
-                            <div class="ynps__article-header-meta-date">
+                            <div class="ynps__article-header-meta-date meta-date">
                                 <span>
                                     <?=date_format(date_create($article->created_at), "M j, Y")?>
                                 </span>
@@ -87,12 +89,14 @@
 
                             <!-- Article Content -->
                             <div class="col-md-11 col-12">
-                                <div class="ynps__article-content">
+                                <div class="ynps__article-content ibm-plex-sans">
                                     <div class="ynps__article-content-outer">
                                         <div class="ynps__article-content-data">
                                             <p class="introduction">
                                                 <strong>
+                                                    <em>
                                                     @if($article->introduction!=null){{ $article->introduction }}@endif
+                                                    </em>
                                                 </strong>
                                             </p>
                                             {!! $article->content !!}
@@ -107,7 +111,7 @@
                                                 <ul class="yn__tag-list">
                                                     @foreach($tags as $tag)
                                                     <li class="yn__tag-item">
-                                                        <a href="{{ url('#') }}">{{$tag}}</a>
+                                                        <a href="{{ url('tag/'.$tag['slug']) }}">{{$tag['tag']}}</a>
                                                     </li>
                                                     @endforeach
                                                 </ul>
@@ -144,7 +148,7 @@
                                             <div class="ynps__article-content-footer-author">
                                                 <div class="ynps__article-content-footer-author-inner">
                                                     <a class="ynps__article-content-footer-author-img" href="#">
-                                                        <img class="rounded-circle" src="{{ url::asset('images/author') }}/{{ $author_meta->avatar }}" alt="author">
+                                                        <img class="rounded-circle" src="{{ URL::asset('images/author') }}/{{ $author_meta->avatar }}" alt="author">
                                                     </a>
                                                     <div class="ynps__article-content-footer-author-info">
                                                         <span class="ynps__article-content-footer-author-position">

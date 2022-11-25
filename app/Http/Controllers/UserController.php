@@ -103,7 +103,37 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = User::where('id', $id)->first();
+        $user_meta = UserMeta::where('user_id', $id)->first();
+
+        $request = request()->all();
+
+        if(isset($_FILES['avatar'])){
+            $tmpFile = $_FILES['avatar']['tmp_name'];
+            $newFile = 'images/author/' . $_FILES['avatar']['name'];
+            $result = move_uploaded_file($tmpFile, $newFile);
+
+            $request['avatar'] = $_FILES['avatar']['name'];
+        } else if($user_meta->avatar != 'default.png'){
+            $request['avatar'] = $user_meta->avatar;
+        }
+
+        $meta = [
+            'user_id' => $user->id,
+            'avatar' => $request['avatar'],
+            'gender' => $request['gender'],
+            'about' => $request['about']
+        ];
+        UserMeta::create($meta);
+
+        return redirect('yn-admin/users')
+            ->with('success', 'User created successfully.');
     }
 
     /**

@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="meta-title">
                                             <h2>
-                                                <a href="#">
+                                                <a href="{{url('article/'.$article->id)}}/{{$article->slug}}">
                                                     {{ $article->title }}
                                                 </a>
                                             </h2>

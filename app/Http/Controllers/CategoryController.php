@@ -62,7 +62,7 @@ class CategoryController extends Controller
     public function show($slug)
     {
         $category = Category::where('slug', $slug)->first();
-        $articles = Article::select('id', 'tags', 'category', 'title', 'subtitle', 'created_at', 'title_image')->where('category', $category->id)->get();
+        $articles = Article::select('id', 'tags', 'category', 'title', 'subtitle', 'slug', 'created_at', 'title_image')->where('category', $category->id)->get();
         
         return view('frontend.category.view', compact('category', 'articles'));
     }

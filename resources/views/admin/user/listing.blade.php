@@ -38,7 +38,9 @@
                                 <td>
                                     {{ $user->email }}
                                 </td>
-                                <td> {{ $user->role }} </td>
+                                <td>
+                                    <span class="badge rounded-pill text-bg-info text-white">{{ $user->role }}</span>
+                                </td>
                                 <td>
                                     <?=date_format(date_create($user->created_at), "d M, Y")?>
                                 </td>

@@ -32,9 +32,11 @@ class AuthController extends Controller
             $request->session()->regenerate();
             if ( $user->hasRole('administrator') ) {
                 return redirect()->to('/yn-admin');
-            } else {
+            } else if($user->hasRole('subscriber')){
                 return redirect()->to('/');
-            }            
+            } else if($user->hasRole('author'))   {
+                return redirect()->to('/yn-author');
+            }         
         }
 
         return back()->withErrors([
