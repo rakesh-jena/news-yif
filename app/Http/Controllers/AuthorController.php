@@ -66,11 +66,27 @@ class AuthorController extends Controller
             'title_image' => 'required',
             'tags' => 'required',
             'category' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'wordcount' => 'required'
         ]);
+
+        $read_time = round($request['wordcount']/200);
+        if($read_time < 1) {
+            $read_time = 1;
+        }
         
         $slug = Str::of($request['title'])->slug('-');
         $article = Article::where('id', $id);
+
+        if($_FILES['title_image']['name'] != ''){
+            $tmpFile = $_FILES['title_image']['tmp_name'];
+            $newFile = 'images/article/' . $_FILES['title_image']['name'];
+            $result = move_uploaded_file($tmpFile, $newFile);
+            $title_image = $_FILES['title_image']['name'];
+        } else {
+            $title_image = $article->first()->title_image;
+        }
+
         $article->update([
             'title' => $request['title'],
             'content' => $request['content'],
@@ -78,9 +94,10 @@ class AuthorController extends Controller
             'category' => $request['category'],
             'slug' => $slug,
             'subtitle' => $request['subtitle'],
-            'title_image' => $request['title_image'],
+            'title_image' => $title_image,
             'image_caption' => $request['image_caption'],
             'introduction' => $request['introduction'],
+            'read_time' => $read_time
         ]);
 
         return redirect('yn-author/articles')
@@ -112,8 +129,14 @@ class AuthorController extends Controller
             'title_image' => 'required',
             'tags' => 'required',
             'category' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'wordcount' => 'required'
         ]);
+
+        $read_time = round($request['wordcount']/200);
+        if($read_time < 1) {
+            $read_time = 1;
+        }
 
         $tmpFile = $_FILES['title_image']['tmp_name'];
         $newFile = 'images/article/' . $_FILES['title_image']['name'];
@@ -125,6 +148,7 @@ class AuthorController extends Controller
         $request['tags'] = $tags;
         $request['title_image'] = $_FILES['title_image']['name'];
         $request['slug'] = $slug;
+        $request['read_time'] = $read_time;
 
         Article::create($request);
 

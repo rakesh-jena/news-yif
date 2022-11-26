@@ -153,6 +153,14 @@
                             </a>
                             <div class="img__overlay">
                                 <span class="yn__read-more">Read More</span>
+                                <div class="yn__read-time">
+                                    <div class="meta-reading-time">
+                                        <span>
+                                            <i class="bi bi-clock"></i>
+                                        </span>
+                                        3 minute read
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="single-post__body">
@@ -347,6 +355,14 @@
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
+                                    <div class="yn__read-time">
+                                        <div class="meta-reading-time">
+                                            <span>
+                                                <i class="bi bi-clock"></i>
+                                            </span>
+                                            3 minute read
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="meta-category">
@@ -467,6 +483,14 @@
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
+                                    <div class="yn__read-time">
+                                        <div class="meta-reading-time">
+                                            <span>
+                                                <i class="bi bi-clock"></i>
+                                            </span>
+                                            3 minute read
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="post__title meta-title">
@@ -493,6 +517,14 @@
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
+                                    <div class="yn__read-time">
+                                        <div class="meta-reading-time">
+                                            <span>
+                                                <i class="bi bi-clock"></i>
+                                            </span>
+                                            3 minute read
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="post__title meta-title">

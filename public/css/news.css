@@ -805,16 +805,28 @@ article:not(:first-child) {
     opacity: 0;
     transition: opacity .2s, visibility .2s;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     font-size: 0.85em;
     letter-spacing: 0.125em;
-    font-weight: 500;
     align-items: center;
     text-transform: uppercase;
     font-family: 'Work Sans', sans-serif;
     cursor: pointer;
+    padding: 20px;
+}
+.yn__read-more {
+    font-weight: 700;
+    margin-top: auto;
 }
 .img__wrap:hover .img__overlay {
     visibility: visible;
     opacity: 1;
+}
+.yn__read-time {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    align-items: center;
+    text-transform: capitalize;
 }

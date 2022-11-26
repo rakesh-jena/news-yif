@@ -10,7 +10,16 @@
                 <div class="d-flex align-items-center">
                     <h5 class="card-title">Add Article</h5>
                 </div>
-                <form class="row g-3" enctype="multipart/form-data" method="POST" action="{{url('yn-admin/articles')}}">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="row g-3" id="article" enctype="multipart/form-data" method="POST" action="{{url('yn-admin/articles')}}">
                     @csrf
                     <div class="col-12 col-md-6">
                         <label for="#title" class="form-label">Title</label>
@@ -54,6 +63,7 @@
                     </div>
                     <input type="hidden" name="author_id" value="{{Auth::id()}}">
                     <input type="hidden" name="status" value="approved">
+                    <input type="hidden" name="wordcount" value="0">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Publish</button>
                     </div>

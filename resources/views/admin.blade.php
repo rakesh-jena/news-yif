@@ -1,5 +1,4 @@
-<?php $activePage = basename($_SERVER['PHP_SELF']);
-?>
+<?php $user_meta = App\Models\UserMeta::where('user_id',Auth::user()->id)->first();?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -55,8 +54,8 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="{{ URL::asset('images/author/default.png') }}" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+                        <img src="{{ URL::asset('images/author/'.$user_meta->avatar) }}" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="">

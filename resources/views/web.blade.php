@@ -1,3 +1,7 @@
+<?php 
+if(Auth::check()){
+    $user_meta = App\Models\UserMeta::where('user_id',Auth::user()->id)->first();
+}?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -72,7 +76,7 @@
                         @if (Auth::check())
                         <li class="nav-item profile">
                             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#">
-                                <img src="{{ URL::asset('images/author/default.png') }}" alt="Profile" class="rounded-circle">
+                                <img src="{{ URL::asset('images/author/'.$user_meta->avatar) }}" alt="Profile" class="rounded-circle">
                                 <span class="d-none d-md-block ps-2">{{ Auth::user()->name }}</span>
                             </a><!-- End Profile Iamge Icon -->
                         </li>

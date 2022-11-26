@@ -19,7 +19,16 @@
                     </form>
                     @endif
                 </div>
-                <form class="row g-3" enctype="multipart/form-data" method="PUT" action="{{url("yn-author/articles/{$article->id}")}}">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="row g-3" id="article" enctype="multipart/form-data" method="PUT" action="{{url("yn-author/articles/{$article->id}")}}">
                     @csrf
                     <div class="col-12 col-md-6">
                         <label for="#title" class="form-label">Title</label>
@@ -71,7 +80,8 @@
                         <label for="#introduction" class="form-label">Article</label>
                         <textarea id="introduction" name="content" class="tinymce-editor form-control">{{$article->content}}</textarea>
                     </div>
-                    <input type="hidden" name="author_id" value="{{$article->author_id}}">
+                    <input type="hidden" name="author_id" value="{{$article->author_id}}">                    
+                    <input type="hidden" name="wordcount" value="0">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>

@@ -19,7 +19,16 @@
                     </form>
                     @endif
                 </div>
-                <form class="row g-3" enctype="multipart/form-data" method="POST" action="{{url("yn-admin/articles/{$article->id}")}}">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="row g-3" id="article" enctype="multipart/form-data" method="POST" action="{{url("yn-admin/articles/{$article->id}")}}">
                     @csrf
                     @method('PUT')
                     <div class="col-12 col-md-6">
@@ -32,7 +41,7 @@
                     </div>                    
                     <div class="col-12 col-md-6 th_input">
                         <label for="#formFile" class="form-label">Thumbnail Image</label>
-                        <input class="form-control" type="file" id="formFile" name="title_image" accept="image/*">
+                        <input class="form-control" type="file" id="formFile" name="title_image" accept="image/*" value="{{$article->title_image}}">
                         <img class="w-100" src="{{url('images/article/'.$article->title_image)}}" alt="">
                     </div>
                     <div class="col-12 col-md-6">
@@ -73,6 +82,7 @@
                         <textarea id="introduction" name="content" class="tinymce-editor form-control">{{$article->content}}</textarea>
                     </div>
                     <input type="hidden" name="author_id" value="{{$article->author_id}}">
+                    <input type="hidden" name="wordcount" value="0">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>

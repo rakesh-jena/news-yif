@@ -7,7 +7,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Middleware\AuthorAuthenticated​;
+use App\Http\Controllers\DashboardController​;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +26,8 @@ use App\Http\Middleware\AuthorAuthenticated​;
  * */
 Route::middleware(['auth', 'admin'])->group(function () {
     /**Dashboard */
-    Route::get('yn-admin', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('yn-admin', [DashboardController​::class, 'index']);
+    Route::put('yn-admin', [DashboardController​::class, 'update_profile']);
     Route::put('approved', [ArticleController::class, 'update_status_approved']);
     Route::resource('yn-admin/users', UserController::class);
     Route::resource('yn-admin/tags', TagController::class);

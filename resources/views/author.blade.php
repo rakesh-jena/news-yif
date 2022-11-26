@@ -1,5 +1,4 @@
-<?php $activePage = basename($_SERVER['PHP_SELF']);
-?>
+<?php $user_meta = App\Models\UserMeta::where('user_id',Auth::user()->id)->first();?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
