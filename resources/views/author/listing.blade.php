@@ -20,6 +20,7 @@
                             <th>
                                 Author
                             </th>
+                            <th>Views</th>
                             <th>Category</th>
                             <th>Status</th>
                             <th>Created</th>
@@ -37,6 +38,7 @@
                                 <td>
                                     {{ $author->name }}
                                 </td>
+                                <td>{{$article->views}}</td>
                                 <td>
                                     {{ $category->category }}
                                 </td>

@@ -41,7 +41,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
  * AUTHOR DASHBOARD URLs
  * ------------------------------------------------------------------------
  * */
-Route::middleware([AuthorAuthenticated​::class])->group(function () {
+Route::middleware(['auth', 'author'])->group(function () {
     Route::get('yn-author', [AuthorController::class, 'index']);
     Route::put('yn-author', [AuthorController::class, 'update_profile']);
     Route::get('yn-author/articles', [AuthorController::class, 'articles']);
