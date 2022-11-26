@@ -30,13 +30,12 @@
                     <tbody>
                         <?php $count = 1;?>
                         @foreach ($articles as $article)
-                        <?php $author = App\Models\User::select('name')->where('id', $article->author_id)->first();?>
                         <?php $category = App\Models\Category::where('id', $article->category)->first();?>
                             <tr>
                                 <th><?=$count?></th>
                                 <td> {{ $article->title }} </td>
                                 <td>
-                                    {{ $author->name }}
+                                    {{ Auth::user()->name }}
                                 </td>
                                 <td>{{$article->views}}</td>
                                 <td>

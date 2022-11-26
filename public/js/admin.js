@@ -330,6 +330,14 @@
             renderChoiceLimit: 5
         });
     }
+    if(select('#author_multiSelect')) {
+        var multipleCancelButton = new Choices('#author_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 10,
+            searchResultLimit: 5,
+            renderChoiceLimit: 5
+        });
+    }
     /**
      * File input event
      */

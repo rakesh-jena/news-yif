@@ -29,13 +29,23 @@
                             @endif
                         </div>
                         <div class="ynps__article-header-meta d-flex">
-                            <div class="ynps__article-header-meta-author meta-author">
-                                <a class="d-flex" href="#">
+                            <div class="ynps__article-header-meta-author meta-author d-flex align-items-center">
+                                <?php $i = 0;?>
+                                @foreach($authors as $author)
+                                <?php $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();?>
+                                <div class="author d-flex align-items-center">                                    
+                                    @if($i>0)
+                                    <span class="ps-1 pe-1">and</span>
+                                    @endif
                                     <div class="ynps__author-avatar">
-                                        <img class="rounded-circle" src="{{ URL::asset('images/author/') }}/{{ $author_meta->avatar }}" alt="thumbnail">
-                                    </div>
-                                    <span>by <strong>{{ $author->name }}</strong></span>
-                                </a>
+                                        <a href="#">
+                                            <img class="rounded-circle" src="{{ URL::asset('images/author/') }}/{{ $author_meta->avatar }}" alt="thumbnail">
+                                        </a>
+                                    </div>                                    
+                                    <span>by <strong><a href="#">{{ $author->name }}</a></strong></span>
+                                </div>
+                                <?php $i++;?>
+                                @endforeach
                             </div>
                             <div class="ynps__article-header-meta-date meta-date">
                                 <span>
@@ -146,6 +156,8 @@
                                                 </div>
                                             </div>
                                             <div class="ynps__article-content-footer-author">
+                                                @foreach($authors as $author)
+                                                <?php $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();?>
                                                 <div class="ynps__article-content-footer-author-inner">
                                                     <a class="ynps__article-content-footer-author-img" href="#">
                                                         <img class="rounded-circle" src="{{ URL::asset('images/author') }}/{{ $author_meta->avatar }}" alt="author">
@@ -167,6 +179,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

@@ -69,7 +69,6 @@ class TagController extends Controller
             if(in_array($tag->id, $tags)){                
                 $a[] = $article;
             }
-
         }
         //$articles = Article::where('tags', unserialize())
         return view('frontend.tag.view', compact('tag', 'a'));

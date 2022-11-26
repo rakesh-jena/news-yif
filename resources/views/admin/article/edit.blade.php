@@ -48,6 +48,20 @@
                         <label for="#caption" class="form-label">Image Caption</label>
                         <input type="text" class="form-control" id="caption" name="image_caption" value="{{$article->image_caption}}">
                     </div>
+                    <div class="col-12">
+                        <label for="#author_multiSelect" class="form-label">Author(s)</label>
+                        <select class="form-select" id="author_multiSelect" name="author_id[]" required="" multiple>
+                            @foreach($authors as $author)
+                            @if($author_ids != null && in_array($author->id, $author_ids))
+                            <option value="{{$author->id}}" selected>
+                                {{$author->name}}
+                            </option>
+                            @else
+                            <option value="{{$author->id}}">{{$author->name}}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="col-12 col-md-6">
                         <label for="#category" class="form-label">Category</label>
                         <select class="form-select" id="category" name="category" required="">
@@ -81,7 +95,6 @@
                         <label for="#introduction" class="form-label">Article</label>
                         <textarea id="introduction" name="content" class="tinymce-editor form-control">{{$article->content}}</textarea>
                     </div>
-                    <input type="hidden" name="author_id" value="{{$article->author_id}}">
                     <input type="hidden" name="wordcount" value="0">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>

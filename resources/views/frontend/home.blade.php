@@ -72,7 +72,7 @@
                                 <div class="latest-post__inner">
                                     <div class="latest-post__data d-flex">
                                         <div class="latest-post__thumbnail">
-                                            <img width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
+                                            <img loading="lazy"width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
                                         </div>
                                         <div class="latest-post__content">
                                             <div class="latest-post__meta">
@@ -96,7 +96,7 @@
                                 <div class="latest-post__inner">
                                     <div class="latest-post__data d-flex">
                                         <div class="latest-post__thumbnail">
-                                            <img width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
+                                            <img loading="lazy"width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
                                         </div>
                                         <div class="latest-post__content">
                                             <div class="latest-post__meta">
@@ -120,7 +120,7 @@
                                 <div class="latest-post__inner">
                                     <div class="latest-post__data d-flex">
                                         <div class="latest-post__thumbnail">
-                                            <img width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
+                                            <img loading="lazy"width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
                                         </div>
                                         <div class="latest-post__content">
                                             <div class="latest-post__meta">
@@ -149,7 +149,7 @@
                     <div class="yn-sf__column single-news">
                         <div class="single-post__thumbnail mb-4 img__wrap">
                             <a href="#">
-                                <img class="w-100" src="{{URL::asset('images/others/lanhee-chen-2-800x500.jpg')}}" alt="thumbnail">
+                                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/lanhee-chen-2-800x500.jpg')}}" alt="thumbnail">
                             </a>
                             <div class="img__overlay">
                                 <span class="yn__read-more">Read More</span>
@@ -204,7 +204,7 @@
                                     <div class="yn-entry__inner">
                                         <a href="https://youngindiafdn.medium.com/do-the-youth-of-the-country-actually-value-their-vote-6c2e01db0093" target="_blank">
                                             <div class="yn-entry__image">
-                                                <img class="w-100" src="{{URL::asset('images/others/Red-Hill-fuel-leak-v9-380x280.jpeg')}}" alt="News">
+                                                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/Red-Hill-fuel-leak-v9-380x280.jpeg')}}" alt="News">
                                             </div>
                                         </a>
                                     </div>
@@ -240,7 +240,7 @@
                                         </div>
                                     </div>
                                     <div class="watching-post__thumbnail">
-                                        <img width="80" height="80" src="{{URL::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
+                                        <img loading="lazy"width="80" height="80" src="{{URL::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
                                     </div>
                                 </div>
                             </article>
@@ -259,7 +259,7 @@
                                         </div>
                                     </div>
                                     <div class="watching-post__thumbnail">
-                                        <img width="80" height="80" src="{{URL::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
+                                        <img loading="lazy"width="80" height="80" src="{{URL::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
                                     </div>
                                 </div>
                             </article>
@@ -280,7 +280,7 @@
         </div>
         <div class="yn-featured__outer">
             <div class="yn-featured__banner">
-                <img class="w-100" src="{{URL::asset('images/others/52034842342_c968c57fa4_b-3-768x432.jpg')}}" alt="banner">
+                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/52034842342_c968c57fa4_b-3-768x432.jpg')}}" alt="banner">
             </div>
             <div class="yn-featured__content">
                 <div class="container">
@@ -301,7 +301,7 @@
                         <div class="ynps__article-header-meta-author">
                             <a class="d-flex" href="#">
                                 <div class="ynps__author-avatar">
-                                    <img class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
+                                    <img loading="lazy"class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
                                 </div>
                                 <span>by <strong>Théo Lemonnier</strong></span>
                             </a>
@@ -310,7 +310,7 @@
                         <div class="ynps__article-header-meta-author">
                             <a class="d-flex" href="#">
                                 <div class="ynps__author-avatar">
-                                    <img class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
+                                    <img loading="lazy"class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
                                 </div>
                                 <span>by <strong>Théo Lemonnier</strong></span>
                             </a>
@@ -319,7 +319,7 @@
                         <div class="ynps__article-header-meta-author">
                             <a class="d-flex" href="#">
                                 <div class="ynps__author-avatar">
-                                    <img class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
+                                    <img loading="lazy"class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
                                 </div>
                                 <span>by <strong>Théo Lemonnier</strong></span>
                             </a>
@@ -351,7 +351,7 @@
                         <div class="article__outer">
                             <div class="article__img mb-3 img__wrap">
                                 <a href="#">
-                                    <img class="w-100" src="{{URL::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
+                                    <img loading="lazy"class="w-100" src="{{URL::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
@@ -400,7 +400,7 @@
                         <div class="col-12 col-md-4 scoop-item">
                             <div class="d-flex">
                                 <div class="scoop_image me-2">
-                                    <img width="80" class="rounded-circle" src="{{URL::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
+                                    <img loading="lazy"width="80" class="rounded-circle" src="{{URL::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
                                 </div>
                                 <div class="scoop_data">
                                     <div class="yn_article-title meta-title">
@@ -428,10 +428,10 @@
     <section class="yn-section fullscreen-news">
         <div class="yn-overlay__background-wrapper">
             <div class="yn-overlay__background active">
-                <img class="w-100" src="{{URL::asset('images/others/Yappie-Background-1160x659.png')}}" alt="">
+                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/Yappie-Background-1160x659.png')}}" alt="">
             </div>
             <div class="yn-overlay__background">
-                <img class="w-100" src="{{URL::asset('images/others/1_ytyuJLaRrQ_wOEjNSvPrJQ-1160x776.jpeg')}}" alt="">
+                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/1_ytyuJLaRrQ_wOEjNSvPrJQ-1160x776.jpeg')}}" alt="">
             </div>
         </div>
         <div class="yn-layout-large__inner">
@@ -479,7 +479,7 @@
                         <div class="article__outer">
                             <div class="article__img mb-2 img__wrap">
                                 <a href="#">
-                                    <img class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                                    <img loading="lazy"class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
@@ -513,7 +513,7 @@
                         <div class="article__outer">
                             <div class="article__img mb-2 img__wrap">
                                 <a href="#">
-                                    <img class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                                    <img loading="lazy"class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
@@ -558,7 +558,7 @@
                     <article class="yn__infinite-item">
                         <div class="item-outer d-flex">
                             <div class="item__image">
-                                <img src="{{URL::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
+                                <img loading="lazy"src="{{URL::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
                             </div>
                             <div class="ms-4 item-content">
                                 <div class="meta-category">

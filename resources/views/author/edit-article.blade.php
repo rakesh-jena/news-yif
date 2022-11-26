@@ -79,8 +79,7 @@
                     <div class="col-12">
                         <label for="#introduction" class="form-label">Article</label>
                         <textarea id="introduction" name="content" class="tinymce-editor form-control">{{$article->content}}</textarea>
-                    </div>
-                    <input type="hidden" name="author_id" value="{{$article->author_id}}">                    
+                    </div>                   
                     <input type="hidden" name="wordcount" value="0">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Update</button>

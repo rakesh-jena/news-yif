@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\UserMeta;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -64,6 +65,8 @@ class ArticleController extends Controller
         $request = request()->all();
         $slug = Str::of($request['title'])->slug('-');
         $tags = serialize($request['tags']);
+        $authors = serialize($request['author_id']);
+        $request['author_id'] = $authors;
         $request['tags'] = $tags;
         $request['title_image'] = $_FILES['title_image']['name'];
         $request['slug'] = $slug;
@@ -85,8 +88,11 @@ class ArticleController extends Controller
     {
         $article = Article::where('id', $id)->first();
         $tag_ids = unserialize($article->tags);
-        $author = User::where('id', $article->author_id)->first();
-        $author_meta = UserMeta::where('user_id', $article->author_id)->first();
+        $author_ids = unserialize($article->author_id);
+        $authors = [];
+        foreach($author_ids as $a_id){
+            $authors[] = User::where('id', $a_id)->first();
+        }
         $category = Category::where('id', $article->category)->first();
         $tags = [];
         foreach($tag_ids as $id) {
@@ -94,7 +100,7 @@ class ArticleController extends Controller
             $tags[] = $tag;
         }
 
-        return view('frontend.article.view', compact('article', 'tags', 'author', 'category', 'author_meta'));
+        return view('frontend.article.view', compact('article', 'tags', 'authors', 'category'));
     }
 
     /**
@@ -106,10 +112,12 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $tags = Tag::all();
+        $authors = User::where('role', 'author')->orWhere('role', 'administrator')->get();
         $categories = Category::all();
         $article = Article::where('id', $id)->first();
         $tag_ids = unserialize($article->tags);
-        return view('admin.article.edit', compact('tags', 'tag_ids', 'categories', 'article'));
+        $author_ids = unserialize($article->author_id);
+        return view('admin.article.edit', compact('tags', 'tag_ids', 'categories', 'article', 'authors', 'author_ids'));
     }
 
     /**
@@ -161,7 +169,8 @@ class ArticleController extends Controller
             'title_image' => $title_image,
             'image_caption' => $request['image_caption'],
             'introduction' => $request['introduction'],
-            'read_time' => $read_time
+            'read_time' => $read_time,
+            'author_id' => serialize($request['author_id'])
         ]);
 
         return redirect('yn-admin/articles')

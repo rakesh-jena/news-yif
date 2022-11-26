@@ -56,7 +56,14 @@ class AuthorController extends Controller
     }
 
     public function articles() {
-        $articles = Article::where('author_id', Auth::id())->get();
+        $a = Article::select('id', 'category', 'title', 'slug', 'created_at', 'views', 'author_id')->get();
+        $articles = [];
+        foreach($a as $article){
+            $authors = unserialize($article->author_id);
+            if(in_array(Auth::user()->id, $authors)){                
+                $articles[] = $article;
+            }
+        }
         return view('author.listing', compact('articles'));
     }
 
@@ -145,6 +152,8 @@ class AuthorController extends Controller
         $request = request()->all();
         $slug = Str::of($request['title'])->slug('-');
         $tags = serialize($request['tags']);
+        $authors = serialize($request['author_id']);
+        $request['author_id'] = $authors;
         $request['tags'] = $tags;
         $request['title_image'] = $_FILES['title_image']['name'];
         $request['slug'] = $slug;

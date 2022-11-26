@@ -30,7 +30,7 @@
                     <tbody>
                         <?php $count = 1;?>
                         @foreach ($articles as $article)
-                        <?php $author = App\Models\User::select('name')->where('id', $article->author_id)->first();?>
+                        <?php $author = App\Models\User::select('name')->where('id', unserialize($article->author_id)[0])->first();?>
                         <?php $category = App\Models\Category::where('id', $article->category)->first();?>
                             <tr>
                                 <th><?=$count?></th>

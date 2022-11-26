@@ -61,7 +61,7 @@
                         <label for="#introduction" class="form-label">Article</label>
                         <textarea id="introduction" name="content" class="tinymce-editor form-control"></textarea>
                     </div>
-                    <input type="hidden" name="author_id" value="{{Auth::id()}}">
+                    <input type="hidden" name="author_id[]" value="{{Auth::id()}}">
                     <input type="hidden" name="status" value="approved">
                     <input type="hidden" name="wordcount" value="0">
                     <div class="text-center">

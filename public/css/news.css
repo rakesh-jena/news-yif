@@ -416,14 +416,16 @@ p.basicblock__copy {
 }
 .ynps__article-content-footer-author {
     margin-top: 3rem;
-    border-top: 1px solid #e9ecef;
-    border-bottom: 1px solid #e9ecef;
 }
 .ynps__article-content-footer-author-inner {    
     display: flex;
     align-items: center;
     flex-direction: row;
-    padding: 2rem 0;
+    padding: 2rem 0;    
+    border-top: 1px solid #e9ecef;
+}
+.ynps__article-content-footer-author-inner:last-child {
+    border-bottom: 1px solid #e9ecef;
 }
 .ynps__article-content-footer-author-info {
     margin-left: 30px;
