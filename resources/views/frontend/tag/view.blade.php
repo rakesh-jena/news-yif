@@ -22,7 +22,7 @@
                             @foreach($a as $article)
                             <article class="yn-posts__item">
                                 <div class="yn-posts__item-outer row">
-                                    <div class="yn-posts__item-image col-12 col-md-4">
+                                    <div class="yn-posts__item-image col-12 col-md-4 mb-4 mb-md-0">
                                         <img height="180" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
                                     </div>
                                     <div class="yn-posts__item-content col-12 col-md-8">
