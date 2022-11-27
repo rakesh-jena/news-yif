@@ -45,9 +45,7 @@
                                     <?=date_format(date_create($user->created_at), "d M, Y")?>
                                 </td>
                                 <td>
-                                    <a href="{{ url('yn-admin/users') }}/{{ $user->id }}" class="btn btn-primary rounded-pill btn-sm">View</a>
-                                    <a href="{{ url('yn-admin/users') }}/{{ $user->id }}/edit"
-                                        class="btn btn-primary rounded-pill btn-sm">Edit</a>
+                                    <a href="{{ url('yn-admin') }}" class="btn btn-danger rounded-pill btn-sm">Delete</a>                                    
                                 </td>
                             </tr>
                         <?php $count++;?>

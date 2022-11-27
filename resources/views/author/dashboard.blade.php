@@ -90,7 +90,7 @@
                                         <div class="col-md-8 col-lg-9">
                                             <img src="{{URL::asset('images/author/'.$user_meta->avatar)}}" alt="Profile">
                                             <div class="pt-2">
-                                                <input class="form-control" type="file" id="formFile" name="avatar" accept="image/*">
+                                                <input class="form-control" type="file" id="formFile" name="avatar" accept="image/*" value="{{$user_meta->avatar}}">
                                             </div>
                                         </div>
                                     </div>

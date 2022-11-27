@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\UserMeta;
 use App\Models\Tag;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class AuthorController extends Controller
 {
@@ -28,13 +29,13 @@ class AuthorController extends Controller
         $user = User::where('id', Auth::user()->id)->first();
         $user_meta = UserMeta::where('user_id', $user->id)->first();
         //var_dump($request['avatar']);die;
-        if($request['avatar'] != $user_meta->avatar){
+        if($_FILES['avatar']['name'] != ''){
             $tmpFile = $_FILES['avatar']['tmp_name'];
             $newFile = 'images/author/' . $_FILES['avatar']['name'];
             $result = move_uploaded_file($tmpFile, $newFile);
 
             $request['avatar'] = $_FILES['avatar']['name'];
-        } else if($user_meta->avatar != 'default.png'){
+        } else {
             $request['avatar'] = $user_meta->avatar;
         }
         
@@ -50,6 +51,7 @@ class AuthorController extends Controller
             'instagram' => $request['instagram'],
             'twitter' => $request['twitter'],
             'avatar' => $request['avatar'],
+            'slug' => Str::of($request['name'])->slug('-')
         ]);
 
         return redirect('yn-author')->with('success', 'Profile updated successfully');
@@ -163,5 +165,9 @@ class AuthorController extends Controller
 
         return redirect('yn-author/articles')
             ->with('success', 'Article created successfully.');
+    }
+
+    public function show($slug) {
+
     }
 }

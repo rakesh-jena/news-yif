@@ -39,6 +39,22 @@
                         <label for="#formFile" class="form-label">Avatar</label>
                         <input class="form-control" type="file" id="formFile" name="avatar">
                     </div>
+                    <div class="col-12 col-md-6">
+                        <label for="facebook" class="form-label">Facebook</label>
+                        <input type="text" class="form-control" id="facebook" name="facebook">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="twitter" class="form-label">Twitter</label>
+                        <input type="text" class="form-control" id="twitter" name="twitter">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="instagram" class="form-label">Instagram</label>
+                        <input type="text" class="form-control" id="instagram" name="instagram">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="linkedin" class="form-label">Linkedin</label>
+                        <input type="text" class="form-control" id="linkedin" name="linkedin">
+                    </div>
                     <input type="hidden" name="role" value="author">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>

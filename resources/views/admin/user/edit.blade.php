@@ -37,6 +37,22 @@
                         <input class="form-control" type="file" id="formFile" name="avatar">
                         <img class="w-100" src="{{url('images/author/'.$user_meta->avatar)}}" alt="">
                     </div>
+                    <div class="col-12 col-md-6">
+                        <label for="facebook" class="form-label">Facebook</label>
+                        <input type="text" class="form-control" id="facebook" name="facebook" value="{{$user_meta->facebook}}">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="twitter" class="form-label">Twitter</label>
+                        <input type="text" class="form-control" id="twitter" name="twitter" value="{{$user_meta->twitter}}">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="instagram" class="form-label">Instagram</label>
+                        <input type="text" class="form-control" id="instagram" name="instagram" value="{{$user_meta->instagram}}">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="linkedin" class="form-label">Linkedin</label>
+                        <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{$user_meta->linkedin}}">
+                    </div>
                     <input type="hidden" name="role" value="{{$user->role}}">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>

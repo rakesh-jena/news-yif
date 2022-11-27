@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-9">        
-                <div class="yn-page__header ">
+                <div class="yn-page__header mb-4">
                     <span class="yn-page__subtitle">Browsing Category</span>
                     <h1 class="yn-page__title">{{$tag->tag}}</h1>
                     <div class="yn-page__archive-count">

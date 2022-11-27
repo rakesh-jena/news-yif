@@ -1,5 +1,5 @@
 @extends('web')
-@section('title', $category->category.' | YIF')
+@section('title', $user->name.' | YIF')
 @section('meta_keywords', 'YIF')
 @section('meta_description', 'News on Indian Youth and Politics')
 
@@ -10,16 +10,31 @@
         <div class="row">
             <div class="col-12 col-md-9">        
                 <div class="yn-page__header mb-4">
-                    <span class="yn-page__subtitle">Browsing Category</span>
-                    <h1 class="yn-page__title">{{$category->category}}</h1>
-                    <div class="yn-page__archive-count">
-                        <?=count($articles)?> posts
+                    <div class="ynps__article-content-footer-author-inner">
+                        <a class="ynps__article-content-footer-author-img" href="#">
+                            <img class="rounded-circle" src="{{ URL::asset('images/author') }}/{{ $user_meta->avatar }}" alt="author">
+                        </a>
+                        <div class="ynps__article-content-footer-author-info">
+                            <div class="ynps__article-content-footer-author-name">
+                                <h1 class="yn-page__title">{{$user->name}}</h1>
+                                <div class="ynps__article-content-footer-author-social"></div>
+                            </div>
+                            <div class="yn-page__archive-count">
+                                <?=count($articles)?> posts
+                            </div>
+                            <div class="ynps__article-content-footer-author-description">
+                                <p>
+                                    {{$user_meta->about}}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="yn-posts__area">
                     <div class="yn-posts__area-outer">
                         <div class="yn-posts__area-main">
                             @foreach($articles as $article)
+                            <?php $category = App\Models\Category::where('id', $article->category)->first();?>
                             <article class="yn-posts__item">
                                 <div class="yn-posts__item-outer row">
                                     <div class="yn-posts__item-image col-12 col-md-4">

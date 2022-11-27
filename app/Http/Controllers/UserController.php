@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserMeta;
+use App\Models\Article;
 use Auth;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -48,7 +50,7 @@ class UserController extends Controller
 
         $request = request()->all();
 
-        if(isset($_FILES['avatar'])){
+        if($_FILES['avatar']){
             $tmpFile = $_FILES['avatar']['tmp_name'];
             $newFile = 'images/author/' . $_FILES['avatar']['name'];
             $result = move_uploaded_file($tmpFile, $newFile);
@@ -62,7 +64,12 @@ class UserController extends Controller
             'user_id' => $user->id,
             'avatar' => $request['avatar'],
             'gender' => $request['gender'],
-            'about' => $request['about']
+            'about' => $request['about'],
+            'facebook' => $request['facebook'],
+            'linkedin' => $request['linkedin'],
+            'instagram' => $request['instagram'],
+            'twitter' => $request['twitter'],
+            'slug' => Str::of($request['name'])->slug('-')
         ];
         UserMeta::create($meta);
 
@@ -76,10 +83,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $user = User::where('id', $id)->first();
-        return view('admin.user.view', compact('user'));
+        $user_meta = UserMeta::where('slug', $slug)->first();
+        $user = User::where('id', $user_meta->user_id)->first();
+        $a = Article::select('id', 'tags', 'category', 'title', 'author_id', 'subtitle', 'slug', 'created_at', 'title_image')->get();
+        $articles = [];
+        foreach($a as $article){
+            $ids = unserialize($article->author_id);
+            if(in_array($user->id, $ids)){                
+                $articles[] = $article;
+            }
+        }
+
+        return view('frontend.author.view', compact('user', 'articles', 'user_meta'));
     }
 
     /**
@@ -109,29 +126,38 @@ class UserController extends Controller
             'email' => 'required'
         ]);
 
-        $user = User::where('id', $id)->first();
+        $user = User::where('id', $id);
         $user_meta = UserMeta::where('user_id', $id)->first();
 
         $request = request()->all();
 
-        if(isset($_FILES['avatar'])){
+        if($_FILES['avatar']['name'] != ''){
             $tmpFile = $_FILES['avatar']['tmp_name'];
             $newFile = 'images/author/' . $_FILES['avatar']['name'];
             $result = move_uploaded_file($tmpFile, $newFile);
 
             $request['avatar'] = $_FILES['avatar']['name'];
-        } else if($user_meta->avatar != 'default.png'){
+        } else {
             $request['avatar'] = $user_meta->avatar;
         }
 
         $meta = [
-            'user_id' => $user->id,
+            'user_id' => $id,
             'avatar' => $request['avatar'],
             'gender' => $request['gender'],
-            'about' => $request['about']
+            'about' => $request['about'],
+            'facebook' => $request['facebook'],
+            'linkedin' => $request['linkedin'],
+            'instagram' => $request['instagram'],
+            'twitter' => $request['twitter'],
+            'slug' => Str::of($request['name'])->slug('-')
         ];
-        $user_meta = UserMeta::where('user_id', $id);
-        $user_meta->update($meta);
+        $user->update([
+            'name' => $request['name'],
+            'email' => $request['email'],
+        ]);
+
+        UserMeta::where('user_id', $id)->update($meta);
 
         return redirect('yn-admin/users')
             ->with('success', 'User created successfully.');
@@ -151,6 +177,6 @@ class UserController extends Controller
     public function subscribers()
     {
         $users = User::where('role', 'subscriber')->get();
-        return view('admin.user.listing', compact('users'));
+        return view('admin.subscriber', compact('users'));
     }
 }

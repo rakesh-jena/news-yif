@@ -82,3 +82,4 @@ Route::get('/news', function(){
 Route::get('/article/{slug}/{id}', [ArticleController::class, 'show']);
 Route::get('/tag/{slug}', [TagController::class, 'show']);
 Route::get('/category/{slug}', [CategoryController::class, 'show']);
+Route::get('/author/{slug}', [UserController::class, 'show']);

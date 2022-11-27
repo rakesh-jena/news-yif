@@ -32,6 +32,7 @@
                     <tbody>
                         <?php $count = 1;?>
                         @foreach ($users as $user)
+                            <?php $user_meta = App\Models\UserMeta::where('user_id', $user->id)->first();?>
                             <tr>
                                 <th><?=$count?></th>
                                 <td> {{ $user->name }} </td>
@@ -45,7 +46,7 @@
                                     <?=date_format(date_create($user->created_at), "d M, Y")?>
                                 </td>
                                 <td>
-                                    <a href="{{ url('yn-admin/users') }}/{{ $user->id }}" class="btn btn-primary rounded-pill btn-sm">View</a>
+                                    <a href="{{ url('author') }}/{{ $user_meta->slug }}" class="btn btn-primary rounded-pill btn-sm" target="_blank">View</a>
                                     <a href="{{ url('yn-admin/users') }}/{{ $user->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
                                 </td>
