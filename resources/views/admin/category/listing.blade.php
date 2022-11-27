@@ -31,7 +31,7 @@
                     <h5 class="card-title">Categories</h5>
                 </div>
                 
-                <table class="table table-responsive">
+                <table class="table table-responsive align-middle">
                     <thead>
                         <tr>
                             <th>#</th>

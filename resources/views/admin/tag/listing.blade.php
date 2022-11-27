@@ -30,7 +30,7 @@
                 <div class="d-flex align-items-center">
                     <h5 class="card-title">Tags</h5>
                 </div>
-                <table class="table table-responsive">
+                <table class="table table-responsive align-middle">
                     <thead>
                         <tr>
                             <th>#</th>
