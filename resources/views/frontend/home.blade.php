@@ -475,7 +475,7 @@
             <div class="grid-of-3">
                 <div class="row">
                     <?php for($i = 0; $i<3; $i++) { ?>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <div class="article__outer">
                             <div class="article__img mb-2 img__wrap">
                                 <a href="#">
@@ -507,9 +507,9 @@
                 </div>
             </div>
             <div class="grid-of-5">
-                <div class="row row-cols-5">
+                <div class="row row-cols-md-5 row-cols-1">
                     <?php for($i = 0; $i<5; $i++) { ?>
-                    <div class="col">
+                    <div class="col mb-4 mb-md-0">
                         <div class="article__outer">
                             <div class="article__img mb-2 img__wrap">
                                 <a href="#">
@@ -556,11 +556,11 @@
                 <div class="scroll__inner">
                     <?php for($i = 0; $i<5; $i++) { ?>
                     <article class="yn__infinite-item">
-                        <div class="item-outer d-flex">
-                            <div class="item__image">
-                                <img loading="lazy"src="{{URL::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
+                        <div class="item-outer row">
+                            <div class="item__image col-12 col-md-4 mb-3 mb-md-0">
+                                <img class="w-100" loading="lazy"src="{{URL::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
                             </div>
-                            <div class="ms-4 item-content">
+                            <div class="item-content col-12 col-md-8">
                                 <div class="meta-category">
                                     politics
                                 </div>

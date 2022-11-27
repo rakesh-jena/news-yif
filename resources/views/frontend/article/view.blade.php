@@ -38,11 +38,11 @@
                                     <span class="ps-1 pe-1">and</span>
                                     @endif
                                     <div class="ynps__author-avatar">
-                                        <a href="#">
+                                        <a href="{{url('author/'.$author_meta->slug)}}">
                                             <img class="rounded-circle" src="{{ URL::asset('images/author/') }}/{{ $author_meta->avatar }}" alt="thumbnail">
                                         </a>
                                     </div>                                    
-                                    <span>by <strong><a href="#">{{ $author->name }}</a></strong></span>
+                                    <span>by <strong><a href="{{url('author/'.$author_meta->slug)}}">{{ $author->name }}</a></strong></span>
                                 </div>
                                 <?php $i++;?>
                                 @endforeach
