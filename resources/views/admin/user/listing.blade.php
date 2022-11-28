@@ -33,6 +33,7 @@
                         <?php $count = 1;?>
                         @foreach ($users as $user)
                             <?php $user_meta = App\Models\UserMeta::where('user_id', $user->id)->first();?>
+                            @if($user_meta != null)
                             <tr>
                                 <th><?=$count?></th>
                                 <td> {{ $user->name }} </td>
@@ -50,8 +51,9 @@
                                     <a href="{{ url('yn-admin/users') }}/{{ $user->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
                                 </td>
-                            </tr>
-                        <?php $count++;?>
+                            </tr>                            
+                            <?php $count++;?>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>

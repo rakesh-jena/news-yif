@@ -174,9 +174,9 @@ class UserController extends Controller
         //
     }
 
-    public function subscribers()
+    public function all_users()
     {
-        $users = User::where('role', 'subscriber')->get();
-        return view('admin.subscriber', compact('users'));
+        $users = User::all();
+        return view('admin.all-users', compact('users'));
     }
 }

@@ -838,6 +838,57 @@ article:not(:first-child) {
 .navbar-toggler{
     border: none;
 }
+.yn-section.subscribe {
+    background-image: url('../images/others/swirl-bg.jpg');
+    margin-bottom: 0px;
+}
+.subscribe__outer {
+    padding: 4em 0;
+}
+.footer-bottom {
+    background-image: url('../images/others/swirl-bg.jpg');
+    height: 4em;
+    background-position: bottom;
+}
+.subscribe__heading {
+    text-transform: uppercase;
+    font-family: 'DM Serif Display';
+    font-size: 2.5rem;
+    margin-bottom: 0px;
+}
+.subscribe__inner {
+    color: white;
+    background-color: black;
+    padding: 100px 40px;
+}
+.subscribe__input {
+    border-bottom: 1px solid white;
+}
+.subscribe__input input {
+    border: none;
+    background: none;
+    color: white;
+    width: 100%;
+    padding: 10px 0px;
+}
+.subscribe__input input:focus {
+    outline: none;
+}
+.subscribe__input input:-webkit-autofill,
+.subscribe__input input:-webkit-autofill:hover,
+.subscribe__input input:-webkit-autofill:focus,
+.subscribe__input input:-webkit-autofill:active {
+    background-color: black !important;
+}
+button.subscribe__btn {
+    color: black;
+    background-color: white;
+    text-transform: uppercase;
+    font-family: 'Work Sans';
+    font-weight: 600;
+    padding: 10px 20px;
+    letter-spacing: 0.05em;
+}
 @media (max-width: 575.98px) {
     .navbar-nav .nav-item:not(:last-child) {
         margin-right: 0px;

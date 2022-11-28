@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController​;
+use App\Http\Controllers\SubscriberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +34,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('yn-admin/tags', TagController::class);
     Route::resource('yn-admin/articles', ArticleController::class);
     Route::resource('yn-admin/category', CategoryController::class);
-    Route::get('yn-admin/subscribers', [UserController::class, 'subscribers']);
+    Route::get('yn-admin/subscribers', [SubscriberController::class, 'index']);
+    Route::get('yn-admin/all-users', [UserController::class, 'all_users']);
 });
 
 /**
@@ -83,3 +85,4 @@ Route::get('/article/{slug}/{id}', [ArticleController::class, 'show']);
 Route::get('/tag/{slug}', [TagController::class, 'show']);
 Route::get('/category/{slug}', [CategoryController::class, 'show']);
 Route::get('/author/{slug}', [UserController::class, 'show']);
+Route::post('/add-subscriber', [SubscriberController::class, 'store']);

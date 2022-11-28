@@ -170,6 +170,17 @@
                     <span>Subscribers</span>
                 </a>
             </li><!-- End Subscribers Nav -->
+
+            <li class="nav-item">
+                @if(request()->is('yn-admin/all-users'))
+                <a class="nav-link" href="{{url('yn-admin/all-users')}}">
+                @else
+                <a class="nav-link collapsed" href="{{url('yn-admin/all-users')}}">
+                @endif
+                    <i class="bi bi-person"></i>
+                    <span>All Users</span>
+                </a>
+            </li><!-- End All Users Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->

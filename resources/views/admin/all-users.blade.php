@@ -1,5 +1,5 @@
 @extends('admin')
-@section('title', 'Subscribers | YIF')
+@section('title', 'All Users | YIF')
 
 @section('content')
 <!-- Start #main -->
@@ -39,7 +39,7 @@
                                     {{ $user->email }}
                                 </td>
                                 <td>
-                                    <span class="badge rounded-pill text-bg-info text-white">subscriber</span>
+                                    <span class="badge rounded-pill text-bg-info text-white">{{$user->role}}</span>
                                 </td>
                                 <td>
                                     <?=date_format(date_create($user->created_at), "d M, Y")?>

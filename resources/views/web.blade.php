@@ -101,7 +101,34 @@ if(Auth::check()){
     <!-- End Main Content Wrapper -->
     
     <!-- Footer start-->
-    <footer class="section bg-black pt-4 text-center">
+    <section class="yn-section subscribe">        
+        <div class="subscribe__outer">
+            <div class="container">
+                <div class="subscribe__inner">
+                    <div class="row ms-auto me-auto align-items-center">
+                        <div class="col-12 col-md-6">
+                            <h2 class="subscribe__heading text-center">
+                                Stay ahead with our essential AAPI politics briefing
+                            </h2>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <form method="POST" action="{{url('add-subscriber')}}">
+                                @csrf
+                                <div class="subscribe__input mb-4">
+                                    <input type="text" name="name" id="name" placeholder="Full Name">
+                                </div>
+                                <div class="subscribe__input d-md-flex d-block">
+                                    <input type="email" name="email" id="email" placeholder="Email">
+                                    <button class="subscribe__btn" type="submit">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="section bg-black pt-4 text-center">        
         <div class="container">
             <div class="marginbottomspace"></div>
             <div class="aligncenter footer-logo">
@@ -247,6 +274,7 @@ if(Auth::check()){
         <div class="marginbottomspace"></div>
     </footer>
     <!-- Footer End-->
+    <div class="footer-bottom"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
     </a>
@@ -263,6 +291,23 @@ if(Auth::check()){
 
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    @if(isset($_GET['subscribe']) && $_GET['subscribe'] == 'success')
+    <div class="modal fade" id="subscribe-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <button type="button" class="btn-close ms-auto p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+              <p>Thanks for subscribing to our newsletter!</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#subscribe-modal').modal('show');
+        });
+    </script>
+    @endif
     <script>
     AOS.init({
         duration: 1200,
