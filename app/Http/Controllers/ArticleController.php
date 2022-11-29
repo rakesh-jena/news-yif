@@ -203,4 +203,23 @@ class ArticleController extends Controller
     {
         //
     }
+
+    public function featured($slug)
+    {
+        $article = Article::where('slug', $slug)->first();
+        $tag_ids = unserialize($article->tags);
+        $author_ids = unserialize($article->author_id);
+        $authors = [];
+        foreach($author_ids as $a_id){
+            $authors[] = User::where('id', $a_id)->first();
+        }
+        $category = Category::where('id', $article->category)->first();
+        $tags = [];
+        foreach($tag_ids as $id) {
+            $tag = Tag::where('id', (int)$id)->first();
+            $tags[] = $tag;
+        }
+
+        return view('frontend.article.featured', compact('article', 'tags', 'authors', 'category'));
+    }
 }

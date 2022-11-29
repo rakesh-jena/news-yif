@@ -36,6 +36,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('yn-admin/category', CategoryController::class);
     Route::get('yn-admin/subscribers', [SubscriberController::class, 'index']);
     Route::get('yn-admin/all-users', [UserController::class, 'all_users']);
+    Route::post('yn-admin/s_featured', [DashboardController​::class, 's_featured']);
+    Route::post('yn-admin/s_agenda', [DashboardController​::class, 's_agenda']);
+    Route::post('yn-admin/s_scoop', [DashboardController​::class, 's_scoop']);
+    Route::post('yn-admin/s_fullscreen', [DashboardController​::class, 's_fullscreen']);
+    Route::post('yn-admin/s_g_three', [DashboardController​::class, 's_g_three']);
+    Route::post('yn-admin/s_g_five', [DashboardController​::class, 's_g_five']);
+    Route::post('yn-admin/s_first', [DashboardController​::class, 's_first']);
+    Route::post('yn-admin/s_second', [DashboardController​::class, 's_second']);
 });
 
 /**
@@ -82,6 +90,7 @@ Route::get('/news', function(){
     return view('frontend.article.view');
 });
 Route::get('/article/{slug}/{id}', [ArticleController::class, 'show']);
+Route::get('/{slug}', [ArticleController::class, 'featured']);
 Route::get('/tag/{slug}', [TagController::class, 'show']);
 Route::get('/category/{slug}', [CategoryController::class, 'show']);
 Route::get('/author/{slug}', [UserController::class, 'show']);

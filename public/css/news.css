@@ -889,6 +889,9 @@ button.subscribe__btn {
     padding: 10px 20px;
     letter-spacing: 0.05em;
 }
+.page__featured-news {
+    margin-top: -3.5em;
+}
 @media (max-width: 575.98px) {
     .navbar-nav .nav-item:not(:last-child) {
         margin-right: 0px;

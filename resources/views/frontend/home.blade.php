@@ -11,40 +11,45 @@
             <div class="en-header text-center">
                 <div class="header-title">
                     <h6 class="d-flex">
-                        <span class="d-flex">election 2024</span>
+                        <span class="d-flex">{{ App\Http\Controllers\DashboardController​::get_meta('sfirst_heading')}}</span>
                     </h6>
                 </div>
                 <div class="news-title meta-title">
                     <h1>
-                        With California wins, GOP clinches House control
+                        {{ App\Http\Controllers\DashboardController​::get_meta('sfirst_title')}}
                     </h1>
                 </div>
                 <p class="news-subtitle meta-subtitle">
-                    Midterms: Incumbent Republicans Young Kim and Michelle Steel fend off challenges. Full coverage.
+                    {{ App\Http\Controllers\DashboardController​::get_meta('sfirst_subtitle')}}
                 </p>
                 <hr>
                 <p class="news-sub-sub-title meta-subtitle">
-                    Results: Tokuda, Thanedar score victories; Democrats’ hold on Asian American voters slips; most GOP candidates falter. Read more.
+                    {{ App\Http\Controllers\DashboardController​::get_meta('sfirst_desc')}}
                 </p>
             </div>
             <div class="row">
-                <?php for($i = 0; $i<2; $i++) { ?>
+                <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sfirst_articles'));?>
+                @foreach($ids as $id)
+                <?php $article = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('id', (int)$id)->first();?>
+                
                 <div class="col-12 col-md-6">
                     <div class="mb-2">
-                        <img class="w-100" src="{{URL::asset('images/others/joshua-sukoff-SYHi8oX0JC8-unsplash-768x512.jpg')}}" alt="">
+                        <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                            <img height="360" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                        </a>
                     </div>
                     <div class="meta-title">
                         <h3>
-                            <a href="#">
-                                Election briefing: Incumbents dominate as GOP’s Asian American hopefuls are shut out
+                            <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                {{$article->title}}
                             </a>
                         </h3>
                     </div>
                     <div class="meta-date">
-                        November 23, 2024
+                        <?=date_format(date_create($article->created_at), "F j, Y")?>
                     </div>
                 </div>
-                <?php } ?>
+                @endforeach
             </div>
         </div>
     </section>
@@ -68,88 +73,51 @@
                             </div>
                         </div>
                         <div class="yn-sf__column__body">
+                            <?php $articles = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('updated_at', 'desc')->limit(3)->get();?>
+                            @foreach($articles as $article)                            
+                            <?php $category = App\Models\Category::where('id',$article->category)->first();?>
                             <article class="latest-post__outer">
                                 <div class="latest-post__inner">
                                     <div class="latest-post__data d-flex">
                                         <div class="latest-post__thumbnail">
-                                            <img loading="lazy"width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
+                                            <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                <img loading="lazy" width="80" height="80" src="{{ URL::asset('images/article/'.$article->title_image)}}" alt="thumbnail">
+                                            </a>
                                         </div>
                                         <div class="latest-post__content">
                                             <div class="latest-post__meta">
                                                 <div class="meta-category">
-                                                    politics
+                                                    <a href="{{url('category/'.$category->slug)}}">{{$category->category}}</a>
                                                 </div>
                                             </div>
                                             <h6 class="latest-post__title meta-title">
-                                                Republican Dean Tran loses bid to become Massachusetts’ first Asian American Congress member
+                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                    {{$article->title}}
+                                                </a>
                                             </h6>
                                             <div class="latest-post__meta">
                                                 <div class="meta-date">
-                                                    November 9, 2022
+                                                    <?=date_format(date_create($article->created_at), "F j, Y")?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
-                            <article class="latest-post__outer">
-                                <div class="latest-post__inner">
-                                    <div class="latest-post__data d-flex">
-                                        <div class="latest-post__thumbnail">
-                                            <img loading="lazy"width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
-                                        </div>
-                                        <div class="latest-post__content">
-                                            <div class="latest-post__meta">
-                                                <div class="meta-category">
-                                                    politics
-                                                </div>
-                                            </div>
-                                            <h6 class="latest-post__title meta-title">
-                                                Republican Dean Tran loses bid to become Massachusetts’ first Asian American Congress member
-                                            </h6>
-                                            <div class="latest-post__meta">
-                                                <div class="meta-date">
-                                                    November 9, 2022
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="latest-post__outer">
-                                <div class="latest-post__inner">
-                                    <div class="latest-post__data d-flex">
-                                        <div class="latest-post__thumbnail">
-                                            <img loading="lazy"width="80" height="80" src="{{ URL::asset('images/others/289538617_438191711463423_3215499776845285901_nE-80x80.jpg')}}" alt="thumbnail">
-                                        </div>
-                                        <div class="latest-post__content">
-                                            <div class="latest-post__meta">
-                                                <div class="meta-category">
-                                                    politics
-                                                </div>
-                                            </div>
-                                            <h6 class="latest-post__title meta-title">
-                                                Republican Dean Tran loses bid to become Massachusetts’ first Asian American Congress member
-                                            </h6>
-                                            <div class="latest-post__meta">
-                                                <div class="meta-date">
-                                                    November 9, 2022
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                            @endforeach
                         </div>
                     </div>
                 </div>
 
                 <!-- Single News -->
+                <?php $id = (int)App\Http\Controllers\DashboardController​::get_meta('swatch_featured');?>
+                <?php $article = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('id', (int)$id)->first();?>
+                <?php $category = App\Models\Category::where('id',$article->category)->first();?>
                 <div class="col-md-6 border-sn">
                     <div class="yn-sf__column single-news">
                         <div class="single-post__thumbnail mb-4 img__wrap">
-                            <a href="#">
-                                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/lanhee-chen-2-800x500.jpg')}}" alt="thumbnail">
+                            <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                <img height="360" loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="thumbnail">
                             </a>
                             <div class="img__overlay">
                                 <span class="yn__read-more">Read More</span>
@@ -158,7 +126,7 @@
                                         <span>
                                             <i class="bi bi-clock"></i>
                                         </span>
-                                        3 minute read
+                                        {{$article->read_time}} minute read
                                     </div>
                                 </div>
                             </div>
@@ -166,24 +134,24 @@
                         <div class="single-post__body">
                             <div class="single-post__meta">
                                 <div class="meta-category">
-                                    politics
+                                    <a href="{{url('category/'.$category->slug)}}">{{$category->category}}</a>
                                 </div>
                             </div>
                             <div class="single-post__title meta-title">
                                 <h2>
-                                    <a href="#">
-                                        Republican Lanhee Chen concedes in race for California controller after an ambitious campaign
+                                    <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                        {{$article->title}}
                                     </a>
                                 </h2>
                             </div>
                             <div class="single-post__sub-title meta-subtitle">
                                 <p>
-                                    Chen, who would've been the first Republican elected to statewide office since 2006, campaigned on his ability to hold Democrats accountable in state spending.
+                                    {{$article->subtitle}}
                                 </p>
                             </div>
                             <div class="single-post__meta">
                                 <div class="meta-date">
-                                    November 15, 2022
+                                    <?=date_format(date_create($article->created_at), "F j, Y")?>
                                 </div>
                             </div>
                         </div>
@@ -199,70 +167,65 @@
                             </div>
                         </div>
                         <div class="yn-sf__column__body">
+                            <?php $count=0;?>
+                            <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('swatch_others'));?>
+                            @foreach($ids as $id)
+                            <?php $article = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('id', (int)$id)->first();?>
+                            <?php $category = App\Models\Category::where('id',$article->category)->first();?>
+                            @if($count == 0)
                             <article class="watching-post__first">
                                 <div class="yn-entry__outer">
                                     <div class="yn-entry__inner">
-                                        <a href="https://youngindiafdn.medium.com/do-the-youth-of-the-country-actually-value-their-vote-6c2e01db0093" target="_blank">
+                                        <a href="{{url('article/'.$article->id.'/'.$article->slug)}}" target="_blank">
                                             <div class="yn-entry__image">
-                                                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/Red-Hill-fuel-leak-v9-380x280.jpeg')}}" alt="News">
+                                                <img loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="News">
                                             </div>
                                         </a>
                                     </div>
                                     <div class="meta-category mt-2">
-                                        <a href="#">newsletter</a>
+                                        <a href="{{url('category/'.$category->slug)}}">{{$category->category}}</a>
                                     </div>
                                     <div class="yn-entry__inner">
                                         <h2 class="yn-entry__title meta-title">
-                                            <a href="https://youngindiafdn.medium.com/do-the-youth-of-the-country-actually-value-their-vote-6c2e01db0093" target="_blank">
-                                                Do the Youth of the Country Actually Value Their Vote?
+                                            <a href="{{url('article/'.$article->id.'/'.$article->slug)}}" target="_blank">
+                                                {{$article->title}}
                                             </a>
                                         </h2>
                                         <div class="yn-entry_meta">
                                             <div class="meta-date">
-                                                Feb 9, 2020
+                                                <?=date_format(date_create($article->created_at), "F j, Y")?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
+                            @else
                             <article class="watching-post__outer">
                                 <div class="watching-post__inner d-flex">
                                     <div class="watching-post__content">
                                         <div class="watching-post__data">
                                             <h6 class="watching-post__title meta-title">
-                                                Where affirmative action stands in Asian America
+                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                    {{$article->title}}
+                                                </a>
                                             </h6>
                                             <div class="watching-post__meta">
                                                 <div class="meta-date">
-                                                    November 7, 2022
+                                                    <?=date_format(date_create($article->created_at), "F j, Y")?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="watching-post__thumbnail">
-                                        <img loading="lazy"width="80" height="80" src="{{URL::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
+                                        <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                            <img loading="lazy"width="80" height="80" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="thumbnail">
+                                        </a>
                                     </div>
                                 </div>
                             </article>
-                            <article class="watching-post__outer">
-                                <div class="watching-post__inner d-flex">
-                                    <div class="watching-post__content">
-                                        <div class="watching-post__data">
-                                            <h6 class="watching-post__title meta-title">
-                                                Where affirmative action stands in Asian America
-                                            </h6>
-                                            <div class="watching-post__meta">
-                                                <div class="meta-date">
-                                                    November 7, 2022
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="watching-post__thumbnail">
-                                        <img loading="lazy"width="80" height="80" src="{{URL::asset('images/others/2022_Roberts_Court_Formal_083122_Web-110x110.jpg')}}" alt="thumbnail">
-                                    </div>
-                                </div>
-                            </article>
+                            @endif
+                            <?php $count++;?>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -272,6 +235,10 @@
     <!-- End First Section -->
 
     <!-- Featured News Section -->
+    <?php $id = (int)App\Http\Controllers\DashboardController​::get_meta('sfeatured_aticle');?>
+    <?php $article = App\Models\Article::select('id','author_id','title','subtitle','title_image','slug','read_time','created_at','category')->where('id', (int)$id)->first();?>
+    <?php $category = App\Models\Category::where('id',$article->category)->first();?>
+    <?php $author_ids = unserialize($article->author_id);?>
     <section class="yn-section featured">
         <div class="title">
             <h2>
@@ -280,53 +247,45 @@
         </div>
         <div class="yn-featured__outer">
             <div class="yn-featured__banner">
-                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/52034842342_c968c57fa4_b-3-768x432.jpg')}}" alt="banner">
+                <img loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="banner">
             </div>
             <div class="yn-featured__content">
                 <div class="container">
                     <div class="yn-featured__category meta-category">
-                        <a href="#">policy</a>
+                        <a href="{{url('category/'.$category->slug)}}">{{$category->category}}</a>
                     </div>
                     <div class="yn-featured__title meta-title mb-4">
                         <h2>
-                            <a href="#">
-                                A statistical storm: data disaggregation and the debate over AAPI identity
+                            <a href="{{url($article->slug)}}">
+                                {{$article->title}}
                             </a>
                         </h2>
                     </div>
                     <div class="yn-featured__excerpt meta-subtitle mb-4">
-                        For years, efforts to disaggregate Asian American and Pacific Islander data have been slowed by community infighting, government bureaucracy, and bitter debates over identity. But as demand for quality data surges, supporters have reason to hope for movement on the decades-old issue.
+                        {{$article->subtitle}}
                     </div>
                     <div class="ynps__article-header-meta d-flex justify-content-center align-items-center">
-                        <div class="ynps__article-header-meta-author">
-                            <a class="d-flex" href="#">
-                                <div class="ynps__author-avatar">
-                                    <img loading="lazy"class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
-                                </div>
-                                <span>by <strong>Théo Lemonnier</strong></span>
-                            </a>
-                        </div>
+                        <?php $i = 0;?>
+                        @foreach ($author_ids as $id)
+                        <?php $author = App\Models\User::where('id',(int)$id)->first();?>
+                        <?php $author_meta = App\Models\UserMeta::where('user_id', (int)$id)->first();?>
+                        
+                        @if($i>0)
                         <span class="ynps__multiAuthor">and</span>
+                        @endif
                         <div class="ynps__article-header-meta-author">
-                            <a class="d-flex" href="#">
+                            <a class="d-flex" href="{{url('author/'.$author_meta->slug)}}">
                                 <div class="ynps__author-avatar">
-                                    <img loading="lazy"class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
+                                    <img loading="lazy"class="rounded-circle" src="{{URL::asset('images/author/'.$author_meta->avatar)}}" alt="author">
                                 </div>
-                                <span>by <strong>Théo Lemonnier</strong></span>
+                                <span>by <strong>{{$author->name}}</strong></span>
                             </a>
                         </div>
-                        <span class="ynps__multiAuthor">and</span>
-                        <div class="ynps__article-header-meta-author">
-                            <a class="d-flex" href="#">
-                                <div class="ynps__author-avatar">
-                                    <img loading="lazy"class="rounded-circle" src="{{URL::asset('images/author/default.png')}}" alt="author">
-                                </div>
-                                <span>by <strong>Théo Lemonnier</strong></span>
-                            </a>
-                        </div>
+                        <?php $i++;?>
+                        @endforeach
                         <div class="ynps__article-header-meta-date">
                             <span>
-                                Nov 21, 2022
+                                <?=date_format(date_create($article->created_at), "F j, Y")?>
                             </span>
                         </div>
                     </div>
@@ -346,12 +305,15 @@
         <div class="yn__agenda">
             <div class="container">
                 <div class="row">
-                    <?php for($i = 0; $i<4; $i++) { ?>
+                    <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sagenda_articles'));?>
+                    @foreach($ids as $id)
+                    <?php $article = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('id', (int)$id)->first();?>
+                    <?php $category = App\Models\Category::where('id',$article->category)->first();?>
                     <div class="col-12 col-md-3">
                         <div class="article__outer">
                             <div class="article__img mb-3 img__wrap">
-                                <a href="#">
-                                    <img loading="lazy"class="w-100" src="{{URL::asset('images/others/AllanFung-43-768x492.jpg')}}" alt="post">
+                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                    <img height="180" loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="post">
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
@@ -360,25 +322,29 @@
                                             <span>
                                                 <i class="bi bi-clock"></i>
                                             </span>
-                                            3 minute read
+                                            {{$article->read_time}} minute read
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="meta-category">
-                                politics
+                                <a href="{{url('category'.$category->slug)}}">
+                                    {{$category->category}}
+                                </a>
                             </div>
                             <div class="post__title meta-title">
                                 <h5>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
+                                    <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                        {{$article->title}}
+                                    </a>
                                 </h5>
                             </div>
                             <div class="meta-date">
-                                November 12, 2022
+                                <?=date_format(date_create($article->created_at), "F j, Y")?>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -396,27 +362,31 @@
                 </div>                
                 <div class="col-12 col-md-10">
                     <div class="row">
-                        <?php for($i = 0; $i<3; $i++) { ?>
+                        <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sscoop_articles'));?>
+                        @foreach($ids as $id)
+                        <?php $article = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('id', (int)$id)->first();?>
                         <div class="col-12 col-md-4 scoop-item">
                             <div class="d-flex">
                                 <div class="scoop_image me-2">
-                                    <img loading="lazy"width="80" class="rounded-circle" src="{{URL::asset('images/others/Obma-80x80.jpg')}}" alt="scoop">
+                                    <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">                                        
+                                        <img height="80" loading="lazy"width="80" class="rounded-circle" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="scoop">
+                                    </a>
                                 </div>
                                 <div class="scoop_data">
                                     <div class="yn_article-title meta-title">
                                         <h5>
-                                            <a href="#">
-                                                AAPIs saw ‘significant’ coverage gains after Affordable Care Act rollout, HHS says
+                                            <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                {{$article->title}}
                                             </a>
                                         </h5>
                                     </div>
                                     <div class="meta-date">
-                                        November 21, 2022
+                                        <?=date_format(date_create($article->created_at), "F j, Y")?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?php } ?>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -427,43 +397,36 @@
     <!-- Full Screen News Section -->
     <section class="yn-section fullscreen-news">
         <div class="yn-overlay__background-wrapper">
-            <div class="yn-overlay__background active">
-                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/Yappie-Background-1160x659.png')}}" alt="">
+            <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sfullscreen_articles'));$count=0;?>
+            @foreach($ids as $id)
+            <?php $article = App\Models\Article::select('title_image')->where('id', (int)$id)->first();?>
+            <div class="yn-overlay__background {{($count==0)? 'active' : ''}}">
+                <img loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
             </div>
-            <div class="yn-overlay__background">
-                <img loading="lazy"class="w-100" src="{{URL::asset('images/others/1_ytyuJLaRrQ_wOEjNSvPrJQ-1160x776.jpeg')}}" alt="">
-            </div>
+            <?php $count++;?>
+            @endforeach
         </div>
         <div class="yn-layout-large__inner">
             <div class="row">
-                <div class="col-12 col-md-6 yn-layout-large__col active">
+                <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sfullscreen_articles'));$count=0;?>
+                @foreach($ids as $id)
+                <?php $article = App\Models\Article::select('id','title','slug')->where('id', (int)$id)->first();?>
+                <div class="col-12 col-md-6 yn-layout-large__col {{($count==0)? 'active' : ''}}">
                     <div class="yn-entry">
                         <div class="yn-entry__outer">
                             <div class="yn-entry__inner meta-title">
                                 <h4>
-                                    <a href="#">
-                                        The Yappie’s guide for AAPI interns in Washington, D.C.
+                                    <a href="{{url($article->slug)}}">
+                                        {{$article->title}}
                                     </a>
                                 </h4>
                             </div>
-                            <a href="#" class="yn-overlay-link"></a>
+                            <a href="{{url('article/'.$article->id.'/'.$article->slug)}}" class="yn-overlay-link"></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 yn-layout-large__col">
-                    <div class="yn-entry">
-                        <div class="yn-entry__outer">
-                            <div class="yn-entry__inner meta-title">
-                                <h4>
-                                    <a href="#">
-                                        The Yappie’s guide for AAPI interns in Washington, D.C.
-                                    </a>
-                                </h4>
-                            </div>
-                            <a href="#" class="yn-overlay-link"></a>
-                        </div>
-                    </div>
-                </div>
+                <?php $count++;?>
+                @endforeach
             </div>
         </div>
     </section>
@@ -474,12 +437,14 @@
         <div class="container">
             <div class="grid-of-3">
                 <div class="row">
-                    <?php for($i = 0; $i<3; $i++) { ?>
+                    <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sgthree_articles'));?>
+                    @foreach($ids as $id)
+                    <?php $article = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('id', (int)$id)->first();?>
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <div class="article__outer">
                             <div class="article__img mb-2 img__wrap">
-                                <a href="#">
-                                    <img loading="lazy"class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                    <img height="240" loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="post">
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
@@ -488,32 +453,34 @@
                                             <span>
                                                 <i class="bi bi-clock"></i>
                                             </span>
-                                            3 minute read
+                                            {{$article->read_time}} minute read
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="post__title meta-title">
                                 <h5>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
+                                    {{$article->title}}
                                 </h5>
                             </div>
                             <div class="meta-date">
-                                November 12, 2022
+                                <?=date_format(date_create($article->created_at), "F j, Y")?>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    @endforeach
                 </div>
             </div>
             <div class="grid-of-5">
                 <div class="row row-cols-md-5 row-cols-1">
-                    <?php for($i = 0; $i<5; $i++) { ?>
+                    <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sgfive_articles'));?>
+                    @foreach($ids as $id)
+                    <?php $article = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('id', (int)$id)->first();?>
                     <div class="col mb-4 mb-md-0">
                         <div class="article__outer">
                             <div class="article__img mb-2 img__wrap">
-                                <a href="#">
-                                    <img loading="lazy"class="w-100" src="{{URL::asset('images/others/304048374_177326704859204_2374254376936713355_n-768x512.jpg')}}" alt="post">
+                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                    <img height="140" loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="post">
                                 </a>
                                 <div class="img__overlay">
                                     <span class="yn__read-more">Read More</span>
@@ -522,22 +489,22 @@
                                             <span>
                                                 <i class="bi bi-clock"></i>
                                             </span>
-                                            3 minute read
+                                            {{$article->read_time}} minute read
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="post__title meta-title">
                                 <h6>
-                                    Allan Fung falls short in push for GOP win in deep-blue Rhode Island
+                                    {{$article->title}}
                                 </h6>
                             </div>
                             <div class="meta-date">
-                                November 12, 2022
+                                <?=date_format(date_create($article->created_at), "F j, Y")?>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -554,33 +521,37 @@
             </div>
             <div class="scroll-wrapper">
                 <div class="scroll__inner">
-                    <?php for($i = 0; $i<5; $i++) { ?>
+                    <?php $articles = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('updated_at', 'desc')->limit(5)->get();?>
+                    @foreach($articles as $article)                            
+                    <?php $category = App\Models\Category::where('id',$article->category)->first();?>
                     <article class="yn__infinite-item">
                         <div class="item-outer row">
                             <div class="item__image col-12 col-md-4 mb-3 mb-md-0">
-                                <img class="w-100" loading="lazy"src="{{URL::asset('images/others/Bee-Nguyen-Final-380x253.jpg')}}" alt="">
+                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                    <img height="200" class="w-100" loading="lazy"src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                </a>
                             </div>
                             <div class="item-content col-12 col-md-8">
                                 <div class="meta-category">
-                                    politics
+                                    <a href="{{url('category/'.$category->slug)}}">{{$category->category}}</a>
                                 </div>
                                 <div class="meta-title">
                                     <h4>
-                                        <a href="#">
-                                            Meet the Asian American candidates hoping to make history in key states
+                                        <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                            {{$article->title}}
                                         </a>
                                     </h4>
                                 </div>
                                 <div class="meta-subtitle">
-                                    With a week left to go in this year’s midterm elections, here are some of the national and state races we’re watching.
+                                    {{$article->subtitle}}
                                 </div>
                                 <div class="meta-date">
-                                    November 13, 2022
+                                    <?=date_format(date_create($article->created_at), "F j, Y")?>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    <?php } ?>
+                    @endforeach
                 </div>
             </div>
         </div>

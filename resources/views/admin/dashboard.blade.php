@@ -3,13 +3,13 @@
 
 @section('content')
 <!-- Start #main -->
+<?php $articles = App\Models\Article::select('id','title','views')->where('status', 'approved')->get();?>
 <main id="main" class="main">    
     <section class="section profile">
         <div class="row">
             <div class="col-xl-4">  
                 <div class="card">
-                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-        
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">        
                         <img src="{{URL::asset('images/author/'.$user_meta->avatar)}}" alt="Profile" class="rounded-circle">
                         <h2>{{$user->name}}</h2>
                         <h3>Administrator</h3>
@@ -21,6 +21,16 @@
                         </div>
                     </div>
                 </div>  
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                        <h2>                            
+                            {{count($articles)}} Articles
+                        </h2>
+                        <?php $views = 0;?>
+                        <?php foreach($articles as $article){$views = $views + (int)$article->views;}?>
+                        <p>{{ $views }} Views</p>
+                    </div>
+                </div>
             </div>
   
             <div class="col-xl-8">  
@@ -208,6 +218,265 @@
                         </div><!-- End Bordered Tabs -->        
                     </div>
                 </div>  
+            </div>
+        </div>
+    </section>
+    <section class="section homepage">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">First Section</h5>
+                        <form method="POST" action="{{url('yn-admin/s_first')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="sfirst_heading" class="col-md-4 col-lg-3 col-form-label">Section Heading</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sfirst_heading" type="text" class="form-control" id="sfirst_heading"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('sfirst_heading')}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="sfirst_title" class="col-md-4 col-lg-3 col-form-label">Title</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sfirst_title" type="text" class="form-control" id="sfirst_title"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('sfirst_title')}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="sfirst_subtitle" class="col-md-4 col-lg-3 col-form-label">Subtitle</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sfirst_subtitle" type="text" class="form-control" id="sfirst_subtitle"
+                                    value="{{ App\Http\Controllers\DashboardController​::get_meta('sfirst_subtitle')}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="sfirst_desc" class="col-md-4 col-lg-3 col-form-label">Description</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sfirst_desc" type="text" class="form-control" id="sfirst_desc"
+                                    value="{{ App\Http\Controllers\DashboardController​::get_meta('sfirst_desc')}}">
+                                </div>
+                            </div>                         
+                            <div class="row mb-3">
+                                <label for="sfirst_articles_multiSelect" class="col-md-4 col-lg-3 col-form-label">Articles</label>
+                                <select class="form-select" id="sfirst_articles_multiSelect" name="sfirst_articles[]" required="" multiple>
+                                    @foreach($articles as $article)
+                                        <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sfirst_articles'));?>
+                                        @if($ids !=null && in_array(strval($article->id), $ids))
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Second Section</h5>
+                        <form method="POST" action="{{url('yn-admin/s_second')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="s-watch_featured" class="col-md-4 col-lg-3 col-form-label">Article</label>
+                                <select class="form-select" id="s-watch_featured" name="swatch_featured" required="">
+                                    @foreach($articles as $article)
+                                        <?php $id = (int)App\Http\Controllers\DashboardController​::get_meta('swatch_featured');?>
+                                        @if($id !=null && $article->id == $id)
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="s-watch_others_multiSelect" class="col-md-4 col-lg-3 col-form-label">Featured</label>
+                                <select class="form-select" id="s-watch_others_multiSelect" name="swatch_others[]" required="" multiple>
+                                    @foreach($articles as $article)
+                                        <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('swatch_others'));?>
+                                        @if($ids !=null && in_array(strval($article->id), $ids))
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Featured Section</h5>
+                        <form method="POST" action="{{url('yn-admin/s_featured')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="s-featured_aticle" class="col-md-4 col-lg-3 col-form-label">Article</label>
+                                <select class="form-select" id="s-featured_aticle" name="sfeatured_aticle" required="">
+                                    @foreach($articles as $article)
+                                        <?php $id = (int)App\Http\Controllers\DashboardController​::get_meta('sfeatured_aticle');?>
+                                        @if($id !=null && $article->id == $id)
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Agenda Section</h5>
+                        <form method="POST" action="{{url('yn-admin/s_agenda')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="s-agenda_multiSelect" class="col-md-4 col-lg-3 col-form-label">Featured</label>
+                                <select class="form-select" id="s-agenda_multiSelect" name="sagenda_articles[]" required="" multiple>
+                                    @foreach($articles as $article)
+                                        <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sagenda_articles'));?>
+                                        @if($ids !=null && in_array(strval($article->id), $ids))
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Scoop Section</h5>
+                        <form method="POST" action="{{url('yn-admin/s_scoop')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="s-scoop_multiSelect" class="col-md-4 col-lg-3 col-form-label">Articles</label>
+                                <select class="form-select" id="s-scoop_multiSelect" name="sscoop_articles[]" required="" multiple>
+                                    @foreach($articles as $article)
+                                        <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sscoop_articles'));?>
+                                        @if($ids !=null && in_array(strval($article->id), $ids))
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Fullscreen News Section</h5>
+                        <form method="POST" action="{{url('yn-admin/s_fullscreen')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="s-fullscreen_multiSelect" class="col-md-4 col-lg-3 col-form-label">Articles</label>
+                                <select class="form-select" id="s-fullscreen_multiSelect" name="sfullscreen_articles[]" required="" multiple>
+                                    @foreach($articles as $article)
+                                        <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sfullscreen_articles'));?>
+                                        @if($ids !=null && in_array(strval($article->id), $ids))
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Grid of 3</h5>
+                        <form method="POST" action="{{url('yn-admin/s_g_three')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="s-g-three_multiSelect" class="col-md-4 col-lg-3 col-form-label">Articles</label>
+                                <select class="form-select" id="s-g-three_multiSelect" name="sgthree_articles[]" required="" multiple>
+                                    @foreach($articles as $article)
+                                        <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sgthree_articles'));?>
+                                        @if($ids !=null && in_array(strval($article->id), $ids))
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Grid of 5</h5>
+                        <form method="POST" action="{{url('yn-admin/s_g_five')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="s-g-five_multiSelect" class="col-md-4 col-lg-3 col-form-label">Articles</label>
+                                <select class="form-select" id="s-g-five_multiSelect" name="sgfive_articles[]" required="" multiple>
+                                    @foreach($articles as $article)
+                                        <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sgfive_articles'));?>
+                                        @if($ids !=null && in_array(strval($article->id), $ids))
+                                        <option value="{{$article->id}}" selected>{{$article->title}}</option>
+                                        @else
+                                        <option value="{{$article->id}}">{{$article->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

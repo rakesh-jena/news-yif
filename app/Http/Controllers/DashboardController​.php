@@ -8,6 +8,7 @@ use App\Models\Tag;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\UserMeta;
+use App\Models\Homepage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,5 +65,130 @@ class DashboardController​ extends Controller
 
         return redirect('yn-admin')
             ->with('success', 'User created successfully.');
+    }
+
+    public function s_first(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sfirst_heading'
+        ],[
+            'meta_value' => $request->sfirst_heading
+        ]);
+        Homepage::updateOrCreate([
+            'meta_key' => 'sfirst_title'
+        ],[
+            'meta_value' => $request->sfirst_title
+        ]);
+        Homepage::updateOrCreate([
+            'meta_key' => 'sfirst_subtitle'
+        ],[
+            'meta_value' => $request->sfirst_subtitle
+        ]);
+        Homepage::updateOrCreate([
+            'meta_key' => 'sfirst_desc'
+        ],[
+            'meta_value' => $request->sfirst_desc
+        ]);
+        Homepage::updateOrCreate([
+            'meta_key' => 'sfirst_articles'
+        ],[
+            'meta_value' => serialize($request->sfirst_articles)
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function s_second(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'swatch_featured'
+        ],[
+            'meta_value' => $request->swatch_featured
+        ]);
+
+        Homepage::updateOrCreate([
+            'meta_key' => 'swatch_others'
+        ],[
+            'meta_value' => serialize($request->swatch_others)
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function s_featured(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sfeatured_aticle'
+        ],[
+            'meta_value' => $request->sfeatured_aticle
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function s_agenda(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sagenda_articles'
+        ],[
+            'meta_value' => serialize($request->sagenda_articles)
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function s_scoop(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sscoop_articles'
+        ],[
+            'meta_value' => serialize($request->sscoop_articles)
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function s_fullscreen(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sfullscreen_articles'
+        ],[
+            'meta_value' => serialize($request->sfullscreen_articles)
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function s_g_three(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sgthree_articles'
+        ],[
+            'meta_value' => serialize($request->sgthree_articles)
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function s_g_five(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sgfive_articles'
+        ],[
+            'meta_value' => serialize($request->sgfive_articles)
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function get_meta($meta_key)
+    {
+        $meta = Homepage::where('meta_key', $meta_key)->first();
+        if($meta == null)
+        {
+            return null;
+        } else {
+            return $meta->meta_value;
+        }        
     }
 }

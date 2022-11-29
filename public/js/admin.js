@@ -338,6 +338,62 @@
             renderChoiceLimit: 5
         });
     }
+    if(select('#sfirst_articles_multiSelect')) {
+        var multipleCancelButton = new Choices('#sfirst_articles_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 2,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#s-watch_others_multiSelect')) {
+        var multipleCancelButton = new Choices('#s-watch_others_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 3,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#s-agenda_multiSelect')) {
+        var multipleCancelButton = new Choices('#s-agenda_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 4,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#s-scoop_multiSelect')) {
+        var multipleCancelButton = new Choices('#s-scoop_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 3,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }    
+    if(select('#s-fullscreen_multiSelect')) {
+        var multipleCancelButton = new Choices('#s-fullscreen_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 2,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#s-g-three_multiSelect')) {
+        var multipleCancelButton = new Choices('#s-g-three_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 3,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#s-g-five_multiSelect')) {
+        var multipleCancelButton = new Choices('#s-g-five_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 5,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
     /**
      * File input event
      */
