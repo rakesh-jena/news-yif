@@ -14,22 +14,22 @@
                         <h2>{{$user->name}}</h2>
                         <h3>Author</h3>
                         <div class="social-links mt-2">
-                            @if($author_meta->twitter != '#' && $author_meta->twitter != '')
+                            @if($user_meta->twitter != '#' && $author_meta->twitter != '')
                             <a href="{{$user_meta->twitter}}" class="twitter">
                                 <i class="bi bi-twitter"></i>
                             </a>
                             @endif
-                            @if($author_meta->facebook != '#' && $author_meta->facebook != '')
+                            @if($user_meta->facebook != '#' && $author_meta->facebook != '')
                             <a href="{{$user_meta->facebook}}" class="facebook">
                                 <i class="bi bi-facebook"></i>
                             </a>
                             @endif
-                            @if($author_meta->instagram != '#' && $author_meta->instagram != '')
+                            @if($user_meta->instagram != '#' && $author_meta->instagram != '')
                             <a href="{{$user_meta->instagram}}" class="instagram">
                                 <i class="bi bi-instagram"></i>
                             </a>
                             @endif
-                            @if($author_meta->linkedin != '#' && $author_meta->linkedin != '')
+                            @if($user_meta->linkedin != '#' && $author_meta->linkedin != '')
                             <a href="{{$user_meta->linkedin}}" class="linkedin">
                                 <i class="bi bi-linkedin"></i>
                             </a>
