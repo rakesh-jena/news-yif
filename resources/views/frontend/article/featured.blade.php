@@ -1,7 +1,15 @@
 @extends('web')
-@section('title', $article->title.' | YIF')
+@section('title', $article->title)
 @section('meta_keywords', 'YIF')
-@section('meta_description', 'News on Indian Youth and Politics')
+@section('meta_description', $article->introduction)
+@section('meta')
+<link rel="canonical" href="{{url()->current()}}">
+<meta property="og:url" content="{{url()->current()}}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{$article->title}}" />
+<meta property="og:description" content="{{$article->introduction}}" />
+<meta property="og:image" content="{{URL::asset('images/article/'.$article->title_image)}}" />
+@endsection
 
 @section('content')
 <div class="page__featured-news"> 

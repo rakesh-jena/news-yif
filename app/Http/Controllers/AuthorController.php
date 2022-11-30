@@ -58,7 +58,7 @@ class AuthorController extends Controller
     }
 
     public function articles() {
-        $a = Article::select('id', 'category', 'title', 'slug', 'created_at', 'views', 'author_id')->get();
+        $a = Article::select('id', 'category', 'status', 'title', 'slug', 'created_at', 'views', 'author_id')->get();
         $articles = [];
         foreach($a as $article){
             $authors = unserialize($article->author_id);
@@ -79,7 +79,7 @@ class AuthorController extends Controller
             'wordcount' => 'required'
         ]);
 
-        $read_time = round($request['wordcount']/200);
+        $read_time = round((int)$request['wordcount']/200);
         if($read_time < 1) {
             $read_time = 1;
         }
@@ -142,7 +142,7 @@ class AuthorController extends Controller
             'wordcount' => 'required'
         ]);
 
-        $read_time = round($request['wordcount']/200);
+        $read_time = round((int)$request['wordcount']/200);
         if($read_time < 1) {
             $read_time = 1;
         }

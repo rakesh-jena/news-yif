@@ -230,7 +230,7 @@
                         <form method="POST" action="{{url('yn-admin/s_first')}}">
                             @csrf
                             <div class="row mb-3">
-                                <label for="sfirst_heading" class="col-md-4 col-lg-3 col-form-label">Section Heading</label>
+                                <label for="sfirst_heading" class="col-md-4 col-lg-3 col-form-label">Header</label>
                                 <div class="col-md-8 col-lg-9">
                                     <input name="sfirst_heading" type="text" class="form-control" id="sfirst_heading"
                                      value="{{ App\Http\Controllers\DashboardController​::get_meta('sfirst_heading')}}">
@@ -284,6 +284,13 @@
                         <form method="POST" action="{{url('yn-admin/s_second')}}">
                             @csrf
                             <div class="row mb-3">
+                                <label for="swatch_heading" class="col-md-4 col-lg-3 col-form-label">Header</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="swatch_heading" type="text" class="form-control" id="swatch_heading"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('swatch_heading')}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="s-watch_featured" class="col-md-4 col-lg-3 col-form-label">Article</label>
                                 <select class="form-select" id="s-watch_featured" name="swatch_featured" required="">
                                     @foreach($articles as $article)
@@ -325,6 +332,13 @@
                         <form method="POST" action="{{url('yn-admin/s_featured')}}">
                             @csrf
                             <div class="row mb-3">
+                                <label for="sfeatured_heading" class="col-md-4 col-lg-3 col-form-label">Header</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sfeatured_heading" type="text" class="form-control" id="sfeatured_heading"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('sfeatured_heading')}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="s-featured_aticle" class="col-md-4 col-lg-3 col-form-label">Article</label>
                                 <select class="form-select" id="s-featured_aticle" name="sfeatured_aticle" required="">
                                     @foreach($articles as $article)
@@ -350,6 +364,13 @@
                         <h5 class="card-title">Agenda Section</h5>
                         <form method="POST" action="{{url('yn-admin/s_agenda')}}">
                             @csrf
+                            <div class="row mb-3">
+                                <label for="sagenda_heading" class="col-md-4 col-lg-3 col-form-label">Header</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sagenda_heading" type="text" class="form-control" id="sagenda_heading"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('sagenda_heading')}}">
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <label for="s-agenda_multiSelect" class="col-md-4 col-lg-3 col-form-label">Featured</label>
                                 <select class="form-select" id="s-agenda_multiSelect" name="sagenda_articles[]" required="" multiple>
@@ -379,6 +400,13 @@
                         <form method="POST" action="{{url('yn-admin/s_scoop')}}">
                             @csrf
                             <div class="row mb-3">
+                                <label for="sscoop_heading" class="col-md-4 col-lg-3 col-form-label">Header</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sscoop_heading" type="text" class="form-control" id="sscoop_heading"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('sscoop_heading')}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="s-scoop_multiSelect" class="col-md-4 col-lg-3 col-form-label">Articles</label>
                                 <select class="form-select" id="s-scoop_multiSelect" name="sscoop_articles[]" required="" multiple>
                                     @foreach($articles as $article)
@@ -404,6 +432,13 @@
                         <h5 class="card-title">Fullscreen News Section</h5>
                         <form method="POST" action="{{url('yn-admin/s_fullscreen')}}">
                             @csrf
+                            <div class="row mb-3">
+                                <label for="sfullscreen_heading" class="col-md-4 col-lg-3 col-form-label">Header</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sfullscreen_heading" type="text" class="form-control" id="sfullscreen_heading"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('sfullscreen_heading')}}">
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <label for="s-fullscreen_multiSelect" class="col-md-4 col-lg-3 col-form-label">Articles</label>
                                 <select class="form-select" id="s-fullscreen_multiSelect" name="sfullscreen_articles[]" required="" multiple>
@@ -432,6 +467,13 @@
                         <h5 class="card-title">Grid of 3</h5>
                         <form method="POST" action="{{url('yn-admin/s_g_three')}}">
                             @csrf
+                            <div class="row mb-3">
+                                <label for="sgthree_heading" class="col-md-4 col-lg-3 col-form-label">Header</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sgthree_heading" type="text" class="form-control" id="sgthree_heading"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('sgthree_heading')}}">
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <label for="s-g-three_multiSelect" class="col-md-4 col-lg-3 col-form-label">Articles</label>
                                 <select class="form-select" id="s-g-three_multiSelect" name="sgthree_articles[]" required="" multiple>
@@ -470,6 +512,28 @@
                                         @endif
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <h5 class="card-title">Last Section</h5>
+                        <form method="POST" action="{{url('yn-admin/s_last')}}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="slast_heading" class="col-md-4 col-lg-3 col-form-label">Header</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="slast_heading" type="text" class="form-control" id="slast_heading"
+                                     value="{{ App\Http\Controllers\DashboardController​::get_meta('slast_heading')}}">
+                                </div>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Update</button>

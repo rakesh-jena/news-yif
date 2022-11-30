@@ -57,6 +57,11 @@
 
     <!-- First Section -->
     <section class="yn-section first">
+        <div class="title">
+            <h2>
+                {{ App\Http\Controllers\DashboardController​::get_meta('swatch_heading')}}
+            </h2>
+        </div>
         <div class="container">
             <div class="row">
                 <!-- Lastest News -->
@@ -73,7 +78,7 @@
                             </div>
                         </div>
                         <div class="yn-sf__column__body">
-                            <?php $articles = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('updated_at', 'desc')->limit(3)->get();?>
+                            <?php $articles = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('updated_at', 'desc')->limit(4)->get();?>
                             @foreach($articles as $article)                            
                             <?php $category = App\Models\Category::where('id',$article->category)->first();?>
                             <article class="latest-post__outer">
@@ -118,18 +123,19 @@
                         <div class="single-post__thumbnail mb-4 img__wrap">
                             <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
                                 <img height="360" loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="thumbnail">
-                            </a>
-                            <div class="img__overlay">
-                                <span class="yn__read-more">Read More</span>
-                                <div class="yn__read-time">
-                                    <div class="meta-reading-time">
-                                        <span>
-                                            <i class="bi bi-clock"></i>
-                                        </span>
-                                        {{$article->read_time}} minute read
+                            
+                                <div class="img__overlay">
+                                    <span class="yn__read-more">Read More</span>
+                                    <div class="yn__read-time">
+                                        <div class="meta-reading-time">
+                                            <span>
+                                                <i class="bi bi-clock"></i>
+                                            </span>
+                                            {{$article->read_time}} minute read
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="single-post__body">
                             <div class="single-post__meta">
@@ -145,9 +151,8 @@
                                 </h2>
                             </div>
                             <div class="single-post__sub-title meta-subtitle">
-                                <p>
-                                    {{$article->subtitle}}
-                                </p>
+                                <p>{{$article->subtitle}}</p>
+                                <p>{{$article->introduction}}</p>
                             </div>
                             <div class="single-post__meta">
                                 <div class="meta-date">
@@ -242,12 +247,14 @@
     <section class="yn-section featured">
         <div class="title">
             <h2>
-                featured
+                {{ App\Http\Controllers\DashboardController​::get_meta('sfeatured_heading')}}
             </h2>
         </div>
         <div class="yn-featured__outer">
             <div class="yn-featured__banner">
-                <img loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="banner">
+                <a href="{{url($article->slug)}}">
+                    <img loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="banner">
+                </a>
             </div>
             <div class="yn-featured__content">
                 <div class="container">
@@ -262,7 +269,8 @@
                         </h2>
                     </div>
                     <div class="yn-featured__excerpt meta-subtitle mb-4">
-                        {{$article->subtitle}}
+                        <p>{{$article->subtitle}}</p>
+                        <p>{{$article->introduction}}</p>
                     </div>
                     <div class="ynps__article-header-meta d-flex justify-content-center align-items-center">
                         <?php $i = 0;?>
@@ -299,7 +307,7 @@
     <section class="yn-section agenda">
         <div class="title">
             <h2>
-                on the agenda
+                {{ App\Http\Controllers\DashboardController​::get_meta('sagenda_heading')}}
             </h2>
         </div>
         <div class="yn__agenda">
@@ -314,18 +322,19 @@
                             <div class="article__img mb-3 img__wrap">
                                 <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
                                     <img height="180" loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="post">
-                                </a>
-                                <div class="img__overlay">
-                                    <span class="yn__read-more">Read More</span>
-                                    <div class="yn__read-time">
-                                        <div class="meta-reading-time">
-                                            <span>
-                                                <i class="bi bi-clock"></i>
-                                            </span>
-                                            {{$article->read_time}} minute read
+                                
+                                    <div class="img__overlay">                                        
+                                        <span class="yn__read-more">Read More</span>
+                                        <div class="yn__read-time">
+                                            <div class="meta-reading-time">
+                                                <span>
+                                                    <i class="bi bi-clock"></i>
+                                                </span>
+                                                {{$article->read_time}} minute read
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="meta-category">
                                 <a href="{{url('category'.$category->slug)}}">
@@ -356,9 +365,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-2 d-flex align-items-center">
-                    <h4 class="scoop__title">
-                        our<br>scoops
-                    </h4>
+                    <h2 class="scoop__title">
+                        {{ App\Http\Controllers\DashboardController​::get_meta('sscoop_heading')}}
+                    </h2>
                 </div>                
                 <div class="col-12 col-md-10">
                     <div class="row">
@@ -395,6 +404,11 @@
     <!-- End Our Scoops Section -->
 
     <!-- Full Screen News Section -->
+    <div class="fs-title">
+        <h2>
+            {{ App\Http\Controllers\DashboardController​::get_meta('sfullscreen_heading')}}
+        </h2>
+    </div>
     <section class="yn-section fullscreen-news">
         <div class="yn-overlay__background-wrapper">
             <?php $ids = unserialize(App\Http\Controllers\DashboardController​::get_meta('sfullscreen_articles'));$count=0;?>
@@ -414,7 +428,7 @@
                 <div class="col-12 col-md-6 yn-layout-large__col {{($count==0)? 'active' : ''}}">
                     <div class="yn-entry">
                         <div class="yn-entry__outer">
-                            <div class="yn-entry__inner meta-title">
+                            <div class="yn-entry__inner meta-title {{($count==0)? 'ps-md-0':'pe-md-0'}}">
                                 <h4>
                                     <a href="{{url($article->slug)}}">
                                         {{$article->title}}
@@ -434,6 +448,11 @@
 
     <!-- Grid News Section -->
     <section class="yn-section grid-news">
+        <div class="title">
+            <h2>
+                {{ App\Http\Controllers\DashboardController​::get_meta('sgthree_heading')}}
+            </h2>
+        </div>
         <div class="container">
             <div class="grid-of-3">
                 <div class="row">
@@ -445,22 +464,25 @@
                             <div class="article__img mb-2 img__wrap">
                                 <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
                                     <img height="240" loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="post">
-                                </a>
-                                <div class="img__overlay">
-                                    <span class="yn__read-more">Read More</span>
-                                    <div class="yn__read-time">
-                                        <div class="meta-reading-time">
-                                            <span>
-                                                <i class="bi bi-clock"></i>
-                                            </span>
-                                            {{$article->read_time}} minute read
+                                
+                                    <div class="img__overlay">
+                                        <span class="yn__read-more">Read More</span>
+                                        <div class="yn__read-time">
+                                            <div class="meta-reading-time">
+                                                <span>
+                                                    <i class="bi bi-clock"></i>
+                                                </span>
+                                                {{$article->read_time}} minute read
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="post__title meta-title">
                                 <h5>
-                                    {{$article->title}}
+                                    <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                        {{$article->title}}
+                                    </a>
                                 </h5>
                             </div>
                             <div class="meta-date">
@@ -481,22 +503,25 @@
                             <div class="article__img mb-2 img__wrap">
                                 <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
                                     <img height="140" loading="lazy"class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="post">
-                                </a>
-                                <div class="img__overlay">
-                                    <span class="yn__read-more">Read More</span>
-                                    <div class="yn__read-time">
-                                        <div class="meta-reading-time">
-                                            <span>
-                                                <i class="bi bi-clock"></i>
-                                            </span>
-                                            {{$article->read_time}} minute read
+                                
+                                    <div class="img__overlay">
+                                        <span class="yn__read-more">Read More</span>
+                                        <div class="yn__read-time">
+                                            <div class="meta-reading-time">
+                                                <span>
+                                                    <i class="bi bi-clock"></i>
+                                                </span>
+                                                {{$article->read_time}} minute read
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="post__title meta-title">
                                 <h6>
-                                    {{$article->title}}
+                                    <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                        {{$article->title}}
+                                    </a>
                                 </h6>
                             </div>
                             <div class="meta-date">
@@ -516,7 +541,7 @@
         <div class="container">
             <div class="title">
                 <h2>
-                    AAPI NATION
+                    {{ App\Http\Controllers\DashboardController​::get_meta('slast_heading')}}
                 </h2>
             </div>
             <div class="scroll-wrapper">

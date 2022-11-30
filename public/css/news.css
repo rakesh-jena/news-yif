@@ -3,7 +3,9 @@ body {
     max-width: 100%;
     max-height: 100%;
 }
-
+img {
+    object-fit: cover;
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -12,7 +14,9 @@ a {
 a:hover {
     color: #5e5e5e;
 }
-
+#header {
+    z-index: 99;
+}
 #page {
     margin-top: 70px;
 }
@@ -189,11 +193,10 @@ ul.dropdown-menu {
 .footer__stacklist .menu-item a {
     text-transform: uppercase;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 1.25rem;
     font-weight: 700;
     font-stretch: condensed;
     font-style: normal;
-    letter-spacing: .02778em;
 }
 
 .footer__stacklist .menu-item a:hover {
@@ -383,7 +386,8 @@ p.basicblock__copy {
     background-color: #00aced;
     color: #fff;
 }
-.ynps__article-left-sidebar .item-twitter:hover a {
+.ynps__article-left-sidebar .item-twitter:hover a,
+.yn__share-buttons-item.item-twitter:hover a {
     color: #00aced;
 }
 .ynps__article-content-footer-share .button-reddit:hover {
@@ -397,7 +401,8 @@ p.basicblock__copy {
     background-color: #3b5998;
     color: #fff;
 }
-.ynps__article-left-sidebar .item-facebook:hover a {
+.ynps__article-left-sidebar .item-facebook:hover a,
+.yn__share-buttons-item.item-facebook:hover a {
     color: #3b5998;
 }
 .ynps__article-content-footer-share .button-envelope:hover {
@@ -411,7 +416,8 @@ p.basicblock__copy {
     background-color: #007bb6;
     color: #fff;
 }
-.ynps__article-left-sidebar .item-linkedin:hover a {
+.ynps__article-left-sidebar .item-linkedin:hover a,
+.yn__share-buttons-item.item-linkedin:hover a {
     color: #007bb6;
 }
 .ynps__article-content-footer-author {
@@ -464,6 +470,11 @@ p.basicblock__copy {
     font-size: 0.85rem;
     letter-spacing: 0.125rem;
     transition: .25s;
+    display: flex;
+    align-items: center;
+}
+.ynps__article-content-footer-author-social {
+    margin-left: 1em;
 }
 .ynps__article-content-footer-author-description p {
     margin-bottom: 0;
@@ -579,11 +590,11 @@ article:not(:first-child) {
 .yn-section:first-child {
     margin-top: 1.5rem;
 }
-.yn-section .title {
+.yn-section .title, .fs-title {
     text-align: center;
     margin-bottom: 3em;
 }
-.yn-section .title h2 {
+.yn-section .title h2, .fs-title h2 {
     font-family: 'Work Sans', sans-serif;
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -728,7 +739,7 @@ article:not(:first-child) {
 .yn-layout-large__inner {
     display: grid;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
 }
 .yn-layout-large__col {
@@ -847,13 +858,15 @@ article:not(:first-child) {
 }
 .footer-bottom {
     background-image: url('../images/others/swirl-bg.jpg');
-    height: 4em;
     background-position: bottom;
+}
+.footer-bottom-gap {
+    height: 3em;
 }
 .subscribe__heading {
     text-transform: uppercase;
     font-family: 'DM Serif Display';
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 0px;
 }
 .subscribe__inner {
@@ -862,7 +875,8 @@ article:not(:first-child) {
     padding: 100px 40px;
 }
 .subscribe__input {
-    border-bottom: 1px solid white;
+    border-bottom: 4px solid white;
+    padding-bottom: 5px;
 }
 .subscribe__input input {
     border: none;
@@ -870,6 +884,7 @@ article:not(:first-child) {
     color: white;
     width: 100%;
     padding: 10px 0px;
+    font-size: 1.25rem;
 }
 .subscribe__input input:focus {
     outline: none;
@@ -892,7 +907,61 @@ button.subscribe__btn {
 .page__featured-news {
     margin-top: -3.5em;
 }
+.ynps__article-content-data img {
+    max-width: 100%;
+}
+.footer__social {
+    margin-bottom: 40px;
+}
+.img__overlay a {
+    display: contents;
+}
+.img__overlay a:hover {
+    color: #fff;
+}
+.yn__author-share,
+.ynps__article-content-footer-author-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.yn__author-share .yn__share-buttons-item i,
+.ynps__article-content-footer-author-social .yn__share-buttons-item i {
+    font-size: 0.9rem;
+}
+.yn__author-share .yn__share-buttons-item:not(:last-child),
+.ynps__article-content-footer-author-social .yn__share-buttons-item:not(:last-child) {
+    margin-right: 10px;
+}
+.ynps__article-content-footer-author-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg #navbar-mobile {
+        display: none!important;
+    }
+}
 @media (max-width: 575.98px) {
+    .footer__stacklist {
+        flex-direction: column;
+    }
+    .footer__stacklist .menu-item:not(:last-child){
+        margin-right: 0;
+    }
+    .footer__stacklist .menu-item{
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .footer__social {
+        margin-bottom: 40px;
+    }
+    .subscribe__btn {
+        margin-inline: auto;
+        margin-top: 20px;
+    }
     .navbar-nav .nav-item:not(:last-child) {
         margin-right: 0px;
         margin-bottom: 10px;

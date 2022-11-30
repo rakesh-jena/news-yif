@@ -11,13 +11,44 @@
             <div class="col-12 col-md-9">        
                 <div class="yn-page__header mb-4">
                     <div class="ynps__article-content-footer-author-inner">
-                        <a class="ynps__article-content-footer-author-img" href="#">
-                            <img class="rounded-circle" src="{{ URL::asset('images/author') }}/{{ $user_meta->avatar }}" alt="author">
-                        </a>
+                        <div class="author__photo">
+                            <div class="ynps__article-content-footer-author-img">
+                                <img class="rounded-circle" src="{{ URL::asset('images/author') }}/{{ $user_meta->avatar }}" alt="author">
+                            </div>
+                            <div class="yn__author-share">
+                                @if($user_meta->facebook != '#' && $user_meta->facebook != '')
+                                <div class="yn__share-buttons-item item-facebook">
+                                    <a href="{{$user_meta->facebook}}">
+                                        <i class="bi bi-facebook"></i>
+                                    </a>
+                                </div>
+                                @endif
+                                @if($user_meta->twitter != '#' && $user_meta->twitter != '')
+                                <div class="yn__share-buttons-item item-twitter">
+                                    <a href="{{$user_meta->twitter}}">
+                                        <i class="bi bi-twitter"></i>
+                                    </a>
+                                </div>
+                                @endif
+                                @if($user_meta->instagram != '#' && $user_meta->instagram != '')
+                                <div class="yn__share-buttons-item item-instagram">
+                                    <a href="{{$user_meta->instagram}}">
+                                        <i class="bi bi-instagram"></i>
+                                    </a>
+                                </div>
+                                @endif
+                                @if($user_meta->linkedin != '#' && $user_meta->linkedin != '')
+                                <div class="yn__share-buttons-item item-linkedin">
+                                    <a href="{{$user_meta->linkedin}}">
+                                        <i class="bi bi-linkedin"></i>
+                                    </a>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
                         <div class="ynps__article-content-footer-author-info">
                             <div class="ynps__article-content-footer-author-name">
-                                <h1 class="yn-page__title">{{$user->name}}</h1>
-                                <div class="ynps__article-content-footer-author-social"></div>
+                                <h1 class="yn-page__title">{{$user->name}}</h1>                                
                             </div>
                             <div class="yn-page__archive-count">
                                 <?=count($articles)?> posts
@@ -25,6 +56,9 @@
                             <div class="ynps__article-content-footer-author-description">
                                 <p>
                                     {{$user_meta->about}}
+                                </p>
+                                <p>
+                                    {{$user->email}}
                                 </p>
                             </div>
                         </div>
@@ -38,7 +72,9 @@
                             <article class="yn-posts__item">
                                 <div class="yn-posts__item-outer row">
                                     <div class="yn-posts__item-image col-12 col-md-4 mb-4 mb-md-0">
-                                        <img height="180" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                        <a href="{{url('article/'.$article->id)}}/{{$article->slug}}">
+                                            <img height="180" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                        </a>
                                     </div>
                                     <div class="yn-posts__item-content col-12 col-md-8">
                                         <div class="meta-category">

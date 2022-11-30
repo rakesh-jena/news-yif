@@ -46,11 +46,16 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        $user = User::create(request(['name', 'email', 'password', 'role']));
+        if($request->role == 'author'){
+            $user = User::create(request(['name', 'email', 'password', 'role']));
+        } else {
+            $user = User::create(request(['name', 'email', 'password']));
+        }
+        
 
         $request = request()->all();
 
-        if($_FILES['avatar']){
+        if($_FILES['avatar']['name'] != ''){
             $tmpFile = $_FILES['avatar']['tmp_name'];
             $newFile = 'images/author/' . $_FILES['avatar']['name'];
             $result = move_uploaded_file($tmpFile, $newFile);

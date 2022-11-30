@@ -1,7 +1,14 @@
 @extends('web')
-@section('title', $article->title.' | YIF')
+@section('title', $article->title)
 @section('meta_keywords', 'YIF')
-@section('meta_description', 'News on Indian Youth and Politics')
+@section('meta_description', $article->introduction)
+@section('meta')
+<meta property="og:url" content="{{url()->current()}}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{$article->title}}" />
+<meta property="og:description" content="{{$article->introduction}}" />
+<meta property="og:image" content="{{URL::asset('images/article/'.$article->title_image)}}" />
+@endsection
 
 @section('content')
 <div class="page__single-news"> 
@@ -73,7 +80,8 @@
                                             </a>
                                         </div>
                                         <div class="yn__share-buttons-item item-facebook">
-                                            <a class="yn__share-button-link button-facebook" href="#">
+                                            <a class="yn__share-button-link button-facebook" 
+                                            href="https://www.facebook.com/sharer.php?u={{url()->current()}}">
                                                 <i class="bi bi-facebook"></i>
                                             </a>
                                         </div>
@@ -159,7 +167,7 @@
                                                 @foreach($authors as $author)
                                                 <?php $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();?>
                                                 <div class="ynps__article-content-footer-author-inner">
-                                                    <a class="ynps__article-content-footer-author-img" href="#">
+                                                    <a class="ynps__article-content-footer-author-img" href="{{ url('author/'.$author_meta->slug) }}">
                                                         <img class="rounded-circle" src="{{ URL::asset('images/author') }}/{{ $author_meta->avatar }}" alt="author">
                                                     </a>
                                                     <div class="ynps__article-content-footer-author-info">
@@ -167,14 +175,46 @@
                                                             {{$author->role}}
                                                         </span>
                                                         <div class="ynps__article-content-footer-author-name">
-                                                            <a href="{{ url('#') }}">
+                                                            <a href="{{ url('author/'.$author_meta->slug) }}">
                                                                 {{$author->name}}
                                                             </a>
-                                                            <div class="ynps__article-content-footer-author-social"></div>
+                                                            <div class="ynps__article-content-footer-author-social">
+                                                                @if($author_meta->facebook != '#' && $author_meta->facebook != '')
+                                                                <div class="yn__share-buttons-item item-facebook">
+                                                                    <a href="{{$author_meta->facebook}}">
+                                                                        <i class="bi bi-facebook"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @endif
+                                                                @if($author_meta->twitter != '#' && $author_meta->twitter != '')
+                                                                <div class="yn__share-buttons-item item-twitter">
+                                                                    <a href="{{$author_meta->twitter}}">
+                                                                        <i class="bi bi-twitter"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @endif
+                                                                @if($author_meta->instagram != '#' && $author_meta->instagram != '')
+                                                                <div class="yn__share-buttons-item item-instagram">
+                                                                    <a href="{{$author_meta->instagram}}">
+                                                                        <i class="bi bi-instagram"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @endif
+                                                                @if($author_meta->linkedin != '#' && $author_meta->linkedin != '')
+                                                                <div class="yn__share-buttons-item item-linkedin">
+                                                                    <a href="{{$author_meta->linkedin}}">
+                                                                        <i class="bi bi-linkedin"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                         <div class="ynps__article-content-footer-author-description">
                                                             <p>
                                                                 {{$author_meta->about}}
+                                                            </p>
+                                                            <p>
+                                                                {{$author->email}}
                                                             </p>
                                                         </div>
                                                     </div>

@@ -101,6 +101,11 @@ class DashboardController​ extends Controller
     public function s_second(Request $request)
     {
         Homepage::updateOrCreate([
+            'meta_key' => 'swatch_heading'
+        ],[
+            'meta_value' => $request->swatch_heading
+        ]);
+        Homepage::updateOrCreate([
             'meta_key' => 'swatch_featured'
         ],[
             'meta_value' => $request->swatch_featured
@@ -118,6 +123,11 @@ class DashboardController​ extends Controller
     public function s_featured(Request $request)
     {
         Homepage::updateOrCreate([
+            'meta_key' => 'sfeatured_heading'
+        ],[
+            'meta_value' => $request->sfeatured_heading
+        ]);
+        Homepage::updateOrCreate([
             'meta_key' => 'sfeatured_aticle'
         ],[
             'meta_value' => $request->sfeatured_aticle
@@ -128,6 +138,11 @@ class DashboardController​ extends Controller
 
     public function s_agenda(Request $request)
     {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sagenda_heading'
+        ],[
+            'meta_value' => $request->sagenda_heading
+        ]);
         Homepage::updateOrCreate([
             'meta_key' => 'sagenda_articles'
         ],[
@@ -140,6 +155,11 @@ class DashboardController​ extends Controller
     public function s_scoop(Request $request)
     {
         Homepage::updateOrCreate([
+            'meta_key' => 'sscoop_heading'
+        ],[
+            'meta_value' => $request->sscoop_heading
+        ]);
+        Homepage::updateOrCreate([
             'meta_key' => 'sscoop_articles'
         ],[
             'meta_value' => serialize($request->sscoop_articles)
@@ -151,6 +171,11 @@ class DashboardController​ extends Controller
     public function s_fullscreen(Request $request)
     {
         Homepage::updateOrCreate([
+            'meta_key' => 'sfullscreen_heading'
+        ],[
+            'meta_value' => $request->sfullscreen_heading
+        ]);
+        Homepage::updateOrCreate([
             'meta_key' => 'sfullscreen_articles'
         ],[
             'meta_value' => serialize($request->sfullscreen_articles)
@@ -161,6 +186,11 @@ class DashboardController​ extends Controller
 
     public function s_g_three(Request $request)
     {
+        Homepage::updateOrCreate([
+            'meta_key' => 'sgthree_heading'
+        ],[
+            'meta_value' => $request->sgthree_heading
+        ]);
         Homepage::updateOrCreate([
             'meta_key' => 'sgthree_articles'
         ],[
@@ -176,6 +206,17 @@ class DashboardController​ extends Controller
             'meta_key' => 'sgfive_articles'
         ],[
             'meta_value' => serialize($request->sgfive_articles)
+        ]);
+
+        return redirect('yn-admin');
+    }
+
+    public function s_last(Request $request)
+    {
+        Homepage::updateOrCreate([
+            'meta_key' => 'slast_heading'
+        ],[
+            'meta_value' => $request->slast_heading
         ]);
 
         return redirect('yn-admin');

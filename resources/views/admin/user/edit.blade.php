@@ -38,19 +38,19 @@
                         <img class="w-100" src="{{url('images/author/'.$user_meta->avatar)}}" alt="">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="facebook" class="form-label">Facebook</label>
+                        <label for="facebook" class="form-label">Facebook(Link)(Optional)</label>
                         <input type="text" class="form-control" id="facebook" name="facebook" value="{{$user_meta->facebook}}">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="twitter" class="form-label">Twitter</label>
+                        <label for="twitter" class="form-label">Twitter(Link)(Optional)</label>
                         <input type="text" class="form-control" id="twitter" name="twitter" value="{{$user_meta->twitter}}">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="instagram" class="form-label">Instagram</label>
+                        <label for="instagram" class="form-label">Instagram(Link)(Optional)</label>
                         <input type="text" class="form-control" id="instagram" name="instagram" value="{{$user_meta->instagram}}">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="linkedin" class="form-label">Linkedin</label>
+                        <label for="linkedin" class="form-label">Linkedin(Link)(Optional)</label>
                         <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{$user_meta->linkedin}}">
                     </div>
                     <input type="hidden" name="role" value="{{$user->role}}">

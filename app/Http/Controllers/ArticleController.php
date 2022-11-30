@@ -53,7 +53,7 @@ class ArticleController extends Controller
             'wordcount' => 'required'
         ]);
 
-        $read_time = round($request['wordcount']/200);
+        $read_time = round((int)$request['wordcount']/200);
         if($read_time < 1) {
             $read_time = 1;
         }

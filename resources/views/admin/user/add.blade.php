@@ -32,28 +32,28 @@
                         </select>
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="#about" class="form-label">About</label>
+                        <label for="#about" class="form-label">About(Optional)</label>
                         <textarea id="about" name="about" class="form-control" style="height: 100px"></textarea>
                     </div>
                     <div class="col-12 col-md-6 th_input user">
-                        <label for="#formFile" class="form-label">Avatar</label>
+                        <label for="#formFile" class="form-label">Profile Photo</label>
                         <input class="form-control" type="file" id="formFile" name="avatar">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="facebook" class="form-label">Facebook</label>
-                        <input type="text" class="form-control" id="facebook" name="facebook">
+                        <label for="facebook" class="form-label">Facebook(Link)(Optional)</label>
+                        <input type="text" class="form-control" id="facebook" name="facebook" value="#">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="twitter" class="form-label">Twitter</label>
-                        <input type="text" class="form-control" id="twitter" name="twitter">
+                        <label for="twitter" class="form-label">Twitter(Link)(Optional)</label>
+                        <input type="text" class="form-control" id="twitter" name="twitter" value="#">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="instagram" class="form-label">Instagram</label>
-                        <input type="text" class="form-control" id="instagram" name="instagram">
+                        <label for="instagram" class="form-label">Instagram(Link)(Optional)</label>
+                        <input type="text" class="form-control" id="instagram" name="instagram" value="#">
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="linkedin" class="form-label">Linkedin</label>
-                        <input type="text" class="form-control" id="linkedin" name="linkedin">
+                        <label for="linkedin" class="form-label">Linkedin(Link)(Optional)</label>
+                        <input type="text" class="form-control" id="linkedin" name="linkedin" value="#">
                     </div>
                     <input type="hidden" name="role" value="author">
                     <div class="text-center">
