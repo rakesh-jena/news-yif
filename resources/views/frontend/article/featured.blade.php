@@ -175,7 +175,36 @@
                                                             <a href="{{ url('#') }}">
                                                                 {{$author->name}}
                                                             </a>
-                                                            <div class="ynps__article-content-footer-author-social"></div>
+                                                            <div class="ynps__article-content-footer-author-social">
+                                                                @if($author_meta->facebook != '#' && $author_meta->facebook != '')
+                                                                <div class="yn__share-buttons-item item-facebook">
+                                                                    <a href="{{$author_meta->facebook}}">
+                                                                        <i class="bi bi-facebook"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @endif
+                                                                @if($author_meta->twitter != '#' && $author_meta->twitter != '')
+                                                                <div class="yn__share-buttons-item item-twitter">
+                                                                    <a href="{{$author_meta->twitter}}">
+                                                                        <i class="bi bi-twitter"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @endif
+                                                                @if($author_meta->instagram != '#' && $author_meta->instagram != '')
+                                                                <div class="yn__share-buttons-item item-instagram">
+                                                                    <a href="{{$author_meta->instagram}}">
+                                                                        <i class="bi bi-instagram"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @endif
+                                                                @if($author_meta->linkedin != '#' && $author_meta->linkedin != '')
+                                                                <div class="yn__share-buttons-item item-linkedin">
+                                                                    <a href="{{$author_meta->linkedin}}">
+                                                                        <i class="bi bi-linkedin"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                         <div class="ynps__article-content-footer-author-description">
                                                             <p>
