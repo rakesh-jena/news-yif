@@ -54,11 +54,11 @@
                                     @else
                                     <a href="{{ url('/article') }}/{{ $article->id }}/{{ $article->slug }}" 
                                         class="btn btn-primary rounded-pill btn-sm" target="_blank">Preview</a>
-                                    @endif
                                     <a href="{{ url('yn-author/articles') }}/{{ $article->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
                                     <a href="{{ url('/article') }}/{{ $article->id }}"
                                         class="btn btn-danger rounded-pill btn-sm">Delete</a>
+                                    @endif                                    
                                 </td>
                             </tr>
                         <?php $count++;?>

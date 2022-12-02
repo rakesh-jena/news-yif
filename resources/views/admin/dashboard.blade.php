@@ -14,10 +14,26 @@
                         <h2>{{$user->name}}</h2>
                         <h3>Administrator</h3>
                         <div class="social-links mt-2">
-                        <a href="{{$user_meta->twitter}}" class="twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="{{$user_meta->facebook}}" class="facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="{{$user_meta->instagram}}" class="instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="{{$user_meta->linkedin}}" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            @if($user_meta->twitter != '#' && $user_meta->twitter != '')
+                            <a href="{{$user_meta->twitter}}" class="twitter">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            @endif
+                            @if($user_meta->facebook != '#' && $user_meta->facebook != '')
+                            <a href="{{$user_meta->facebook}}" class="facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            @endif
+                            @if($user_meta->instagram != '#' && $user_meta->instagram != '')
+                            <a href="{{$user_meta->instagram}}" class="instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            @endif
+                            @if($user_meta->linkedin != '#' && $user_meta->linkedin != '')
+                            <a href="{{$user_meta->linkedin}}" class="linkedin">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            @endif
                         </div>
                     </div>
                 </div>  

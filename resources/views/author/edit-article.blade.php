@@ -82,7 +82,7 @@
                     </div>                   
                     <input type="hidden" name="wordcount" value="0">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Update Draft</button>                        
                     </div>
                 </form>
             </div>

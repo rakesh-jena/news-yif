@@ -81,6 +81,20 @@ if(Auth::check()){
                                 <span class="d-none d-md-block ps-2 dropdown-toggle">{{ Auth::user()->name }}</span>
                             </a><!-- End Profile Iamge Icon -->
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="">
+                                @if(Auth::user()->hasRole('administrator'))
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="{{url('yn-admin')}}">
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
+                                @endif
+                                @if(Auth::user()->hasRole('author'))
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="{{url('yn-author')}}">
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
+                                @endif
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center" href="{{url('user_logout')}}">
                                         <span>Sign Out</span>
@@ -188,10 +202,10 @@ if(Auth::check()){
                         <ul class="ex_list">
                             <li class="ex_item briefings">
                                 <a href="{{url('category/research')}}">
-                                    Briefings<i class="bi bi-chevron-down ps-1"></i>
+                                    newsletter<i class="bi bi-chevron-down ps-1"></i>
                                 </a>
                                 <div class="ex_item-dropdown">
-                                    <div class="ex_content">
+                                    <div class="ex_content container">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <ul class="menu-list">
@@ -291,10 +305,10 @@ if(Auth::check()){
                             </li>
                             <li class="ex_item politics">
                                 <a href="{{url('category/research')}}">
-                                    Politics<i class="bi bi-chevron-down ps-1"></i>
+                                    Press release<i class="bi bi-chevron-down ps-1"></i>
                                 </a>
                                 <div class="ex_item-dropdown">
-                                    <div class="ex_content">
+                                    <div class="ex_content container">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <ul class="menu-list">
@@ -392,10 +406,10 @@ if(Auth::check()){
                             </li>
                             <li class="ex_item policy">
                                 <a href="{{url('category/research')}}">
-                                    Policy<i class="bi bi-chevron-down ps-1"></i>
+                                    Research<i class="bi bi-chevron-down ps-1"></i>
                                 </a>
                                 <div class="ex_item-dropdown">
-                                    <div class="ex_content">
+                                    <div class="ex_content container">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <ul class="menu-list">
@@ -490,11 +504,6 @@ if(Auth::check()){
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="ex_item briefings">
-                                <a href="{{url('category/research')}}">
-                                    Support us
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -592,7 +601,7 @@ if(Auth::check()){
                         <div class="row ms-auto me-auto align-items-center">
                             <div class="col-12 col-md-6">
                                 <h2 class="subscribe__heading text-center">
-                                    Stay ahead with our essential AAPI politics briefing
+                                    Subscribe for news and updates on India's youth and democracy
                                 </h2>
                             </div>
                             <div class="col-12 col-md-6">

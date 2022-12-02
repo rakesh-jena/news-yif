@@ -43,6 +43,14 @@ class AuthorController extends Controller
             'name' => $request['name'],
             'email' => $request['email']
         ]);
+        if($request['facebook'] == '')
+        $request['facebook'] = '#';
+        if($request['linkedin'] == '')
+        $request['linkedin'] = '#';
+        if($request['instagram'] == '')
+        $request['instagram'] = '#';
+        if($request['twitter'] == '')
+        $request['twitter'] = '#';
         $user_meta->update([
             'about' => $request['about'],
             'gender' => $request['gender'],

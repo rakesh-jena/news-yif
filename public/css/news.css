@@ -88,8 +88,10 @@ ol, ul {
     transition: all 0.4s;
 }
 /*Header*/
-nav.navbar {}
-
+.navbar.scrolled .dropdown-item {
+    background-color: #000;
+    border: 1px solid #fff;
+}
 .navbar-toggler:focus {
     box-shadow: none !important;
 }
@@ -960,6 +962,8 @@ button.subscribe__btn {
 }
 .yn__extra-header .row {
     align-items: center;
+}
+.yn__extra-header {
     position: relative;
 }
 .ex_list .ex_item:not(:last-child) {

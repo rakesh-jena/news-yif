@@ -64,7 +64,14 @@ class UserController extends Controller
         } else {
             $request['avatar'] = 'default.png';
         }
-
+        if($request['facebook'] == '')
+        $request['facebook'] = '#';
+        if($request['linkedin'] == '')
+        $request['linkedin'] = '#';
+        if($request['instagram'] == '')
+        $request['instagram'] = '#';
+        if($request['twitter'] == '')
+        $request['twitter'] = '#';
         $meta = [
             'user_id' => $user->id,
             'avatar' => $request['avatar'],
@@ -145,6 +152,15 @@ class UserController extends Controller
         } else {
             $request['avatar'] = $user_meta->avatar;
         }
+        
+        if($request['facebook'] == '')
+        $request['facebook'] = '#';
+        if($request['linkedin'] == '')
+        $request['linkedin'] = '#';
+        if($request['instagram'] == '')
+        $request['instagram'] = '#';
+        if($request['twitter'] == '')
+        $request['twitter'] = '#';
 
         $meta = [
             'user_id' => $id,
