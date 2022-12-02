@@ -99,34 +99,34 @@ if(Auth::check()){
                     <div class="nav__content">
                         <ul class="nav__list">
                             <li id="nav-item-1" class="nav__list-item">
-                                <a href="https://yif.org.in/about" class="nav__link">
+                                <a href="https://yif.org.in/about" class="nav__link container">
                                     About us
                                 </a>
                             </li>
                             <li id="nav-item-2" class="nav__list-item">
-                                <a href="https://why25.in" class="nav__link">
+                                <a href="https://why25.in" class="nav__link container">
                                     why 25?
                                 </a>
                             </li>
                             <li id="nav-item-3" class="nav__list-item">
-                                <a href="https://youngindians.vote/" class="nav__link">
+                                <a href="https://youngindians.vote/" class="nav__link container">
                                     voter festival
                                 </a>
                             </li>
                             <li id="nav-item-4" class="nav__list-item">
-                                <a href="https://razorpay.com/payment-button/pl_K8egOpT23ztciT/view/?utm_source=payment_button&utm_medium=button&utm_campaign=payment_button" class="nav__link">
+                                <a href="https://razorpay.com/payment-button/pl_K8egOpT23ztciT/view/?utm_source=payment_button&utm_medium=button&utm_campaign=payment_button" class="nav__link container">
                                     donate
                                 </a>
                             </li>
                             @if(Auth::check())                            
                             <li id="nav-item-4" class="nav__list-item">
-                                <a href="{{url('user_logout')}}" class="nav__link">
+                                <a href="{{url('user_logout')}}" class="nav__link container">
                                     sign out
                                 </a>
                             </li>
                             @else                            
                             <li id="nav-item-4" class="nav__list-item">
-                                <a href="" class="nav__link">
+                                <a href="{{url('login')}}" class="nav__link container">
                                     log in
                                 </a>
                             </li>
@@ -135,35 +135,35 @@ if(Auth::check()){
                         <div class="nav__footer">
                             <ul class="nav__footer-list">
                                 <li class="nav__list-item">
-                                    <a href="#">
+                                    <a href="#" class="nav__link container">
                                         subscribe
                                     </a>
                                 </li>
                                 <li class="nav__list-item">
-                                    <a href="https://yif.org.in/about" target="_blank">
+                                    <a href="https://yif.org.in/about" target="_blank" class="nav__link container">
                                         know more
                                     </a>
                                 </li>
                                 <li class="nav__list-item">
-                                    <a href="https://yif.org.in/contact-us" target="_blank">
+                                    <a href="https://yif.org.in/contact-us" target="_blank" class="nav__link container">
                                         contact
                                     </a>
                                 </li>
                                 <li class="nav__list-item">
-                                    <a href="https://yif.org.in/terms-and-conditions" target="_blank">
+                                    <a href="https://yif.org.in/terms-and-conditions" target="_blank" class="nav__link container">
                                         terms of service
                                     </a>
                                 </li>
                                 <li class="nav__list-item">
-                                    <a href="https://yif.org.in/privacy-policy" target="_blank">
+                                    <a href="https://yif.org.in/privacy-policy" target="_blank" class="nav__link container">
                                         privacy policy
                                     </a>
                                 </li>
                             </ul>
-                            <a class="nav__crooked-link" href="https://kwad.in">
-                                <img src="{{URL::asset('images/kwad_logo_blue.png')}}" alt="kwad">
+                            <a class="nav__crooked-link container" href="https://kwad.in">
+                                <img height="35" src="{{URL::asset('images/kwad_logo_blue.png')}}" alt="kwad">
                             </a>
-                            <p class="nav__copyright">Designed by <a href="https://kwad.in">
+                            <p class="nav__copyright container">Designed by <a href="https://kwad.in">
                                 <strong>Kwad</strong>
                             </a><br>© Young India
                             Foundation 2022</p>
@@ -173,7 +173,215 @@ if(Auth::check()){
             </div>
         </nav>
         <!-- navbar end -->
-
+        <!-- Secondary header -->
+        <div class="yn__extra-header bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="ex_search">
+                            <span role="button" class="search_button">
+                                <i class="bi bi-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="ex_list">
+                            <li class="ex_item briefings">
+                                <a href="{{url('category/research')}}">
+                                    Briefings<i class="bi bi-chevron-down ps-1"></i>
+                                </a>
+                                <div class="ex_item-dropdown">
+                                    <div class="ex_content">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <ul class="menu-list">
+                                                    <li class="menu-item">
+                                                        <a href="#">
+                                                            politics briefing
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">
+                                                            election briefing
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="dd_content">
+                                                    <div class="dd_posts row active">                                                        
+                                                        <?php $latest_articles = App\Models\Article::select('id','category','read_time','title','slug','title_image','created_at')->where('status', 'approved')->orderBy('updated_at', 'desc')->limit(4)->get();?>
+                                                        @foreach($latest_articles as $article)
+                                                        <?php $category = App\Models\Category::where('id',$article->category)->first();?>
+                                                        <div class="dd_article col-3">
+                                                            <div class="dd_post-img">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    <img loading="lazy" height="120" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                                                    <div class="img__overlay">                                        
+                                                                        <span class="yn__read-more">Read More</span>
+                                                                        <div class="yn__read-time">
+                                                                            <div class="meta-reading-time">
+                                                                                <span>
+                                                                                    <i class="bi bi-clock"></i>
+                                                                                </span>
+                                                                                {{$article->read_time}} minute read
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>                                                                    
+                                                            </div>
+                                                            <div class="meta-category">
+                                                                <a href="{{url('category'.$category->slug)}}">
+                                                                    {{$category->category}}
+                                                                </a>
+                                                            </div>
+                                                            <h6 class="meta-title">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    {{$article->title}}
+                                                                </a>
+                                                            </h6>
+                                                            <div class="meta-date">
+                                                                <?=date_format(date_create($article->created_at), "F j, Y")?>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="dd_posts d-none row">
+                                                        <?php $latest_articles = App\Models\Article::select('id','category','read_time','title','slug','title_image','updated_at')->where('status', 'approved')->orderBy('updated_at', 'desc')->limit(4)->get();?>
+                                                        @foreach($latest_articles as $article)
+                                                        <?php $category = App\Models\Category::where('id',$article->category)->first();?>
+                                                        <div class="dd_article col-3">
+                                                            <div class="dd_post-img">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    <img loading="lazy" height="120" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                                                    <div class="img__overlay">                                        
+                                                                        <span class="yn__read-more">Read More</span>
+                                                                        <div class="yn__read-time">
+                                                                            <div class="meta-reading-time">
+                                                                                <span>
+                                                                                    <i class="bi bi-clock"></i>
+                                                                                </span>
+                                                                                {{$article->read_time}} minute read
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>                                                                    
+                                                            </div>
+                                                            <div class="meta-category">
+                                                                <a href="{{url('category'.$category->slug)}}">
+                                                                    {{$category->category}}
+                                                                </a>
+                                                            </div>
+                                                            <h6 class="meta-title">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    {{$article->title}}
+                                                                </a>
+                                                            </h6>
+                                                            <div class="meta-date">
+                                                                <?=date_format(date_create($article->created_at), "F j, Y")?>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="ex_item politics">
+                                <a href="{{url('category/research')}}">
+                                    Politics<i class="bi bi-chevron-down ps-1"></i>
+                                </a>
+                            </li>
+                            <li class="ex_item policy">
+                                <a href="{{url('category/research')}}">
+                                    Policy<i class="bi bi-chevron-down ps-1"></i>
+                                </a>
+                            </li>
+                            <li class="ex_item briefings">
+                                <a href="{{url('category/research')}}">
+                                    Support us
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <div class="ex_subscribe">
+                            <a href="#subscribe">
+                                <i class="bi bi-envelope pe-1"></i>
+                                subscribe
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Secondary header -->
+        <!-- Search Container -->
+        <div class="yn__search-container">
+            <div class="container">
+                <div class="search__bar pb-4">
+                    <form action="{{url('search')}}" method="post" class="d-flex search__form">
+                    @csrf                        
+                        <button type="submit" class="search__btn-search">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <input type="search" name="s" placeholder="Search" autocomplete="off">
+                        <input type="hidden" name="url" value="{{url('search/ajax')}}">
+                        <input type="hidden" name="img_url" value="{{URL::asset('images/article')}}">
+                        <input type="hidden" name="article_url" value="{{url('article')}}">
+                        <button class="search__btn-close">
+                            <i class="bi bi-x"></i>
+                        </button>                        
+                    </form>
+                </div>
+                <div class="search__content">
+                    <div class="search__posts">
+                        <h5>the latest</h5>
+                        <div class="row">
+                            <?php $latest_articles = App\Models\Article::select('id','title','slug','title_image','created_at')->where('status', 'approved')->orderBy('updated_at', 'desc')->limit(4)->get();?>
+                            @foreach($latest_articles as $article)
+                            <div class="col-3">
+                                <div class="d-flex">
+                                    <div class="scoop_image me-3">
+                                        <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">                                        
+                                            <img height="80" loading="lazy"width="80" class="rounded-circle" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="latest">
+                                        </a>
+                                    </div>
+                                    <div class="scoop_data">
+                                        <div class="yn_article-title meta-title">
+                                            <h5>
+                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                    {{$article->title}}
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div class="meta-date">
+                                            <?=date_format(date_create($article->created_at), "F j, Y")?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="search__tags">
+                        <ul>
+                            <?php $tags = App\Models\Tag::all();?>
+                            @foreach($tags as $tag)
+                            <li>
+                                <a href="{{url('tag/'.$tag->slug)}}">{{$tag->tag}}</a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="search__results">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Secondary Container -->
     </header>
     <!-- End Header -->
 
@@ -185,7 +393,7 @@ if(Auth::check()){
     
     <!-- Footer start-->
     <div class="footer-bottom">
-        <section class="yn-section subscribe">        
+        <section class="yn-section subscribe" id="subscribe">        
             <div class="subscribe__outer">
                 <div class="container">
                     <div class="subscribe__inner">

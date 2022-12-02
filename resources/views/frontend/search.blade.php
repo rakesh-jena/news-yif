@@ -1,25 +1,26 @@
 @extends('web')
-@section('title', $tag->tag.' | YIF')
+@section('title', 'Search result for '.$key.' | YIF')
 @section('meta_keywords', 'YIF')
 @section('meta_description', 'News on Indian Youth and Politics')
 
 @section('content')
-<div class="page__tag"> 
+<div class="page__search"> 
     <!-- Main Container -->
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-9">        
                 <div class="yn-page__header mb-4">
-                    <span class="yn-page__subtitle">Browsing Tag</span>
-                    <h1 class="yn-page__title">{{$tag->tag}}</h1>
+                    <span class="yn-page__subtitle">SEARCH RESULTS</span>
+                    <h1 class="yn-page__title">{{$key}}</h1>
                     <div class="yn-page__archive-count">
-                        <?=count($a)?> posts
+                        <?=count($articles)?> posts
                     </div>
                 </div>
                 <div class="yn-posts__area">
                     <div class="yn-posts__area-outer">
                         <div class="yn-posts__area-main">
-                            @foreach($a as $article)
+                            @foreach($articles as $article)
+                            <?php $category = App\Models\Category::where('id',$article->category)->first();?>
                             <article class="yn-posts__item">
                                 <div class="yn-posts__item-outer row">
                                     <div class="yn-posts__item-image col-12 col-md-4 mb-4 mb-md-0">
@@ -27,20 +28,17 @@
                                     </div>
                                     <div class="yn-posts__item-content col-12 col-md-8">
                                         <div class="meta-category">
-                                            <?php $category = App\Models\Category::where('id', $article->category)->first();?>
-                                            <a href="{{url('category/'.$category->slug)}}">
-                                                {{$category->category}}
-                                            </a>
+                                            {{$category->category}}
                                         </div>
                                         <div class="meta-title">
                                             <h2>
                                                 <a href="{{url('article/'.$article->id)}}/{{$article->slug}}">
-                                                    {{$article->title}}
+                                                    {{ $article->title }}
                                                 </a>
                                             </h2>
                                         </div>
                                         <div class="meta-subtitle">
-                                            {{$article->subtitle}}
+                                            {{ $article->subtitle }}
                                         </div>
                                         <div class="meta-date">
                                             <?=date_format(date_create($article->created_at), "F j, Y")?>

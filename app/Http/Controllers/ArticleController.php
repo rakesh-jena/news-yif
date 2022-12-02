@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::select('id', 'status', 'views', 'author_id', 'title', 'created_at', 'category', 'slug')->where('status', 'approved')->orWhere('status', 'processing')->orderBy('created_at', 'desc')->get();
+        $articles = Article::select('id', 'status','title_image', 'views', 'author_id', 'title', 'created_at', 'category', 'slug')->where('status', 'approved')->orWhere('status', 'processing')->orderBy('created_at', 'desc')->get();
         return view('admin.article.listing', compact('articles'));
     }
 
@@ -221,5 +221,21 @@ class ArticleController extends Controller
         }
 
         return view('frontend.article.featured', compact('article', 'tags', 'authors', 'category'));
+    }
+
+    public function search(Request $request)
+    {
+        $key = $request->s;
+        $articles = Article::select('id','title_image', 'status', 'views', 'author_id', 'title', 'created_at', 'category', 'slug')->where('status', 'approved')->where('title', 'LIKE', '%'.$key.'%')->orderBy('created_at', 'desc')->get();
+
+        return view('frontend.search', compact('articles', 'key'));
+    }
+
+    public function ajax_search(Request $request)
+    {
+        $key = $request->s;
+        $articles = Article::select('id','title_image', 'status', 'views', 'author_id', 'title', 'created_at', 'category', 'slug')->where('status', 'approved')->where('title', 'LIKE', '%'.$key.'%')->orderBy('created_at', 'desc')->limit(5)->get();
+
+        return $articles;
     }
 }

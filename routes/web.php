@@ -96,3 +96,5 @@ Route::get('/tag/{slug}', [TagController::class, 'show']);
 Route::get('/category/{slug}', [CategoryController::class, 'show']);
 Route::get('/author/{slug}', [UserController::class, 'show']);
 Route::post('/add-subscriber', [SubscriberController::class, 'store']);
+Route::post('/search', [ArticleController::class, 'search']);
+Route::post('/search/ajax', [ArticleController::class, 'ajax_search']);
