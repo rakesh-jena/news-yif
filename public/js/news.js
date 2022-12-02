@@ -72,9 +72,15 @@
      */
     $('.search_button').on('click', function(){
         $('.yn__search-container').toggleClass('active');
+        $('.search__content .search__posts').show();
+        $('.search__content .search__tags').show();
+        $('.search__content .search__results').removeClass('active');
     })
     $('.search__btn-close').on('click', function(e){
         e.preventDefault();
+        $('.search__content .search__results').removeClass('active');
+        $('.search__content .search__posts').show();
+        $('.search__content .search__tags').show();
         $('.yn__search-container').removeClass('active');
     })
     $('input[name="s"]').keyup(function(){

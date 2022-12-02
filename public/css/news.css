@@ -1120,6 +1120,9 @@ input[type="search"] {
 .search__results.active .row:not(:last-child) {
     border-bottom: 1px solid lightgray;
 }
+.search__tags ul {
+    display: flex;
+}
 @media (min-width: 992px) {
     .navbar-expand-lg #navbar-mobile {
         display: none!important;
