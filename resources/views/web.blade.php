@@ -293,11 +293,203 @@ if(Auth::check()){
                                 <a href="{{url('category/research')}}">
                                     Politics<i class="bi bi-chevron-down ps-1"></i>
                                 </a>
+                                <div class="ex_item-dropdown">
+                                    <div class="ex_content">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <ul class="menu-list">
+                                                    <?php $categories = App\Models\Category::limit(8)->get();?>
+                                                    @foreach($categories as $category)
+                                                    <li class="menu-item">
+                                                        <a href="{{url('category/'.$category->slug)}}">
+                                                            {{$category->category}}
+                                                        </a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="dd_content">
+                                                    <div class="dd_posts row active">                                                        
+                                                        <?php $latest_articles = App\Models\Article::select('id','category','read_time','title','slug','title_image','created_at')->where('status', 'approved')->orderBy('updated_at', 'desc')->limit(4)->get();?>
+                                                        @foreach($latest_articles as $article)
+                                                        <?php $category = App\Models\Category::where('id',$article->category)->first();?>
+                                                        <div class="dd_article col-3">
+                                                            <div class="dd_post-img">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    <img loading="lazy" height="120" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                                                    <div class="img__overlay">                                        
+                                                                        <span class="yn__read-more">Read More</span>
+                                                                        <div class="yn__read-time">
+                                                                            <div class="meta-reading-time">
+                                                                                <span>
+                                                                                    <i class="bi bi-clock"></i>
+                                                                                </span>
+                                                                                {{$article->read_time}} minute read
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>                                                                    
+                                                            </div>
+                                                            <div class="meta-category">
+                                                                <a href="{{url('category'.$category->slug)}}">
+                                                                    {{$category->category}}
+                                                                </a>
+                                                            </div>
+                                                            <h6 class="meta-title">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    {{$article->title}}
+                                                                </a>
+                                                            </h6>
+                                                            <div class="meta-date">
+                                                                <?=date_format(date_create($article->created_at), "F j, Y")?>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="dd_posts d-none row">
+                                                        <?php $latest_articles = App\Models\Article::select('id','category','read_time','title','slug','title_image','updated_at')->where('status', 'approved')->orderBy('updated_at', 'desc')->limit(4)->get();?>
+                                                        @foreach($latest_articles as $article)
+                                                        <?php $category = App\Models\Category::where('id',$article->category)->first();?>
+                                                        <div class="dd_article col-3">
+                                                            <div class="dd_post-img">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    <img loading="lazy" height="120" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                                                    <div class="img__overlay">                                        
+                                                                        <span class="yn__read-more">Read More</span>
+                                                                        <div class="yn__read-time">
+                                                                            <div class="meta-reading-time">
+                                                                                <span>
+                                                                                    <i class="bi bi-clock"></i>
+                                                                                </span>
+                                                                                {{$article->read_time}} minute read
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>                                                                    
+                                                            </div>
+                                                            <div class="meta-category">
+                                                                <a href="{{url('category'.$category->slug)}}">
+                                                                    {{$category->category}}
+                                                                </a>
+                                                            </div>
+                                                            <h6 class="meta-title">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    {{$article->title}}
+                                                                </a>
+                                                            </h6>
+                                                            <div class="meta-date">
+                                                                <?=date_format(date_create($article->created_at), "F j, Y")?>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             <li class="ex_item policy">
                                 <a href="{{url('category/research')}}">
                                     Policy<i class="bi bi-chevron-down ps-1"></i>
                                 </a>
+                                <div class="ex_item-dropdown">
+                                    <div class="ex_content">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <ul class="menu-list">
+                                                    <?php $tags = App\Models\Tag::limit(8)->get();?>
+                                                    @foreach($tags as $tag)
+                                                    <li class="menu-item">
+                                                        <a href="{{url('tag/'.$tag->slug)}}">
+                                                            {{$tag->tag}}
+                                                        </a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="dd_content">
+                                                    <div class="dd_posts row active">                                                        
+                                                        <?php $latest_articles = App\Models\Article::select('id','category','read_time','title','slug','title_image','created_at')->where('status', 'approved')->orderBy('updated_at', 'desc')->limit(4)->get();?>
+                                                        @foreach($latest_articles as $article)
+                                                        <?php $category = App\Models\Category::where('id',$article->category)->first();?>
+                                                        <div class="dd_article col-3">
+                                                            <div class="dd_post-img">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    <img loading="lazy" height="120" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                                                    <div class="img__overlay">                                        
+                                                                        <span class="yn__read-more">Read More</span>
+                                                                        <div class="yn__read-time">
+                                                                            <div class="meta-reading-time">
+                                                                                <span>
+                                                                                    <i class="bi bi-clock"></i>
+                                                                                </span>
+                                                                                {{$article->read_time}} minute read
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>                                                                    
+                                                            </div>
+                                                            <div class="meta-category">
+                                                                <a href="{{url('category'.$category->slug)}}">
+                                                                    {{$category->category}}
+                                                                </a>
+                                                            </div>
+                                                            <h6 class="meta-title">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    {{$article->title}}
+                                                                </a>
+                                                            </h6>
+                                                            <div class="meta-date">
+                                                                <?=date_format(date_create($article->created_at), "F j, Y")?>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="dd_posts d-none row">
+                                                        <?php $latest_articles = App\Models\Article::select('id','category','read_time','title','slug','title_image','updated_at')->where('status', 'approved')->orderBy('updated_at', 'desc')->limit(4)->get();?>
+                                                        @foreach($latest_articles as $article)
+                                                        <?php $category = App\Models\Category::where('id',$article->category)->first();?>
+                                                        <div class="dd_article col-3">
+                                                            <div class="dd_post-img">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    <img loading="lazy" height="120" class="w-100" src="{{URL::asset('images/article/'.$article->title_image)}}" alt="">
+                                                                    <div class="img__overlay">                                        
+                                                                        <span class="yn__read-more">Read More</span>
+                                                                        <div class="yn__read-time">
+                                                                            <div class="meta-reading-time">
+                                                                                <span>
+                                                                                    <i class="bi bi-clock"></i>
+                                                                                </span>
+                                                                                {{$article->read_time}} minute read
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>                                                                    
+                                                            </div>
+                                                            <div class="meta-category">
+                                                                <a href="{{url('category'.$category->slug)}}">
+                                                                    {{$category->category}}
+                                                                </a>
+                                                            </div>
+                                                            <h6 class="meta-title">
+                                                                <a href="{{url('article/'.$article->id.'/'.$article->slug)}}">
+                                                                    {{$article->title}}
+                                                                </a>
+                                                            </h6>
+                                                            <div class="meta-date">
+                                                                <?=date_format(date_create($article->created_at), "F j, Y")?>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             <li class="ex_item briefings">
                                 <a href="{{url('category/research')}}">
