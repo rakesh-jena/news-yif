@@ -546,7 +546,7 @@
             </div>
             <div class="scroll-wrapper">
                 <div class="scroll__inner">
-                    <?php $articles = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('updated_at', 'desc')->limit(5)->get();?>
+                    <?php $articles = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('created_at', 'desc')->paginate(2);?>
                     @foreach($articles as $article)                            
                     <?php $category = App\Models\Category::where('id',$article->category)->first();?>
                     <article class="yn__infinite-item">
@@ -577,7 +577,10 @@
                         </div>
                     </article>
                     @endforeach
-                </div>
+                </div>                
+                <button class="yn__loadmore" data-url="{{url('ajax-load-more')}}" data-nextPage="{{$articles->currentPage()+1}}" data-lastPage="{{$articles->lastPage()}}">
+                    load more
+                </button>
             </div>
         </div>
     </section>

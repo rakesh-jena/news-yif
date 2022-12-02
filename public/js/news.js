@@ -100,6 +100,7 @@
                 if(res.length != 0){
                     $('.search__content .search__results').empty();
                     $.each(res, function(key, value){
+                        var date = new Date(value['created_at']);
                         $('.search__content .search__results').append(`<div class="row align-items-center pt-2 pb-2">
                             <div class="col-1">
                                 <div class="search_img">
@@ -114,12 +115,38 @@
                                         `+value['title']+`
                                     </a>
                                 </h6>
+                                <div class="meta-date">
+                                    `+moment(date).format('LL')+`
+                                </div>
                             </div>
                         </div>`);
                     });
                 } else {
                     $('.search__content .search__results').empty().append(`<p>No results found.</p>`);
                 }
+            }
+        })
+    })
+
+    /**
+     * Loadmore Ajax
+     */
+    $('.yn__loadmore').on('click', function(){
+        var url = $(this).data('url');
+        var nextPage = $(this).attr('data-nextPage');
+        var lastPage = $(this).attr('data-lastPage');
+        url += '?page='+nextPage;
+        if(lastPage === nextPage){
+            $(this).hide();
+        }
+        $(this).empty().html('loading');
+        $.ajax({
+            url:url,
+            type:'post',
+            success: function(res){
+                $('.scroll-wrapper .scroll__inner').append(res);
+                $('.yn__loadmore').empty().html('load more');
+                $('.yn__loadmore').attr('data-nextPage', parseInt(nextPage)+1);
             }
         })
     })

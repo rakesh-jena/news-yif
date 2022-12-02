@@ -238,4 +238,11 @@ class ArticleController extends Controller
 
         return $articles;
     }
+
+    public function ajax_loadmore(Request $request)
+    {
+        $articles = Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('created_at', 'desc')->paginate(2);
+        
+        return view('frontend.loadmore',compact('articles'));
+    }
 }

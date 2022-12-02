@@ -1123,6 +1123,23 @@ input[type="search"] {
 .search__tags ul {
     display: flex;
 }
+.yn__loadmore {
+    display: block;
+    margin-inline: auto;
+    text-transform: uppercase;
+    border: none;
+    padding: 1em 5em;
+    background-color: #5e5e5e;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.6875em;
+    font-family: 'Work Sans';
+    letter-spacing: 0.05em;
+}
+.yn__loadmore:hover {
+    background-color: #000;
+}
 @media (min-width: 992px) {
     .navbar-expand-lg #navbar-mobile {
         display: none!important;
