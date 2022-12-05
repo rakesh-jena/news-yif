@@ -61,7 +61,7 @@ class UserController extends Controller
             $result = move_uploaded_file($tmpFile, $newFile);
 
             $request['avatar'] = $_FILES['avatar']['name'];
-        } elseif($request->gender == 'female') {
+        } elseif($request['gender'] == 'female') {
             $request['avatar'] = 'female.jpg';
         } else {
             $request['avatar'] = 'default.png';
