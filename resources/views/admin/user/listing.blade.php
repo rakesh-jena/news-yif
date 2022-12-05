@@ -36,7 +36,10 @@
                             @if($user_meta != null)
                             <tr>
                                 <th><?=$count?></th>
-                                <td> {{ $user->name }} </td>
+                                <td>
+                                    <img width="40" height="40" class="rounded-circle" src="{{URL::asset('images/author/'.$user_meta->avatar)}}" alt="">
+                                    {{ $user->name }} 
+                                </td>
                                 <td>
                                     {{ $user->email }}
                                 </td>
