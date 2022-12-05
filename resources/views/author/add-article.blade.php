@@ -36,6 +36,10 @@
                     <div class="col-12 col-md-6">
                         <label for="#caption" class="form-label">Image Caption</label>
                         <input type="text" class="form-control" id="caption" name="image_caption">
+                    </div>                    
+                    <div class="col-md-6 col-12">
+                        <label for="#date" class="form-label">Date Added</label>
+                        <input type="date" class="form-control" id="date" name="created_at">
                     </div>
                     <div class="col-12 col-md-6">
                         <label for="#category" class="form-label">Category</label>

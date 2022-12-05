@@ -31,11 +31,13 @@
                         <?php $count = 1;?>
                         @foreach ($articles as $article)
                         <?php $author = App\Models\User::select('name')->where('id', unserialize($article->author_id)[0])->first();?>
+                        <?php $author_meta = App\Models\UserMeta::select('avatar')->where('user_id', unserialize($article->author_id)[0])->first();?>
                         <?php $category = App\Models\Category::where('id', $article->category)->first();?>
                             <tr>
                                 <th><?=$count?></th>
                                 <td> {{ $article->title }} </td>
                                 <td>
+                                    <img width="40" height="40" class="rounded-circle" src="{{URL::asset('images/author/'.$author_meta->avatar)}}" alt="">
                                     {{ $author->name }}
                                 </td>
                                 <td>{{$article->views}}</td>

@@ -170,7 +170,8 @@ class ArticleController extends Controller
             'image_caption' => $request['image_caption'],
             'introduction' => $request['introduction'],
             'read_time' => $read_time,
-            'author_id' => serialize($request['author_id'])
+            'author_id' => serialize($request['author_id']),
+            'created_at' => $request['created_at']
         ]);
 
         return redirect('yn-admin/articles')

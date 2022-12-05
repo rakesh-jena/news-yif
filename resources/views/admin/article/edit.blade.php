@@ -48,6 +48,10 @@
                         <label for="#caption" class="form-label">Image Caption</label>
                         <input type="text" class="form-control" id="caption" name="image_caption" value="{{$article->image_caption}}">
                     </div>
+                    <div class="col-md-6 col-12">
+                        <label for="#date" class="form-label">Date Added</label>
+                        <input type="date" class="form-control" id="date" name="created_at" value="<?=date_format(date_create($article->created_at), "Y-m-d")?>">
+                    </div>
                     <div class="col-12">
                         <label for="#author_multiSelect" class="form-label">Author(s)</label>
                         <select class="form-select" id="author_multiSelect" name="author_id[]" required="" multiple>

@@ -114,7 +114,8 @@ class AuthorController extends Controller
             'title_image' => $title_image,
             'image_caption' => $request['image_caption'],
             'introduction' => $request['introduction'],
-            'read_time' => $read_time
+            'read_time' => $read_time,
+            'created_at' => $request['created_at']
         ]);
 
         return redirect('yn-author/articles')

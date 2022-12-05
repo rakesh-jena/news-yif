@@ -53,6 +53,10 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="col-md-6 col-12">
+                        <label for="#date" class="form-label">Date Added</label>
+                        <input type="date" class="form-control" id="date" name="created_at">
+                    </div>
                     <div class="col-12">
                         <label for="#introduction" class="form-label">Synopsis</label>
                         <textarea id="introduction" name="introduction" class="form-control" style="height: 100px"></textarea>

@@ -47,6 +47,10 @@
                         <label for="#caption" class="form-label">Image Caption</label>
                         <input type="text" class="form-control" id="caption" name="image_caption" value="{{$article->image_caption}}">
                     </div>
+                    <div class="col-md-6 col-12">
+                        <label for="#date" class="form-label">Date Added</label>
+                        <input type="date" class="form-control" id="date" name="created_at" value="<?=date_format(date_create($article->created_at), "Y-m-d")?>">
+                    </div>
                     <div class="col-12 col-md-6">
                         <label for="#category" class="form-label">Category</label>
                         <select class="form-select" id="category" name="category" required="">
