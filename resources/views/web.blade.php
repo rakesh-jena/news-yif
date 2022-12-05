@@ -510,7 +510,7 @@ if(Auth::check()){
                     <div class="col-2">
                         <div class="ex_subscribe">
                             <a href="#subscribe">
-                                <i class="bi bi-envelope pe-1"></i>
+                                <i class="bi bi-envelope-paper-fill pe-1"></i>
                                 subscribe
                             </a>
                         </div>
