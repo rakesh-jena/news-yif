@@ -128,4 +128,18 @@ class TagController extends Controller
         return redirect('yn-admin/tags')
             ->with('success', 'Tag deleted successfully');
     }
+
+    public function check_if_used($id)
+    {
+        $articles = Article::select('title','id')->get();
+        $a = [];
+        foreach($articles as $article){
+            $tags = unserialize($article->tags);
+            if(in_array($id, $tags)){                
+                $a[] = $article;
+            }
+        }
+        
+        return $a;
+    }
 }

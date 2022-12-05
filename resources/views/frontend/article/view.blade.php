@@ -15,7 +15,7 @@
     <!-- Main Container -->
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-12">
+            <div class="col-md-9 col-12 topspace">
                 <div class="yn-page-single__article">
                     <div class="ynps__article-header">
                         <div class="ynps__article-header-meta">

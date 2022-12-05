@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
         ]);
 
@@ -61,6 +61,8 @@ class UserController extends Controller
             $result = move_uploaded_file($tmpFile, $newFile);
 
             $request['avatar'] = $_FILES['avatar']['name'];
+        } elseif($request->gender == 'female') {
+            $request['avatar'] = 'female.jpg';
         } else {
             $request['avatar'] = 'default.png';
         }

@@ -8,6 +8,14 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <?php $articles = App\Http\Controllers\Category::check_if_used($id);?>
+            @if($count($articles) != 0)
+            <div class="modal-body">
+                Category is used by some articles. Change the category of following articles first.
+                @foreach
+                @endforeach                
+            </div>
+            @else
             <div class="modal-body">
                 Are you sure you want to delete?                
             </div>
@@ -19,6 +27,7 @@
                     <button class="btn btn-light btn-rounded btn-sm" data-dismiss="modal">Cancel</button>
                 </form>
             </div>
+            @endif
         </div>
     </div>
 </div>

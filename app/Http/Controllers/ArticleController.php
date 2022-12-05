@@ -241,7 +241,7 @@ class ArticleController extends Controller
 
     public function ajax_loadmore(Request $request)
     {
-        $articles = Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('status', 'approved')->orderBy('created_at', 'desc')->paginate(2);
+        $articles = Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->where('status', 'approved')->orderBy('created_at', 'desc')->paginate(5);
         
         return view('frontend.loadmore',compact('articles'));
     }

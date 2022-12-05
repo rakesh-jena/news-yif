@@ -120,4 +120,11 @@ class CategoryController extends Controller
         return redirect('yn-admin/category')
             ->with('success', 'Category deleted successfully');
     }
+
+    public function check_if_used($id)
+    {
+        $articles = Article::select('title','id')->where('category', $id)->get();
+        
+        return $articles;
+    }
 }

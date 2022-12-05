@@ -1147,6 +1147,9 @@ input[type="search"] {
 .navbar>.container{
     position: relative;
 }
+.dd_posts.row.active {
+    align-items: flex-start;
+}
 @media (min-width: 992px) {
     .navbar-expand-lg #navbar-mobile {
         display: none!important;
@@ -1326,4 +1329,17 @@ input[type="search"] {
         border-left: 1px solid #e9ecef;
         border-top: none;
     }
+}
+
+/* -------------- CSS by Parth ----------- */
+.topspace {
+    margin-top:2rem;
+}
+
+.navbarpadding {
+    --bs-navbar-padding-y: 1rem!important;
+}
+
+.shadowheader {
+    box-shadow: 0 .125rem 1.25rem rgba(0,0,0,.075)!important;
 }

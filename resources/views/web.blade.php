@@ -42,10 +42,10 @@ if(Auth::check()){
 
 <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="header shadow-sm fixed-top">
+    <header id="header" class="header shadowheader fixed-top">
 
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg bg-white">
+        <nav class="navbar navbar-expand-lg bg-white navbarpadding">
             <div class="container">
                 <a class="navbar-brand nav-logo-dark" href="{{url('/')}}">
                     <img src="{{ URL::asset('images/yiflogodark.png') }}" alt="Voter Festival" width="150" height="40">

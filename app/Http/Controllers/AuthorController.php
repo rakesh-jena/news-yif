@@ -178,4 +178,18 @@ class AuthorController extends Controller
     public function show($slug) {
 
     }
+
+    public function hasArticle($id)
+    {
+        $a = Article::select('title','id')->get();
+        $articles = [];
+        foreach($a as $article){
+            $authors = unserialize($article->author_id);
+            if(in_array($id, $authors)){                
+                $articles[] = $article;
+            }
+        }
+
+        return $articles;
+    }
 }

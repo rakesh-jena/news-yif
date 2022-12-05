@@ -546,7 +546,7 @@
             </div>
             <div class="scroll-wrapper">
                 <div class="scroll__inner">
-                    <?php $articles = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('created_at', 'desc')->paginate(2);?>
+                    <?php $articles = App\Models\Article::select('id','title','subtitle','title_image','slug','read_time','created_at','category')->orderBy('created_at', 'desc')->paginate(5);?>
                     @foreach($articles as $article)                            
                     <?php $category = App\Models\Category::where('id',$article->category)->first();?>
                     <article class="yn__infinite-item">
