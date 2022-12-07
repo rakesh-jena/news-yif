@@ -413,4 +413,25 @@
     $('form#article').on('submit', function(){
         $('input[name="wordcount"]').val(parseInt($('#content-word-count').text()));
     })
+
+    $('#article_delete_modal').on('show.bs.modal', function(e) {
+        var url = $(e.relatedTarget).data('url');
+
+        $(e.currentTarget).find('#article_delete_form').attr("action", url);
+    });
+    $('#author_article_delete_modal').on('show.bs.modal', function(e) {
+        var url = $(e.relatedTarget).data('url');
+
+        $(e.currentTarget).find('#author_article_delete_form').attr("action", url);
+    });
+    $('#category_delete_modal').on('show.bs.modal', function(e) {
+        var url = $(e.relatedTarget).data('url');
+
+        $(e.currentTarget).find('#category_delete_form').attr("action", url);
+    });
+    $('#tag_delete_modal').on('show.bs.modal', function(e) {
+        var url = $(e.relatedTarget).data('url');
+
+        $(e.currentTarget).find('#tag_delete_form').attr("action", url);
+    });
 })();

@@ -202,7 +202,10 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::where('id', $id);
+        $article->delete();
+
+        return redirect('yn-admin/articles');
     }
 
     public function featured($slug)

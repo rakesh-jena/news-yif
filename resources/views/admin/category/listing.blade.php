@@ -57,6 +57,8 @@
                                     <a href="{{ url('yn-admin/category') }}/{{ $category->id }}" class="btn btn-primary rounded-pill btn-sm">View</a>
                                     <a href="{{ url('yn-admin/category') }}/{{ $category->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
+                                    {{-- <button data-bs-toggle="modal" data-url="{{ url('yn-admin/category/'.$category['id']) }}"
+                                    data-bs-target="#category_delete_modal" class="btn btn-danger rounded-pill btn-sm">Delete</button> --}}
                                 </td>
                             </tr>
                         <?php $count++;?>
@@ -68,4 +70,5 @@
     </section>
 </main>
 <!-- End #main -->
+{{-- @include('admin.category.delete') --}}
 @endsection

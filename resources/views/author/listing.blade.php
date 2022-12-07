@@ -48,7 +48,7 @@
                                     <?=date_format(date_create($article->created_at), "d M, Y")?>
                                 </td>
                                 <td>
-                                    @if($article->status == 'approved')
+                                    @if($article->status == 'approved' || $article->status == 'processing')
                                     <a href="{{ url('/article') }}/{{ $article->id }}/{{ $article->slug }}" 
                                         class="btn btn-primary rounded-pill btn-sm" target="_blank">View</a>
                                     @else
@@ -56,8 +56,8 @@
                                         class="btn btn-primary rounded-pill btn-sm" target="_blank">Preview</a>
                                     <a href="{{ url('yn-author/articles') }}/{{ $article->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
-                                    <a href="{{ url('/article') }}/{{ $article->id }}"
-                                        class="btn btn-danger rounded-pill btn-sm">Delete</a>
+                                    <button data-bs-toggle="modal" data-url="{{ url('yn-author/articles/'.$article['id']) }}"
+                                    data-bs-target="#author_article_delete_modal" class="btn btn-danger rounded-pill btn-sm">Delete</button>
                                     @endif                                    
                                 </td>
                             </tr>
@@ -70,4 +70,5 @@
     </section>
 </main>
 <!-- End #main -->
+@include('author.delete')
 @endsection

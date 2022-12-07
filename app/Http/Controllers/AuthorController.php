@@ -130,8 +130,11 @@ class AuthorController extends Controller
         return view('author.edit-article', compact('tags', 'categories', 'article', 'tag_ids'));
     }
 
-    public function delete_article() {
-        return view('author.listing');
+    public function delete_article($id) {
+        $article = Article::where('id', $id);
+        $article->delete();
+
+        return redirect('yn-author/articles');
     }
 
     public function add_article() {

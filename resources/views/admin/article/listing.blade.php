@@ -60,8 +60,8 @@
                                     @endif
                                     <a href="{{ url('yn-admin/articles') }}/{{ $article->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
-                                    <a href="{{ url('/article') }}/{{ $article->id }}"
-                                        class="btn btn-danger rounded-pill btn-sm">Delete</a>
+                                    <button data-bs-toggle="modal" data-url="{{ url('yn-admin/articles/'.$article['id']) }}"
+                                        data-bs-target="#article_delete_modal" class="btn btn-danger rounded-pill btn-sm">Delete</button>
                                 </td>
                             </tr>
                         <?php $count++;?>
@@ -73,4 +73,6 @@
     </section>
 </main>
 <!-- End #main -->
+<!-- Modals -->
+@include('admin.article.delete')
 @endsection

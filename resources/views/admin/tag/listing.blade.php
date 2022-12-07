@@ -56,6 +56,8 @@
                                     <a href="{{ url('yn-admin/tags') }}/{{ $tag->id }}" class="btn btn-primary rounded-pill btn-sm">View</a>
                                     <a href="{{ url('yn-admin/tags') }}/{{ $tag->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
+                                    {{-- <button data-bs-toggle="modal" data-url="{{ url('yn-admin/tags/'.$tag['id']) }}"
+                                    data-bs-target="#category_delete_modal" class="btn btn-danger rounded-pill btn-sm">Delete</button> --}}
                                 </td>
                             </tr>
                         <?php $count++;?>
@@ -67,4 +69,5 @@
     </section>
 </main>
 <!-- End #main -->
+{{-- @include('admin.tag.delete') --}}
 @endsection
