@@ -121,9 +121,10 @@ class CategoryController extends Controller
             ->with('success', 'Category deleted successfully');
     }
 
-    public function check_if_used($id)
+    public function check_if_used(Request $request)
     {
-        $articles = Article::select('title','id')->where('category', $id)->get();
+        $id = $request->id;
+        $articles = Article::select('title','id', 'slug')->where('category', $id)->get();
         
         return $articles;
     }

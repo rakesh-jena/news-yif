@@ -8,27 +8,22 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?php $articles = App\Http\Controllers\TagController::check_if_used($id);?>
-            @if($count($articles) != 0)
-            <div class="modal-body">
-                Category is used by some articles. Change the category of following articles first.
-                @foreach
-                @endforeach                
+            <div class="modal-body tag-used">
+                Tag is used by some articles. Change the tag of following articles first.
+                <div class="articles"></div>
             </div>
-            @else
-            <div class="modal-body">
+            <div class="modal-body tag-not-used">
                 Are you sure you want to delete?                
             </div>
             <div class="modal-footer">
                 <form class="forms-sample" action="" id="tag_delete_form" method="POST">
                     @csrf
                     @method('DELETE')             
-                    <button type="submit" class="btn btn-gradient-danger mr-2 btn-rounded btn-sm">Delete</button>
+                    <button type="submit" class="btn btn-danger mr-2 btn-rounded btn-sm">Delete</button>
                     
                 </form>
                 <button class="btn btn-light btn-rounded btn-sm" data-bs-dismiss="modal">Cancel</button>
             </div>
-            @endif
         </div>
     </div>
 </div>

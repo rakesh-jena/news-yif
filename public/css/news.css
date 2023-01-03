@@ -368,6 +368,7 @@ p.basicblock__copy {
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .ynps__article-content-footer-share {
     padding: 20px;
@@ -520,10 +521,13 @@ p.basicblock__copy {
     position: -webkit-sticky;
 }
 .yn-support__inner {
-    top: 80px;
+    top: 150px;
+}
+.ynps__article-content-data table {
+    width: 100%;
 }
 .yn__share-buttons {
-    top: 70px;
+    top: 150px;
 }
 /**
 * Homepage

@@ -5,6 +5,12 @@
 * License: https://bootstrapmade.com/license/
 */
 (function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    
     "use strict";
 
     /**
@@ -425,12 +431,54 @@
         $(e.currentTarget).find('#author_article_delete_form').attr("action", url);
     });
     $('#category_delete_modal').on('show.bs.modal', function(e) {
+        $('.modal-body').hide();
+        $('.modal-footer').hide();
         var url = $(e.relatedTarget).data('url');
+        var id = $(e.relatedTarget).data('id');
+        var aurl = $(e.relatedTarget).data('aurl');
+        $.ajax({
+            url: aurl,
+            type: 'post',
+            data:{'id': id},
+            success:function(res){
+                if(res.length === 0){
+                    $('.modal-body.category-not-used').show();
+                    $('.modal-footer').show();
+                } else {
+                    $('.modal-body.category-used').show();
+                    $('.modal-body.category-used .articles').empty()
+                    for(var i = 0; i<res.length; i++)
+                    $('.modal-body.category-used .articles').append('<p class="fw-bold">'+res[i]['title']+'</p>')
+                }
+                //console.log(res);
+            }
+        })
 
         $(e.currentTarget).find('#category_delete_form').attr("action", url);
     });
     $('#tag_delete_modal').on('show.bs.modal', function(e) {
+        $('.modal-body').hide();
+        $('.modal-footer').hide();
         var url = $(e.relatedTarget).data('url');
+        var id = $(e.relatedTarget).data('id');
+        var aurl = $(e.relatedTarget).data('aurl');
+        $.ajax({
+            url: aurl,
+            type: 'post',
+            data:{'id': id},
+            success:function(res){
+                if(res.length === 0){
+                    $('.modal-body.tag-not-used').show();
+                    $('.modal-footer').show();
+                } else {
+                    $('.modal-body.tag-used').show();
+                    $('.modal-body.tag-used .articles').empty()
+                    for(var i = 0; i<res.length; i++)
+                    $('.modal-body.tag-used .articles').append('<p class="fw-bold">'+res[i]['title']+'</p>')
+                }
+                //console.log(res);
+            }
+        })
 
         $(e.currentTarget).find('#tag_delete_form').attr("action", url);
     });

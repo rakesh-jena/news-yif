@@ -45,6 +45,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('yn-admin/s_first', [DashboardController​::class, 's_first']);
     Route::post('yn-admin/s_second', [DashboardController​::class, 's_second']);
     Route::post('yn-admin/s_last', [DashboardController​::class, 's_last']);
+    Route::post('check-category', [CategoryController::class, 'check_if_used']);
+    Route::post('check-tag', [TagController::class, 'check_if_used']);
 });
 
 /**

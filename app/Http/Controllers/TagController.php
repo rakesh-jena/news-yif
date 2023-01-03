@@ -129,15 +129,18 @@ class TagController extends Controller
             ->with('success', 'Tag deleted successfully');
     }
 
-    public function check_if_used($id)
+    public function check_if_used(Request $request)
     {
-        $articles = Article::select('title','id')->get();
+        $id = $request->id;
+        $articles = Article::select('title','id', 'tags')->get();
         $a = [];
         foreach($articles as $article){
             $tags = unserialize($article->tags);
-            if(in_array($id, $tags)){                
-                $a[] = $article;
-            }
+            if($tags){
+                if(in_array($id, $tags)){                
+                    $a[] = $article;
+                }
+            }            
         }
         
         return $a;

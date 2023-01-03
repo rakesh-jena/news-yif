@@ -170,6 +170,7 @@ class ArticleController extends Controller
             'image_caption' => $request['image_caption'],
             'introduction' => $request['introduction'],
             'read_time' => $read_time,
+            'keywords' => $request['keywords'],
             'author_id' => serialize($request['author_id']),
             'created_at' => $request['created_at']
         ]);

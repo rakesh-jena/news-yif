@@ -1,6 +1,6 @@
 @extends('web')
 @section('title', $article->title)
-@section('meta_keywords', 'YIF')
+@section('meta_keywords', $article->keywords)
 @section('meta_description', $article->introduction)
 @section('meta')
 <meta property="og:url" content="{{url()->current()}}" />
@@ -75,28 +75,28 @@
                                 <div class="ynps__article-left-sidebar">
                                     <div class="yn__share-buttons">
                                         <div class="yn__share-buttons-item item-twitter">
-                                            <a class="yn__share-button-link button-twitter" href="#">
+                                            <a class="yn__share-button-link button-twitter" target="_blank" href="https://twitter.com/share?&text={{$article->title}}&url={{url()->current()}}">
                                                 <i class="bi bi-twitter"></i>
                                             </a>
                                         </div>
                                         <div class="yn__share-buttons-item item-facebook">
                                             <a class="yn__share-button-link button-facebook" 
-                                            href="https://www.facebook.com/sharer.php?u={{url()->current()}}">
+                                            href="https://www.facebook.com/sharer.php?u={{url()->current()}}" target="_blank">
                                                 <i class="bi bi-facebook"></i>
                                             </a>
                                         </div>
                                         <div class="yn__share-buttons-item item-envelope">
-                                            <a class="yn__share-button-link button-envelope" href="#">
+                                            <a class="yn__share-button-link button-envelope" href="mailto:?subject={{$article->title}}&body={{$article->title}} {{url()->current()}}" target="_blank">
                                                 <i class="bi bi-envelope"></i>
                                             </a>
                                         </div>
                                         <div class="yn__share-buttons-item item-linkedin">
-                                            <a class="yn__share-button-link button-linkedin" href="#">
+                                            <a class="yn__share-button-link button-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{url()->current()}}" target="_blank">
                                                 <i class="bi bi-linkedin"></i>
                                             </a>
                                         </div>
                                         <div class="yn__share-buttons-item item-reddit">
-                                            <a class="yn__share-button-link button-reddit" href="#">
+                                            <a class="yn__share-button-link button-reddit" href="https://www.reddit.com/submit?url={{url()->current()}}" target="_blank">
                                                 <i class="bi bi-reddit"></i>
                                             </a>
                                         </div>
@@ -121,9 +121,7 @@
                                         </div>
                                         <div class="ynps__article-content-footer">
                                             <div class="ynps__article-content-footer-briefing">
-                                                <em>
-                                                    The Yappie is your must-read briefing on AAPI power, politics, and influence, fiscally sponsored by the Asian American Journalists Association. Make a donation, subscribe, and follow us on Twitter (@theyappie). Send tips and feedback to editors@theyappie.com.
-                                                </em>
+                                                <em></em>
                                             </div>
                                             <div class="ynps__article-content-footer-tags">
                                                 <ul class="yn__tag-list">
@@ -137,27 +135,27 @@
                                             <div class="ynps__article-content-footer-share">
                                                 <div class="yn__share-buttons">
                                                     <div class="yn__share-buttons-item">
-                                                        <a class="yn__share-button-link button-twitter" href="{{ url('#') }}">
+                                                        <a class="yn__share-button-link button-twitter" href="https://twitter.com/share?&text={{$article->title}}&url={{url()->current()}}" target="_blank">
                                                             <i class="bi bi-twitter"></i>
                                                         </a>
                                                     </div>
                                                     <div class="yn__share-buttons-item">
-                                                        <a class="yn__share-button-link button-facebook" href="{{ url('#') }}">
+                                                        <a class="yn__share-button-link button-facebook" href="https://www.facebook.com/sharer.php?u={{url()->current()}}" target="_blank">
                                                             <i class="bi bi-facebook"></i>
                                                         </a>
                                                     </div>
                                                     <div class="yn__share-buttons-item">
-                                                        <a class="yn__share-button-link button-envelope" href="{{ url('#') }}">
+                                                        <a class="yn__share-button-link button-envelope" href="mailto:?subject={{$article->title}}&body={{$article->title}} {{url()->current()}}" target="_blank">
                                                             <i class="bi bi-envelope"></i>
                                                         </a>
                                                     </div>
                                                     <div class="yn__share-buttons-item">
-                                                        <a class="yn__share-button-link button-linkedin" href="{{ url('#') }}">
+                                                        <a class="yn__share-button-link button-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{url()->current()}}" target="_blank">
                                                             <i class="bi bi-linkedin"></i>
                                                         </a>
                                                     </div>
                                                     <div class="yn__share-buttons-item">
-                                                        <a class="yn__share-button-link button-reddit" href="{{ url('#') }}">
+                                                        <a class="yn__share-button-link button-reddit" href="https://www.reddit.com/submit?url={{url()->current()}}" target="_blank">
                                                             <i class="bi bi-reddit"></i>
                                                         </a>
                                                     </div>
