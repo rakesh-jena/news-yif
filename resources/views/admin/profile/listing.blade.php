@@ -51,6 +51,8 @@
                                     <a href="#" class="btn btn-primary rounded-pill btn-sm" target="_blank">View</a>
                                     <a href="{{ url('yn-admin/profiles') }}/{{ $profile->id }}/edit"
                                         class="btn btn-primary rounded-pill btn-sm">Edit</a>
+                                        <button data-bs-toggle="modal" data-url="{{ url('yn-admin/profiles/'.$profile->id) }}"
+                                            data-bs-target="#profile_delete_modal" class="btn btn-danger rounded-pill btn-sm">Delete</button>
                                 </td>
                             </tr>                            
                             <?php $count++;?>
@@ -62,4 +64,5 @@
     </section>
 </main>
 <!-- End #main -->
+@include('admin.profile.delete')
 @endsection

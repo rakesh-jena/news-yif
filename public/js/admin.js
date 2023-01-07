@@ -482,4 +482,9 @@
 
         $(e.currentTarget).find('#tag_delete_form').attr("action", url);
     });
+    $('#profile_delete_modal').on('show.bs.modal', function(e) {
+        var url = $(e.relatedTarget).data('url');
+
+        $(e.currentTarget).find('#profile_delete_form').attr("action", url);
+    });
 })();

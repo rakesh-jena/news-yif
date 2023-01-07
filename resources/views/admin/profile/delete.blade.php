@@ -15,8 +15,7 @@
                 <form class="forms-sample" action="" id="profile_delete_form" method="POST">
                     @csrf
                     @method('DELETE')             
-                    <button type="submit" class="btn btn-danger mr-2 btn-rounded btn-sm">Delete</button>
-                    
+                    <button type="submit" class="btn btn-danger mr-2 btn-rounded btn-sm">Delete</button>                    
                 </form>
                 <button class="btn btn-light btn-rounded btn-sm" data-bs-dismiss="modal">Cancel</button>
             </div>
