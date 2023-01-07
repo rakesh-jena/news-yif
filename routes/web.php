@@ -9,6 +9,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController​;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('yn-admin/tags', TagController::class);
     Route::resource('yn-admin/articles', ArticleController::class);
     Route::resource('yn-admin/category', CategoryController::class);
+    Route::resource('yn-admin/profiles', ProfileController::class);
     Route::get('yn-admin/subscribers', [SubscriberController::class, 'index']);
     Route::get('yn-admin/all-users', [UserController::class, 'all_users']);
     Route::post('yn-admin/s_featured', [DashboardController​::class, 's_featured']);

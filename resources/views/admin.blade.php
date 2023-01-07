@@ -181,6 +181,30 @@
                     <span>All Users</span>
                 </a>
             </li><!-- End All Users Nav -->
+
+            <li class="nav-item">
+                @if(str_contains(url()->current(), '/yn-admin/profiles'))
+                <a class="nav-link" data-bs-target="#profiles-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
+                @else
+                <a class="nav-link collapsed" data-bs-target="#profiles-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                @endif
+                    <i class="bi bi-journal-text"></i>
+                    <span>Profiles</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="profiles-nav" class="nav-content collapse <?=(str_contains(url()->current(), '/yn-admin/profiles')) ? 'show':'';?>" data-bs-parent="#sidebar-nav" style="">
+                    <li>
+                        <a href="{{url('yn-admin/profiles')}}" class="<?=(request()->is('yn-admin/profiles')) ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>All</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('yn-admin/profiles/create')}}" class="<?=(request()->is('yn-admin/profiles/create')) ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>Add</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Profile Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->

@@ -314,7 +314,7 @@ if(Auth::check()){
                                                 <ul class="menu-list">
                                                     <?php $categories = App\Models\Category::limit(8)->get();?>
                                                     @foreach($categories as $category)
-                                                    <li class="menu-item">
+                                                    <li class="menu-item" data-cat="{{$category->category}}" data-id="{{$category->id}}">
                                                         <a href="{{url('category/'.$category->slug)}}">
                                                             {{$category->category}}
                                                         </a>
