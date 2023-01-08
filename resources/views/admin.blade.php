@@ -189,18 +189,23 @@
                 <a class="nav-link collapsed" data-bs-target="#profiles-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
                 @endif
                     <i class="bi bi-journal-text"></i>
-                    <span>Profiles</span>
+                    <span>25under25</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="profiles-nav" class="nav-content collapse <?=(str_contains(url()->current(), '/yn-admin/profiles')) ? 'show':'';?>" data-bs-parent="#sidebar-nav" style="">
+                <ul id="profiles-nav" class="nav-content collapse <?=(str_contains(url()->current(), '/yn-admin/profiles')) ? 'show':'';?> <?=(str_contains(url()->current(), '/yn-admin/design_25under25')) ? 'show':'';?>" data-bs-parent="#sidebar-nav" style="">
                     <li>
                         <a href="{{url('yn-admin/profiles')}}" class="<?=(request()->is('yn-admin/profiles')) ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>All</span>
+                            <i class="bi bi-circle"></i><span>All Profiles</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{url('yn-admin/profiles/create')}}" class="<?=(request()->is('yn-admin/profiles/create')) ? 'active' : '';?>">
-                            <i class="bi bi-circle"></i><span>Add</span>
+                            <i class="bi bi-circle"></i><span>Add Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('yn-admin/design_25under25')}}" class="<?=(request()->is('yn-admin/design_25under25')) ? 'active' : '';?>">
+                            <i class="bi bi-circle"></i><span>Design</span>
                         </a>
                     </li>
                 </ul>

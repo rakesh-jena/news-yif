@@ -132,6 +132,7 @@ class ProfileController extends Controller
         $slug = Str::of($request['name'])->slug('-');        
 
         $profile->update([
+            'designation' => $request->designation,
             'name' => $request['name'],
             'organization' => $request['organization'],
             'age' => $request['age'],
@@ -159,5 +160,11 @@ class ProfileController extends Controller
         $profile->delete();
 
         return redirect('yn-admin/profiles');
+    }
+
+    public function design()
+    {
+        $profiles = Profile::all();
+        return view('admin.profile.design', compact('profiles'));
     }
 }

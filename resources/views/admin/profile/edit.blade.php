@@ -18,6 +18,10 @@
                         <input type="text" class="form-control" id="inputNanme4" name="name" value="{{$profile->name}}">
                     </div>
                     <div class="col-12 col-md-6">
+                        <label for="designation" class="form-label">Designation</label>
+                        <input type="text" class="form-control" id="designation" name="designation" value="{{$profile->designation}}">
+                    </div>
+                    <div class="col-12 col-md-6">
                         <label for="inputEmail4" class="form-label">Organization</label>
                         <input type="text" class="form-control" id="inputEmail4" name="organization" value="{{$profile->organization}}">
                     </div>

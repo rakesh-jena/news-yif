@@ -36,6 +36,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('yn-admin/articles', ArticleController::class);
     Route::resource('yn-admin/category', CategoryController::class);
     Route::resource('yn-admin/profiles', ProfileController::class);
+    Route::get('yn-admin/design_25under25', [ProfileController::class, 'design']);
     Route::get('yn-admin/subscribers', [SubscriberController::class, 'index']);
     Route::get('yn-admin/all-users', [UserController::class, 'all_users']);
     Route::post('yn-admin/s_featured', [DashboardController​::class, 's_featured']);

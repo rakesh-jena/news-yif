@@ -21,6 +21,10 @@
                         <input type="text" class="form-control" id="inputEmail4" name="organization">
                     </div>
                     <div class="col-12 col-md-6">
+                        <label for="designation" class="form-label">Designation</label>
+                        <input type="text" class="form-control" id="designation" name="designation">
+                    </div>
+                    <div class="col-12 col-md-6">
                         <label for="#about" class="form-label">About</label>
                         <textarea id="about" name="about" class="form-control" style="height: 100px"></textarea>
                     </div>

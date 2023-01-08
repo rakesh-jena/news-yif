@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center">
-                    <h5 class="card-title">Authors</h5>
+                    <h5 class="card-title">Profiles</h5>
                 </div>
                 <table class="table table-responsive align-middle">
                     <thead>
@@ -16,6 +16,9 @@
                             <th>#</th>
                             <th>
                                 Name
+                            </th>
+                            <th>
+                                Designation
                             </th>
                             <th>
                                 Organization
@@ -37,6 +40,9 @@
                                 <td>
                                     <img width="40" height="40" class="rounded-circle" src="{{URL::asset('images/tut/'.$profile->image_profile)}}" alt="">
                                     {{ $profile->name }} 
+                                </td>
+                                <td>
+                                    {{ $profile->designation }} 
                                 </td>
                                 <td>
                                     {{ $profile->organization }}
