@@ -400,6 +400,46 @@
             renderChoiceLimit: 5
         });
     }
+    if(select('#list_one_multiSelect')) {
+        var multipleCancelButton = new Choices('#list_one_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 4,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#list_two_multiSelect')) {
+        var multipleCancelButton = new Choices('#list_two_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 4,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#list_three_multiSelect')) {
+        var multipleCancelButton = new Choices('#list_three_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 4,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#list_four_multiSelect')) {
+        var multipleCancelButton = new Choices('#list_four_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 4,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
+    if(select('#list_five_multiSelect')) {
+        var multipleCancelButton = new Choices('#list_five_multiSelect', {
+            removeItemButton: true,
+            maxItemCount: 4,
+            searchResultLimit: 10,
+            renderChoiceLimit: 5
+        });
+    }
     /**
      * File input event
      */

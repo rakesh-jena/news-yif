@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController​;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TutDesignController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('yn-admin/category', CategoryController::class);
     Route::resource('yn-admin/profiles', ProfileController::class);
     Route::get('yn-admin/design_25under25', [ProfileController::class, 'design']);
+    Route::post('yn-admin/section_featured', [TutDesignController::class, 'featured']);
+    Route::post('yn-admin/section_one', [TutDesignController::class, 'section_one']);
+    Route::post('yn-admin/section_two', [TutDesignController::class, 'section_two']);
+    Route::post('yn-admin/section_three', [TutDesignController::class, 'section_three']);
+    Route::post('yn-admin/section_four', [TutDesignController::class, 'section_four']);
+    Route::post('yn-admin/section_five', [TutDesignController::class, 'section_five']);
     Route::get('yn-admin/subscribers', [SubscriberController::class, 'index']);
     Route::get('yn-admin/all-users', [UserController::class, 'all_users']);
     Route::post('yn-admin/s_featured', [DashboardController​::class, 's_featured']);
